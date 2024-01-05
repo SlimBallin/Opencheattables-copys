@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2702</ID>
+      <Description>"Gestalt {Steam Demo]"</Description>
+      <Options moHideChildren="1"/>
+      <Color>009700</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2703</ID>
+          <Description>"Youtube"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://www.youtube.com/user/droelke");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2704</ID>
+          <Description>"OCT Profile"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://opencheattables.com/memberlist.php?mode=viewprofile&amp;u=85");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"Table Author:  XxDaRealSlimballinxX"</Description>
+              <Color>FC94B0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>40</ID>
+                  <Description>"Visit us today @ GBA Services!"</Description>
+                  <Color>C080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337110746</ID>
+                  <Description>"Discord  @ SlimBallin#1687"</Description>
+                  <Color>008080</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337110747</ID>
+              <Description>"[X] &lt;=== For Full Tool View"</Description>
+              <Options moManualExpandCollapse="1"/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+// Script Creaded By mgr.inz.Player On CE Forums
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>5</ID>
+                  <Description>"Cheats"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>9</ID>
+                      <Description>"xxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>7</ID>
+                          <Description>"Player stats"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <Color>0000FF</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : Gestalt.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-04-06
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(IN_fhp,GameAssembly.dll,44 89 41 14 41 3B C0) // should be unique
+alloc(newmem,$1000,IN_fhp)
+
+label(code r_dcx)
+label(return)
+
+newmem:
+push r11
+push r12
+push r13
+mov [r_dcx],rcx
+mov r11,[rcx+D4]//max exp
+mov [rcx+d0],r11//Current exp
+mov r12,[rcx+20]//Max Energy
+mov [rcx+1c],r12//Current Energy
+mov [rcx+18],9999//Current Redline
+mov r13,[rcx+1c]
+mov [rcx+14],r13
+pop r11
+pop r12
+pop r13
+jmp return
+
+code:
+
+mov r8d,[rcx+d4]
+  mov [rcx+14],r8d
+  cmp eax,r8d
+  jmp return
+
+r_dcx:
+dq 0
+
+
+
+IN_fhp:
+  jmp newmem
+  nop 2
+return:
+registersymbol(IN_fhp r_dcx)
+
+[DISABLE]
+
+IN_fhp:
+  db 44 89 41 14 41 3B C0
+
+unregistersymbol(IN_fhp r_dcx)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+6A90C1
+
+GameAssembly.dll+6A909F: 8B 41 14        - mov eax,[rcx+14]
+GameAssembly.dll+6A90A2: 66 41 0F 6E C1  - movd xmm0,r9d
+GameAssembly.dll+6A90A7: 0F 5B C0        - cvtdq2ps xmm0,xmm0
+GameAssembly.dll+6A90AA: 66 0F 6E D0     - movd xmm2,eax
+GameAssembly.dll+6A90AE: 0F 5B D2        - cvtdq2ps xmm2,xmm2
+GameAssembly.dll+6A90B1: F3 0F 5E D0     - divss xmm2,xmm0
+GameAssembly.dll+6A90B5: 39 41 18        - cmp [rcx+18],eax
+GameAssembly.dll+6A90B8: 75 04           - jne GameAssembly.dll+6A90BE
+GameAssembly.dll+6A90BA: 44 89 41 18     - mov [rcx+18],r8d
+GameAssembly.dll+6A90BE: 8B 41 18        - mov eax,[rcx+18]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+6A90C1: 44 89 41 14     - mov [rcx+14],r8d
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+6A90C5: 41 3B C0        - cmp eax,r8d
+GameAssembly.dll+6A90C8: 41 0F 4D C0     - cmovge eax,r8d
+GameAssembly.dll+6A90CC: 89 41 18        - mov [rcx+18],eax
+GameAssembly.dll+6A90CF: 45 85 C0        - test r8d,r8d
+GameAssembly.dll+6A90D2: 74 35           - je GameAssembly.dll+6A9109
+GameAssembly.dll+6A90D4: F3 0F 10 41 24  - movss xmm0,[rcx+24]
+GameAssembly.dll+6A90D9: 0F 2F D0        - comiss xmm2,xmm0
+GameAssembly.dll+6A90DC: 76 0F           - jna GameAssembly.dll+6A90ED
+GameAssembly.dll+6A90DE: 0F 2F C1        - comiss xmm0,xmm1
+GameAssembly.dll+6A90E1: 72 0A           - jb GameAssembly.dll+6A90ED
+}
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>8</ID>
+                              <Description>"ptr"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>000000</Color>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>r_dcx</Address>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>15</ID>
+                                  <Description>"Max Health"</Description>
+                                  <Color>00FFFF</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>r_dcx</Address>
+                                  <Offsets>
+                                    <Offset>10</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>16</ID>
+                                  <Description>"Current Health"</Description>
+                                  <Color>00FFFF</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>r_dcx</Address>
+                                  <Offsets>
+                                    <Offset>14</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>17</ID>
+                                  <Description>"Current Redline"</Description>
+                                  <Color>FFFF00</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>r_dcx</Address>
+                                  <Offsets>
+                                    <Offset>18</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>18</ID>
+                                  <Description>"Max Energy"</Description>
+                                  <Color>80FF00</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>r_dcx</Address>
+                                  <Offsets>
+                                    <Offset>1C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>19</ID>
+                                  <Description>"Current Energy"</Description>
+                                  <Color>80FF00</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>r_dcx</Address>
+                                  <Offsets>
+                                    <Offset>20</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>22</ID>
+                                  <Description>"Current Exp"</Description>
+                                  <Color>FF80FF</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>r_dcx</Address>
+                                  <Offsets>
+                                    <Offset>D0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>23</ID>
+                                  <Description>"Next Level EXP"</Description>
+                                  <Color>FF80FF</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>r_dcx</Address>
+                                  <Offsets>
+                                    <Offset>D4</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>24</ID>
+                                  <Description>"Current Level"</Description>
+                                  <Color>4080FF</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>r_dcx</Address>
+                                  <Offsets>
+                                    <Offset>D8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>25</ID>
+                                  <Description>"Level Multiplyer"</Description>
+                                  <Color>4080FF</Color>
+                                  <VariableType>Float</VariableType>
+                                  <Address>r_dcx</Address>
+                                  <Offsets>
+                                    <Offset>DC</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>27</ID>
+                          <Description>"Give Me Upgrade Points"</Description>
+                          <Color>FFFF00</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : Gestalt.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-04-06
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(Gem_Poi_t,GameAssembly.dll,29 78 20 48 8B 83 10 01 00 00) // should be unique
+alloc(newmem,$20,Gem_Poi_t)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+mov edi,1
+  add [rax+20],edi
+  mov rax,[rbx+00000110]
+  jmp return
+
+Gem_Poi_t:
+  jmp code
+  nop 5
+return:
+registersymbol(Gem_Poi_t)
+
+[DISABLE]
+
+Gem_Poi_t:
+  db 29 78 20 48 8B 83 10 01 00 00
+
+unregistersymbol(Gem_Poi_t)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+7364B4
+
+GameAssembly.dll+73648C: 48 8B C8              - mov rcx,rax
+GameAssembly.dll+73648F: E8 6C 40 00 00        - call GameAssembly.dll+73A500
+GameAssembly.dll+736494: 33 D2                 - xor edx,edx
+GameAssembly.dll+736496: 48 8B CB              - mov rcx,rbx
+GameAssembly.dll+736499: E8 82 11 00 00        - call GameAssembly.dll+737620
+GameAssembly.dll+73649E: 48 85 C0              - test rax,rax
+GameAssembly.dll+7364A1: 0F 84 7E 01 00 00     - je GameAssembly.dll+736625
+GameAssembly.dll+7364A7: 48 8B 40 20           - mov rax,[rax+20]
+GameAssembly.dll+7364AB: 48 85 C0              - test rax,rax
+GameAssembly.dll+7364AE: 0F 84 71 01 00 00     - je GameAssembly.dll+736625
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+7364B4: 29 78 20              - sub [rax+20],edi
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+7364B7: 48 8B 83 10 01 00 00  - mov rax,[rbx+00000110]
+GameAssembly.dll+7364BE: 48 85 C0              - test rax,rax
+GameAssembly.dll+7364C1: 0F 84 5E 01 00 00     - je GameAssembly.dll+736625
+GameAssembly.dll+7364C7: 48 8B 50 20           - mov rdx,[rax+20]
+GameAssembly.dll+7364CB: 48 85 D2              - test rdx,rdx
+GameAssembly.dll+7364CE: 0F 84 51 01 00 00     - je GameAssembly.dll+736625
+GameAssembly.dll+7364D4: 48 8B 48 30           - mov rcx,[rax+30]
+GameAssembly.dll+7364D8: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+7364DB: 0F 84 44 01 00 00     - je GameAssembly.dll+736625
+GameAssembly.dll+7364E1: 48 8B 52 20           - mov rdx,[rdx+20]
+}
+</AssemblerScript>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>31</ID>
+                          <Description>"Give Me Scraps"</Description>
+                          <Color>FF00FF</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : Gestalt.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-04-06
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(M_OBY,GameAssembly.dll,44 8B 73 18 75 05) // should be unique
+alloc(newmem,$20,M_OBY)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+mov eax,99
+add [rbx+18],eax
+  mov r14d,[rbx+18]
+   jne GameAssembly.dll+780CFA
+  jmp return
+
+M_OBY:
+  jmp code
+  nop
+return:
+registersymbol(M_OBY)
+
+[DISABLE]
+
+M_OBY:
+  db 44 8B 73 18 75 05
+
+unregistersymbol(M_OBY)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+780CEF
+
+GameAssembly.dll+780CBF: E8 BC 01 AA FF        - call GameAssembly.dll+220E80
+GameAssembly.dll+780CC4: C6 05 37 92 05 02 01  - mov byte ptr [GameAssembly.dll+27D9F02],01
+GameAssembly.dll+780CCB: 48 8B 5B 20           - mov rbx,[rbx+20]
+GameAssembly.dll+780CCF: 48 85 DB              - test rbx,rbx
+GameAssembly.dll+780CD2: 74 6E                 - je GameAssembly.dll+780D42
+GameAssembly.dll+780CD4: 48 8B 0D FD 58 ED 01  - mov rcx,[GameAssembly.dll+26565D8]
+GameAssembly.dll+780CDB: 48 89 7C 24 30        - mov [rsp+30],rdi
+GameAssembly.dll+780CE0: 8B 7B 28              - mov edi,[rbx+28]
+GameAssembly.dll+780CE3: 4C 89 74 24 38        - mov [rsp+38],r14
+GameAssembly.dll+780CE8: 83 B9 E0 00 00 00 00  - cmp dword ptr [rcx+000000E0],00
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+780CEF: 44 8B 73 18           - mov r14d,[rbx+18]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+780CF3: 75 05                 - jne GameAssembly.dll+780CFA
+GameAssembly.dll+780CF5: E8 E6 28 A4 FF        - call GameAssembly.dll+1C35E0
+GameAssembly.dll+780CFA: 45 33 C9              - xor r9d,r9d
+GameAssembly.dll+780CFD: 41 8D 0C 36           - lea ecx,[r14+rsi]
+GameAssembly.dll+780D01: 41 8B D1              - mov edx,r9d
+GameAssembly.dll+780D04: 44 8B C7              - mov r8d,edi
+GameAssembly.dll+780D07: E8 B4 BE F0 FF        - call GameAssembly.dll+68CBC0
+GameAssembly.dll+780D0C: 8B 4B 18              - mov ecx,[rbx+18]
+GameAssembly.dll+780D0F: 4C 8B 74 24 38        - mov r14,[rsp+38]
+GameAssembly.dll+780D14: 48 8B 7C 24 30        - mov rdi,[rsp+30]
+}
+</AssemblerScript>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>PE_SEGMENTS</Name>
+      <Address>7FF79D420220</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

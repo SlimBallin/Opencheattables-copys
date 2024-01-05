@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"No description"</Description>
+      <VariableType>Double</VariableType>
+      <Address>19A43690</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"No description"</Description>
+      <VariableType>Double</VariableType>
+      <Address>19A395D0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"test 1"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : game.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-04-27
+  Author : Da^Pet3r
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(Death_run,game.exe,8B 4A 04 89 07 89 4F 04 81) // should be unique
+alloc(newmem,$1000)
+registersymbol(Death_run SMDH)
+label(code)
+label(return)
+
+newmem:
+mov [SMDH],edx
+mov [edx+0],1000
+jmp return
+
+SMDH:
+dq 0
+
+
+
+code:
+  mov ecx,[edx+04]
+  mov [edi],eax
+  jmp return
+
+Death_run:
+  jmp newmem
+return:
+
+
+[DISABLE]
+
+Death_run:
+  db 8B 4A 04 89 07
+
+unregistersymbol(Death_run SMDH)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: game.exe+17162D
+
+game.exe+171614: B8 01 00 00 00        - mov eax,00000001
+game.exe+171619: D3 E0                 - shl eax,cl
+game.exe+17161B: A8 46                 - test al,46
+game.exe+17161D: 74 0C                 - je game.exe+17162B
+game.exe+17161F: 52                    - push edx
+game.exe+171620: 57                    - push edi
+game.exe+171621: E8 4A 69 00 00        - call game.exe+177F70
+game.exe+171626: 83 C4 08              - add esp,08
+game.exe+171629: EB 0A                 - jmp game.exe+171635
+game.exe+17162B: 8B 02                 - mov eax,[edx]
+// ---------- INJECTING HERE ----------
+game.exe+17162D: 8B 4A 04              - mov ecx,[edx+04]
+// ---------- DONE INJECTING  ----------
+game.exe+171630: 89 07                 - mov [edi],eax
+game.exe+171632: 89 4F 04              - mov [edi+04],ecx
+game.exe+171635: 81 7E FC FF FF FF 00  - cmp [esi-04],00FFFFFF
+game.exe+17163C: 75 1F                 - jne game.exe+17165D
+game.exe+17163E: 8B 74 24 1C           - mov esi,[esp+1C]
+game.exe+171642: 53                    - push ebx
+game.exe+171643: 6A FB                 - push -05
+game.exe+171645: FF 76 38              - push [esi+38]
+game.exe+171648: E8 53 87 FF FF        - call game.exe+169DA0
+game.exe+17164D: 53                    - push ebx
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"p"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>8 Bytes</VariableType>
+          <Address>SMDH</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"test 2"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : game.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-04-27
+  Author : Da^Pet3r
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(Click_life,game.exe,8B 4E 04 89 07 89 4F 04 5F 5E B0) // should be unique
+alloc(newmem,$1000)
+registersymbol(Click_life SMD)
+label(code SMD)
+label(return)
+
+newmem:
+mov [SMD],esi
+mov [esi+0],1000
+jmp return
+
+SMD:
+dq 0
+
+
+
+code:
+  mov ecx,[esi+04]
+  mov [edi],eax
+  jmp return
+
+Click_life:
+  jmp newmem
+return:
+
+
+[DISABLE]
+
+Click_life:
+  db 8B 4E 04 89 07
+
+unregistersymbol(Click_life SMD)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: game.exe+1675B9
+
+game.exe+1675A4: B0 01                 - mov al,01
+game.exe+1675A6: 5F                    - pop edi
+game.exe+1675A7: 5E                    - pop esi
+game.exe+1675A8: 5B                    - pop ebx
+game.exe+1675A9: 8B 4D F4              - mov ecx,[ebp-0C]
+game.exe+1675AC: 64 89 0D 00 00 00 00  - mov fs:[00000000],ecx
+game.exe+1675B3: 8B E5                 - mov esp,ebp
+game.exe+1675B5: 5D                    - pop ebp
+game.exe+1675B6: C3                    - ret 
+game.exe+1675B7: 8B 06                 - mov eax,[esi]
+// ---------- INJECTING HERE ----------
+game.exe+1675B9: 8B 4E 04              - mov ecx,[esi+04]
+// ---------- DONE INJECTING  ----------
+game.exe+1675BC: 89 07                 - mov [edi],eax
+game.exe+1675BE: 89 4F 04              - mov [edi+04],ecx
+game.exe+1675C1: 5F                    - pop edi
+game.exe+1675C2: 5E                    - pop esi
+game.exe+1675C3: B0 01                 - mov al,01
+game.exe+1675C5: 5B                    - pop ebx
+game.exe+1675C6: 8B 4D F4              - mov ecx,[ebp-0C]
+game.exe+1675C9: 64 89 0D 00 00 00 00  - mov fs:[00000000],ecx
+game.exe+1675D0: 8B E5                 - mov esp,ebp
+game.exe+1675D2: 5D                    - pop ebp
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"p"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>8 Bytes</VariableType>
+          <Address>SMD</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [esi],00000000</Description>
+      <AddressString>game.exe+168702</AddressString>
+      <Before>
+        <Byte>0C</Byte>
+        <Byte>05</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>C7</Byte>
+        <Byte>06</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>0C</Byte>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [esi],eax</Description>
+      <AddressString>game.exe+168734</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>07</Byte>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>06</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+        <Byte>04</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [esi+04],ecx</Description>
+      <AddressString>game.exe+168736</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>04</Byte>
+        <Byte>89</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>5B</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>PE_SEGMENTS</Name>
+      <Address>400220</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2702</ID>
+      <Description>"Turok  [Steam Edition]"</Description>
+      <Options moHideChildren="1"/>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2703</ID>
+          <Description>"Youtube"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://www.youtube.com/user/droelke");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2704</ID>
+          <Description>"OCT Profile"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://opencheattables.com/memberlist.php?mode=viewprofile&amp;u=85");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"Table Author:  XxDaRealSlimballinxX"</Description>
+              <Color>FC94B0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>40</ID>
+                  <Description>"Visit us today @ GBA Services!"</Description>
+                  <Color>C080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337110746</ID>
+                  <Description>"Discord  @ DaRealSlimballin"</Description>
+                  <Color>008080</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337110747</ID>
+              <Description>"[X] &lt;=== For Full Tool View"</Description>
+              <Options moManualExpandCollapse="1"/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+// Script Creaded By mgr.inz.Player On CE Forums
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337110748</ID>
+                  <Description>"Cheats"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337110749</ID>
+                      <Description>"xxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1337110750</ID>
+                          <Description>"God Mode"</Description>
+                          <Options moHideChildren="1" moManualExpandCollapse="1"/>
+                          <Color>00FFFF</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript Async="1">{ Game   : sobek.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-08-23
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(God_m,sobek.exe,66 29 86 E0 00 00 00) // should be unique
+alloc(newmem,$1000)
+registersymbol(God_m Health)
+label(code Health)
+label(return)
+
+newmem:
+mov [Health],esi
+add ax,ff
+mov [esi+000000E0],ax
+jmp return
+
+
+Health:
+dq 0
+
+
+code:
+  sub [esi+000000E0],ax
+  jmp return
+
+God_m:
+  jmp newmem
+  nop 2
+return:
+
+
+[DISABLE]
+
+God_m:
+  db 66 29 86 E0 00 00 00
+
+unregistersymbol(God_m Health)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: sobek.exe+1D829
+
+sobek.exe+1D80B: 57                    - push edi
+sobek.exe+1D80C: E8 FF E4 0B 00        - call sobek.exe+DBD10
+sobek.exe+1D811: 84 C0                 - test al,al
+sobek.exe+1D813: 74 1B                 - je sobek.exe+1D830
+sobek.exe+1D815: 83 FF 06              - cmp edi,06
+sobek.exe+1D818: 75 0B                 - jne sobek.exe+1D825
+sobek.exe+1D81A: 8B 0D 7C E1 7A 00     - mov ecx,[sobek.exe+3AE17C]
+sobek.exe+1D820: 8B 01                 - mov eax,[ecx]
+sobek.exe+1D822: FF 50 28              - call dword ptr [eax+28]
+sobek.exe+1D825: 8B 44 24 18           - mov eax,[esp+18]
+// ---------- INJECTING HERE ----------
+sobek.exe+1D829: 66 29 86 E0 00 00 00  - sub [esi+000000E0],ax
+// ---------- DONE INJECTING  ----------
+sobek.exe+1D830: 5F                    - pop edi
+sobek.exe+1D831: 5B                    - pop ebx
+sobek.exe+1D832: 5E                    - pop esi
+sobek.exe+1D833: C2 0C 00              - ret 000C
+sobek.exe+1D836: CC                    - int 3 
+sobek.exe+1D837: CC                    - int 3 
+sobek.exe+1D838: CC                    - int 3 
+sobek.exe+1D839: CC                    - int 3 
+sobek.exe+1D83A: CC                    - int 3 
+sobek.exe+1D83B: CC                    - int 3 
+}
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>1337110751</ID>
+                              <Description>"-&gt;"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>4 Bytes</VariableType>
+                              <Address>Health</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337110752</ID>
+                                  <Description>"Current health"</Description>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <Color>FF80FF</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Health</Address>
+                                  <Offsets>
+                                    <Offset>e0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110753</ID>
+                          <Description>"Infinite Ammo"</Description>
+                          <Options moHideChildren="1" moManualExpandCollapse="1"/>
+                          <Color>FFFF00</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript Async="1">{ Game   : sobek.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-08-23
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(am_mo,sobek.exe,8B 11 85 D2 7E 0E) // should be unique
+alloc(newmem,$1000)
+registersymbol(am_mo Ammo)
+label(code Ammo)
+label(return)
+
+newmem:
+mov [Ammo],ecx
+add edx,ffff
+mov [ecx+0],edx
+jmp return
+
+Ammo:
+dd 0
+
+
+code:
+  mov edx,[ecx]
+  test edx,edx
+    jmp return
+
+am_mo:
+  jmp newmem
+  nop
+return:
+
+
+[DISABLE]
+
+am_mo:
+  db 8B 11 85 D2 7E 0E
+
+unregistersymbol(am_mo Ammo)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: sobek.exe+6B20D
+
+sobek.exe+6B1F0: 5F                    - pop edi
+sobek.exe+6B1F1: 5E                    - pop esi
+sobek.exe+6B1F2: C2 04 00              - ret 0004
+sobek.exe+6B1F5: 83 39 00              - cmp dword ptr [ecx],00
+sobek.exe+6B1F8: 7F 0A                 - jg sobek.exe+6B204
+sobek.exe+6B1FA: 8B 88 14 03 00 00     - mov ecx,[eax+00000314]
+sobek.exe+6B200: 85 C9                 - test ecx,ecx
+sobek.exe+6B202: 74 63                 - je sobek.exe+6B267
+sobek.exe+6B204: F6 05 40 E4 78 00 04  - test byte ptr [sobek.exe+38E440],04
+sobek.exe+6B20B: 75 5A                 - jne sobek.exe+6B267
+// ---------- INJECTING HERE ----------
+sobek.exe+6B20D: 8B 11                 - mov edx,[ecx]
+// ---------- DONE INJECTING  ----------
+sobek.exe+6B20F: 85 D2                 - test edx,edx
+sobek.exe+6B211: 7E 0E                 - jle sobek.exe+6B221
+sobek.exe+6B213: 2B 54 24 0C           - sub edx,[esp+0C]
+sobek.exe+6B217: B8 00 00 00 00        - mov eax,00000000
+sobek.exe+6B21C: 0F 49 C2              - cmovns eax,edx
+sobek.exe+6B21F: 89 01                 - mov [ecx],eax
+sobek.exe+6B221: 8B BE AC 00 00 00     - mov edi,[esi+000000AC]
+sobek.exe+6B227: 3B 7E 6C              - cmp edi,[esi+6C]
+sobek.exe+6B22A: 72 17                 - jb sobek.exe+6B243
+sobek.exe+6B22C: 68 B0 01 00 00        - push 000001B0
+}
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>1337110754</ID>
+                              <Description>"-&gt;"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>4 Bytes</VariableType>
+                              <Address>Ammo</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337110755</ID>
+                                  <Description>"Current Ammo"</Description>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <Color>FF80FF</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Ammo</Address>
+                                  <Offsets>
+                                    <Offset>0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>PE_SEGMENTS</Name>
+      <Address>400238</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

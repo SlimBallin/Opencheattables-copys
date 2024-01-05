@@ -1,0 +1,2855 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2702</ID>
+      <Description>"Eternal Edge +"</Description>
+      <Options moHideChildren="1"/>
+      <Color>FFFF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2703</ID>
+          <Description>"Youtube"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://www.youtube.com/user/droelke");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2704</ID>
+          <Description>"OCT Profile"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://opencheattables.com/memberlist.php?mode=viewprofile&amp;u=85");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"Table Author:  XxDaRealSlimballinxX"</Description>
+              <Color>FC94B0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>40</ID>
+                  <Description>"Visit us today @ GBA Services!"</Description>
+                  <Color>C080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337110746</ID>
+                  <Description>"Discord  @ DaRealSlimballin"</Description>
+                  <Color>008080</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337110747</ID>
+              <Description>"[X] &lt;=== For Full Tool View"</Description>
+              <Options moManualExpandCollapse="1"/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+// Script Creaded By mgr.inz.Player On CE Forums
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>5</ID>
+                  <Description>"Cheats"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>9</ID>
+                      <Description>"xxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1337111245</ID>
+                          <Description>"Mono_pipe Link"</Description>
+                          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1"/>
+                          <Color>000000</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript Async="1">[ENABLE]
+
+{$LUA}
+if not monopipe then LaunchMonoDataCollector() end
+{$ASM}
+
+[DISABLE]
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>1337111425</ID>
+                              <Description>"Scripts"</Description>
+                              <Color>0000FF</Color>
+                              <GroupHeader>1</GroupHeader>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337111269</ID>
+                                  <Description>"Get Player Toon"</Description>
+                                  <Options moHideChildren="1" moManualExpandCollapse="1"/>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript>{ Game   : Eternal Edge +.exe
+  Version: 
+  Date   : 2023-12-15
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanregion(Heal_life,Garland.EntityControl.World.LifeControl:HealLife+04,Garland.EntityControl.World.LifeControl:HealLife+ff,0F B6 47 6B 85 C0 0F 84 94) // should be unique
+alloc(newmem,$1000,Heal_life)
+registersymbol(Heal_life Toon)
+label(code)
+label(return)
+
+newmem:
+mov [Toon],rdi
+jmp return
+
+Toon:
+dq 0
+
+code:
+  movzx eax,byte ptr [rdi+6B]
+  test eax,eax
+  jmp return
+
+Heal_life:
+  jmp newmem
+  nop
+return:
+
+
+[DISABLE]
+
+Heal_life:
+  db 0F B6 47 6B 85 C0
+
+unregistersymbol(*)
+dealloc(*)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Garland.EntityControl.World.LifeControl:HealLife+53
+
+Garland.EntityControl.World.LifeControl:HealLife+2a: F3 0F 11 6D F4                 - movss [rbp-0C],xmm5
+Garland.EntityControl.World.LifeControl:HealLife+2f: 83 38 00                       - cmp dword ptr [rax],00
+Garland.EntityControl.World.LifeControl:HealLife+32: 48 8B 47 30                    - mov rax,[rdi+30]
+Garland.EntityControl.World.LifeControl:HealLife+36: 48 8B C8                       - mov rcx,rax
+Garland.EntityControl.World.LifeControl:HealLife+39: 48 63 55 E8                    - movsxd  rdx,dword ptr [rbp-18]
+Garland.EntityControl.World.LifeControl:HealLife+3d: 83 38 00                       - cmp dword ptr [rax],00
+Garland.EntityControl.World.LifeControl:HealLife+40: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+Garland.EntityControl.World.LifeControl:HealLife+45: 90                             - nop 
+Garland.EntityControl.World.LifeControl:HealLife+46: 49 BB 30 B6 9D 9E 3C 02 00 00  - mov r11,Garland.EntityControl.World.Statistics.EntityStatistics:HealDamage
+Garland.EntityControl.World.LifeControl:HealLife+50: 41 FF D3                       - call r11
+// ---------- INJECTING HERE ----------
+Garland.EntityControl.World.LifeControl:HealLife+53: 0F B6 47 6B                    - movzx eax,byte ptr [rdi+6B]
+// ---------- DONE INJECTING  ----------
+Garland.EntityControl.World.LifeControl:HealLife+57: 85 C0                          - test eax,eax
+Garland.EntityControl.World.LifeControl:HealLife+59: 0F 84 94 00 00 00              - je Garland.EntityControl.World.LifeControl:HealLife+f3
+Garland.EntityControl.World.LifeControl:HealLife+5f: 48 8B 87 C0 01 00 00           - mov rax,[rdi+000001C0]
+Garland.EntityControl.World.LifeControl:HealLife+66: 83 78 18 04                    - cmp dword ptr [rax+18],04
+Garland.EntityControl.World.LifeControl:HealLife+6a: 0F 86 B2 00 00 00              - jbe Garland.EntityControl.World.LifeControl:HealLife+122
+Garland.EntityControl.World.LifeControl:HealLife+70: 48 63 40 30                    - movsxd  rax,dword ptr [rax+30]
+Garland.EntityControl.World.LifeControl:HealLife+74: 85 C0                          - test eax,eax
+Garland.EntityControl.World.LifeControl:HealLife+76: 7E 1B                          - jle Garland.EntityControl.World.LifeControl:HealLife+93
+Garland.EntityControl.World.LifeControl:HealLife+78: 48 8B CF                       - mov rcx,rdi
+Garland.EntityControl.World.LifeControl:HealLife+7b: BA 04 00 00 00                 - mov edx,00000004
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337111268</ID>
+                                      <Description>"-&gt;"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Toon</Address>
+                                      <Offsets>
+                                        <Offset>0</Offset>
+                                      </Offsets>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>1337111270</ID>
+                                          <Description>"characterStatistics"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Toon</Address>
+                                          <Offsets>
+                                            <Offset>28</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337111271</ID>
+                                              <Description>"level"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>20</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111272</ID>
+                                              <Description>"upgradedLevel"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>24</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111273</ID>
+                                              <Description>"growthRate"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>28</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111274</ID>
+                                              <Description>"life"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>2C</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111275</ID>
+                                              <Description>"magic"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>30</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111276</ID>
+                                              <Description>"attack"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>34</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111277</ID>
+                                              <Description>"defense"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>38</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111278</ID>
+                                              <Description>"magicAttack"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>3C</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111279</ID>
+                                              <Description>"magicDefense"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>40</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111280</ID>
+                                              <Description>"critChance"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>44</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111281</ID>
+                                              <Description>"rechargeRate"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>48</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111282</ID>
+                                              <Description>"cooldownRate"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>4C</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111283</ID>
+                                              <Description>"experience"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>50</Offset>
+                                                <Offset>28</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111284</ID>
+                                          <Description>"Play Vitals"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <Color>00FFFF</Color>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Toon</Address>
+                                          <Offsets>
+                                            <Offset>30</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337111285</ID>
+                                              <Description>"currentLife"</Description>
+                                              <Color>FFFF00</Color>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>2C</Offset>
+                                                <Offset>30</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111286</ID>
+                                              <Description>"currentMagic"</Description>
+                                              <Color>FFFF00</Color>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>30</Offset>
+                                                <Offset>30</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111287</ID>
+                                              <Description>"currentExp"</Description>
+                                              <Color>FFFF00</Color>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>34</Offset>
+                                                <Offset>30</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111357</ID>
+                                              <Description>"Player Stuff "</Description>
+                                              <Options moManualExpandCollapse="1"/>
+                                              <Color>00FF00</Color>
+                                              <GroupHeader>1</GroupHeader>
+                                              <CheatEntries>
+                                                <CheatEntry>
+                                                  <ID>1337111349</ID>
+                                                  <Description>"entityLevel"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>58</Offset>
+                                                  </Offsets>
+                                                  <CheatEntries>
+                                                    <CheatEntry>
+                                                      <ID>1337111356</ID>
+                                                      <Description>"invulnerable"</Description>
+                                                      <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:off
+1:on
+</DropDownList>
+                                                      <Color>FFFF00</Color>
+                                                      <VariableType>Byte</VariableType>
+                                                      <Address>Toon</Address>
+                                                      <Offsets>
+                                                        <Offset>84</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                  </CheatEntries>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111353</ID>
+                                                  <Description>"isPlayer"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>6B</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111354</ID>
+                                                  <Description>"attackSpeed"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>80</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111351</ID>
+                                                  <Description>"castSpeedModifier"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>60</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111358</ID>
+                                                  <Description>"baseAttack"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>B0</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111362</ID>
+                                                  <Description>"attack"</Description>
+                                                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">99999:Dam
+</DropDownList>
+                                                  <ShowAsSigned>0</ShowAsSigned>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>C0</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111363</ID>
+                                                  <Description>"magicAttack"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>C4</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111359</ID>
+                                                  <Description>"baseMagicAttack"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>B4</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111360</ID>
+                                                  <Description>"baseCritChance"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>B8</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111361</ID>
+                                                  <Description>"baseMagicPenetration"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>BC</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111407</ID>
+                                                  <Description>"magicPenetration"</Description>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>224</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111364</ID>
+                                                  <Description>"critChance"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>C8</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111390</ID>
+                                                  <Description>"abilityCost"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>B0</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>140</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111391</ID>
+                                                  <Description>"castTime"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>B4</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>140</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111392</ID>
+                                                  <Description>"cooldown"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>B8</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>140</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111393</ID>
+                                                  <Description>"currentCooldown"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>BC</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>140</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111394</ID>
+                                                  <Description>"currentCastTime"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>C0</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>140</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111395</ID>
+                                                  <Description>"stopAttackOnHit"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>130</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>140</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111396</ID>
+                                                  <Description>"damageOutput"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>140</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>140</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111397</ID>
+                                                  <Description>"enemyCheckDistance"</Description>
+                                                  <Color>FFFF00</Color>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>174</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>140</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111398</ID>
+                                                  <Description>"rigidBodyMovement"</Description>
+                                                  <Options moManualExpandCollapse="1"/>
+                                                  <ShowAsHex>1</ShowAsHex>
+                                                  <Color>4080FF</Color>
+                                                  <VariableType>8 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>158</Offset>
+                                                  </Offsets>
+                                                  <CheatEntries>
+                                                    <CheatEntry>
+                                                      <ID>1337111399</ID>
+                                                      <Description>"movementSpeed"</Description>
+                                                      <VariableType>Float</VariableType>
+                                                      <Address>Toon</Address>
+                                                      <Offsets>
+                                                        <Offset>104</Offset>
+                                                        <Offset>158</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                    <CheatEntry>
+                                                      <ID>1337111400</ID>
+                                                      <Description>"superspeed"</Description>
+                                                      <VariableType>Float</VariableType>
+                                                      <Address>Toon</Address>
+                                                      <Offsets>
+                                                        <Offset>170</Offset>
+                                                        <Offset>158</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                    <CheatEntry>
+                                                      <ID>1337111401</ID>
+                                                      <Description>"isSwimming"</Description>
+                                                      <VariableType>Byte</VariableType>
+                                                      <Address>Toon</Address>
+                                                      <Offsets>
+                                                        <Offset>17A</Offset>
+                                                        <Offset>158</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                    <CheatEntry>
+                                                      <ID>1337111402</ID>
+                                                      <Description>"hasJumpingBoots"</Description>
+                                                      <VariableType>Byte</VariableType>
+                                                      <Address>Toon</Address>
+                                                      <Offsets>
+                                                        <Offset>179</Offset>
+                                                        <Offset>158</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                    <CheatEntry>
+                                                      <ID>1337111404</ID>
+                                                      <Description>"maxStamina"</Description>
+                                                      <VariableType>Float</VariableType>
+                                                      <Address>Toon</Address>
+                                                      <Offsets>
+                                                        <Offset>1B4</Offset>
+                                                        <Offset>158</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                    <CheatEntry>
+                                                      <ID>1337111403</ID>
+                                                      <Description>"stamina"</Description>
+                                                      <VariableType>Float</VariableType>
+                                                      <Address>Toon</Address>
+                                                      <Offsets>
+                                                        <Offset>1B8</Offset>
+                                                        <Offset>158</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                    <CheatEntry>
+                                                      <ID>1337111405</ID>
+                                                      <Description>"staminaRecharge"</Description>
+                                                      <VariableType>Float</VariableType>
+                                                      <Address>Toon</Address>
+                                                      <Offsets>
+                                                        <Offset>1BC</Offset>
+                                                        <Offset>158</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                  </CheatEntries>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111410</ID>
+                                                  <Description>"Lootables Rates"</Description>
+                                                  <Options moManualExpandCollapse="1"/>
+                                                  <Color>FF00FF</Color>
+                                                  <GroupHeader>1</GroupHeader>
+                                                  <CheatEntries>
+                                                    <CheatEntry>
+                                                      <ID>1337111408</ID>
+                                                      <Description>"weaponDropChance"</Description>
+                                                      <VariableType>4 Bytes</VariableType>
+                                                      <Address>Toon</Address>
+                                                      <Offsets>
+                                                        <Offset>228</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                    <CheatEntry>
+                                                      <ID>1337111409</ID>
+                                                      <Description>"shieldDropChance"</Description>
+                                                      <VariableType>4 Bytes</VariableType>
+                                                      <Address>Toon</Address>
+                                                      <Offsets>
+                                                        <Offset>22C</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                  </CheatEntries>
+                                                </CheatEntry>
+                                              </CheatEntries>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111290</ID>
+                                          <Description>"timer_rearBack"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Toon</Address>
+                                          <Offsets>
+                                            <Offset>40</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337111288</ID>
+                                              <Description>"currentTime"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>10</Offset>
+                                                <Offset>40</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111289</ID>
+                                              <Description>"maxTime"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>14</Offset>
+                                                <Offset>40</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111291</ID>
+                                              <Description>"autoRepeat"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>18</Offset>
+                                                <Offset>40</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111292</ID>
+                                          <Description>"currentHazardAffliction"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Toon</Address>
+                                          <Offsets>
+                                            <Offset>50</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337111293</ID>
+                                              <Description>"swordController"</Description>
+                                              <Options moManualExpandCollapse="1"/>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>88</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                              <CheatEntries>
+                                                <CheatEntry>
+                                                  <ID>1337111294</ID>
+                                                  <Description>"value"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>38</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111295</ID>
+                                                  <Description>"quantity"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>3C</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111296</ID>
+                                                  <Description>"conditionDuration"</Description>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>40</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111297</ID>
+                                                  <Description>"isEpic"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>48</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111298</ID>
+                                                  <Description>"craftingRewardQuantity"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>4C</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111299</ID>
+                                                  <Description>"currentExp"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>94</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111300</ID>
+                                                  <Description>"itemRarity"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>98</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111301</ID>
+                                                  <Description>"damageCapacity"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>9C</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111302</ID>
+                                                  <Description>"currentDamage"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>A0</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111303</ID>
+                                                  <Description>"magicCapacity"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>A4</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111304</ID>
+                                                  <Description>"currentMagic"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>A8</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111305</ID>
+                                                  <Description>"rechargeRate"</Description>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>AC</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111306</ID>
+                                                  <Description>"rechargeRateModifier"</Description>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>B0</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111307</ID>
+                                                  <Description>"isBroken"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>B4</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111308</ID>
+                                                  <Description>"elementChance"</Description>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>B8</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111309</ID>
+                                                  <Description>"elementEffectiveness"</Description>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>BC</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111310</ID>
+                                                  <Description>"elementIsRolled"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>C0</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111311</ID>
+                                                  <Description>"weaponType"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>F8</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111312</ID>
+                                                  <Description>"appearing"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>FC</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111313</ID>
+                                                  <Description>"obtained"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>FD</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111314</ID>
+                                                  <Description>"raiseSpeed"</Description>
+                                                  <VariableType>Float</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>100</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111315</ID>
+                                                  <Description>"obtainable"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>104</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111316</ID>
+                                                  <Description>"prompt"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>105</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337111317</ID>
+                                                  <Description>"inRange"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Toon</Address>
+                                                  <Offsets>
+                                                    <Offset>106</Offset>
+                                                    <Offset>88</Offset>
+                                                    <Offset>50</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                              </CheatEntries>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111318</ID>
+                                              <Description>"baseAttack"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>B0</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111319</ID>
+                                              <Description>"baseMagicAttack"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>B4</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111320</ID>
+                                              <Description>"baseCritChance"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>B8</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111321</ID>
+                                              <Description>"baseMagicPenetration"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>BC</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111322</ID>
+                                              <Description>"attack"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>C0</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111323</ID>
+                                              <Description>"magicAttack"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>C4</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111324</ID>
+                                              <Description>"critChance"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>C8</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111325</ID>
+                                              <Description>"hitID"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>CC</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111326</ID>
+                                              <Description>"magicPenetration"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>DC</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111327</ID>
+                                              <Description>"shootingSpeed"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>E0</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111328</ID>
+                                              <Description>"conditionChance"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>E4</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111329</ID>
+                                              <Description>"conditionEffectiveness"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>E8</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111330</ID>
+                                              <Description>"conditionDuration"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>EC</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111331</ID>
+                                              <Description>"resignalAttackTime"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>F0</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111332</ID>
+                                              <Description>"stopAttackTime"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>F4</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111333</ID>
+                                              <Description>"damageModifier"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>F8</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111334</ID>
+                                              <Description>"isShooting"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>FC</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111335</ID>
+                                              <Description>"allowStopAttack"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>FD</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111336</ID>
+                                              <Description>"destroyOnCollision"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>FE</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111337</ID>
+                                              <Description>"destroyOnEnemyCollision"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>FF</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111338</ID>
+                                              <Description>"sendImpactForce"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>100</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111339</ID>
+                                              <Description>"blockable"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>101</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111340</ID>
+                                              <Description>"startResignalOnStart"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>102</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111341</ID>
+                                              <Description>"playMainParticlesOnSignal"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>103</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111342</ID>
+                                              <Description>"destroyHazardLifetime"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>104</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111343</ID>
+                                              <Description>"deltaPosition"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>108</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111344</ID>
+                                              <Description>"updatePosition"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>114</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111345</ID>
+                                              <Description>"currentPosition"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>120</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111346</ID>
+                                              <Description>"runAwake"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>12C</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111347</ID>
+                                              <Description>"lifeBufferTime"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>130</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111348</ID>
+                                              <Description>"killCount"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>134</Offset>
+                                                <Offset>50</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111350</ID>
+                                              <Description>"currentConjureValue"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>5C</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111352</ID>
+                                              <Description>"spellReady"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>69</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111355</ID>
+                                              <Description>"rearBackTime"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>7C</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111365</ID>
+                                          <Description>"inventory"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Toon</Address>
+                                          <Offsets>
+                                            <Offset>140</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337111366</ID>
+                                              <Description>"inventoryEnabled"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>A9</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111367</ID>
+                                              <Description>"inventoryFull"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>B0</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111368</ID>
+                                              <Description>"inventoryDirty"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>B1</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111369</ID>
+                                              <Description>"isOpen"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>A8</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111370</ID>
+                                              <Description>"quests"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>28</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111371</ID>
+                                              <Description>"_items"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>10</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111372</ID>
+                                              <Description>"Item[0]"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111373</ID>
+                                              <Description>"abilityCost"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>B0</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111374</ID>
+                                              <Description>"castTime"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>B4</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111375</ID>
+                                              <Description>"cooldown"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>B8</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111376</ID>
+                                              <Description>"currentCooldown"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>BC</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111377</ID>
+                                              <Description>"currentCastTime"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>C0</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111378</ID>
+                                              <Description>"aiFlagReleased"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>C4</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111379</ID>
+                                              <Description>"abilityCompleted"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>C5</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111380</ID>
+                                              <Description>"closingDistanceAbility"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111381</ID>
+                                              <Description>"currentTarget"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>F8</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111382</ID>
+                                              <Description>"stopAttackOnHit"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>130</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111383</ID>
+                                              <Description>"targetEnemyBaseVolume"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>134</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111384</ID>
+                                              <Description>"warpHitBaseVolume"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>138</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111385</ID>
+                                              <Description>"abilityBeingHandled"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>13C</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111386</ID>
+                                              <Description>"damageOutput"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>140</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111387</ID>
+                                              <Description>"maxTargetLength"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>144</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111388</ID>
+                                              <Description>"enemyCheckDistance"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>174</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111389</ID>
+                                              <Description>"targetPosition"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Toon</Address>
+                                              <Offsets>
+                                                <Offset>178</Offset>
+                                                <Offset>88</Offset>
+                                                <Offset>140</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111406</ID>
+                                          <Description>"abilityLevels"</Description>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Toon</Address>
+                                          <Offsets>
+                                            <Offset>1C0</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337111415</ID>
+                                  <Description>"Infinite stanima"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <Color>00FF00</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Eternal Edge +.exe
+  Version: 
+  Date   : 2023-12-15
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanregion(Inf_Stam,Garland.EntityControl.User.RigidbodyMovement:Update+04,Garland.EntityControl.User.RigidbodyMovement:Update+200,00 00 00 F3 0F 10 86 B4 01 00 00) // should be unique
+alloc(newmem,$1000,Inf_Stam)
+registersymbol(Inf_Stam Speed)
+label(code Speed)
+label(return)
+
+newmem:
+mov [rsi+000001B8],(float)113700000 //looping to Max stanima offset 1b8 to Current stanima
+mov [rsi+000001B4],,(float)113370000//Max stanima offset 1b8 from XMM) to Current Stanima
+mov [Speed],rsi//Rsi becomes our symbol to use to check the structure
+mov [rsi+000001Bc],(float)-0.1//stanima Recharge offset 1BC
+jmp return
+
+Speed:
+dq 0
+
+code:
+  movss xmm0,[rsi+000001B4]
+  jmp return
+
+Inf_Stam+03:
+  jmp newmem
+  nop 3
+return:
+
+
+[DISABLE]
+
+Inf_Stam+03:
+  db F3 0F 10 86 B4 01 00 00
+
+unregistersymbol(Inf_Stam Speed)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Garland.EntityControl.User.RigidbodyMovement:Update+14c
+
+Garland.EntityControl.User.RigidbodyMovement:Update+114: F2 0F 58 C1                    - addsd xmm0,xmm1
+Garland.EntityControl.User.RigidbodyMovement:Update+118: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+Garland.EntityControl.User.RigidbodyMovement:Update+11c: F3 0F 11 AE B8 01 00 00        - movss [rsi+000001B8],xmm5
+Garland.EntityControl.User.RigidbodyMovement:Update+124: F3 0F 10 86 B8 01 00 00        - movss xmm0,[rsi+000001B8]
+Garland.EntityControl.User.RigidbodyMovement:Update+12c: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+Garland.EntityControl.User.RigidbodyMovement:Update+130: F3 0F 10 8E B4 01 00 00        - movss xmm1,[rsi+000001B4]
+Garland.EntityControl.User.RigidbodyMovement:Update+138: F3 0F 5A C9                    - cvtss2sd xmm1,xmm1
+Garland.EntityControl.User.RigidbodyMovement:Update+13c: 66 0F 2F C8                    - comisd xmm1,xmm0
+Garland.EntityControl.User.RigidbodyMovement:Update+140: 0F 8A 1E 00 00 00              - jp Garland.EntityControl.User.RigidbodyMovement:Update+164
+Garland.EntityControl.User.RigidbodyMovement:Update+146: 0F 87 18 00 00 00              - ja Garland.EntityControl.User.RigidbodyMovement:Update+164
+// ---------- INJECTING HERE ----------
+Garland.EntityControl.User.RigidbodyMovement:Update+14c: F3 0F 10 86 B4 01 00 00        - movss xmm0,[rsi+000001B4]
+// ---------- DONE INJECTING  ----------
+Garland.EntityControl.User.RigidbodyMovement:Update+154: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+Garland.EntityControl.User.RigidbodyMovement:Update+158: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+Garland.EntityControl.User.RigidbodyMovement:Update+15c: F3 0F 11 AE B8 01 00 00        - movss [rsi+000001B8],xmm5
+Garland.EntityControl.User.RigidbodyMovement:Update+164: 48 8B CE                       - mov rcx,rsi
+Garland.EntityControl.User.RigidbodyMovement:Update+167: 48 8D AD 00 00 00 00           - lea rbp,[rbp+00000000]
+Garland.EntityControl.User.RigidbodyMovement:Update+16e: 49 BB 00 F8 A2 9E 3C 02 00 00  - mov r11,Garland.EntityControl.User.RigidbodyMovement:OnStaminaChanged
+Garland.EntityControl.User.RigidbodyMovement:Update+178: 41 FF D3                       - call r11
+Garland.EntityControl.User.RigidbodyMovement:Update+17b: 48 8B 75 F8                    - mov rsi,[rbp-08]
+Garland.EntityControl.User.RigidbodyMovement:Update+17f: 48 8D 65 00                    - lea rsp,[rbp+00]
+Garland.EntityControl.User.RigidbodyMovement:Update+183: 5D                             - pop rbp
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337111417</ID>
+                                      <Description>" Current Stamina"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Speed</Address>
+                                      <Offsets>
+                                        <Offset>1B4</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>1337111416</ID>
+                                      <Description>"Max Stamina"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Speed</Address>
+                                      <Offsets>
+                                        <Offset>1b8</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>1337111418</ID>
+                                      <Description>"staminaRecharge"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Speed</Address>
+                                      <Offsets>
+                                        <Offset>1BC</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337111423</ID>
+                                  <Description>"Pick up Multiplyer"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <Color>C080FF</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Eternal Edge +.exe
+  Version: 
+  Date   : 2023-12-15
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanregion(pick_up,Garland.EntityControl.World.Inventory:AddItem+04,Garland.EntityControl.World.Inventory:AddItem+1aff,49 63 4C 24 3C 89) // should be unique
+alloc(newmem,$1000,pick_up)
+registersymbol(pick_up Amounts)
+label(code Amounts)
+label(return)
+
+newmem:
+mov [Amounts],r12
+add cx,99
+mov [r12+3C],cx//quanity
+jmp return
+
+Amounts:
+dq 0
+
+code:
+  movsxd  rcx,dword ptr [r12+3C]
+  jmp return
+
+pick_up:
+  jmp newmem
+return:
+
+
+[DISABLE]
+
+pick_up:
+  db 49 63 4C 24 3C
+
+unregistersymbol(pick_up Amounts)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Garland.EntityControl.World.Inventory:AddItem+1aab
+
+Garland.EntityControl.World.Inventory:AddItem+1a76: 41 89 44 24 3C                 - mov [r12+3C],eax
+Garland.EntityControl.World.Inventory:AddItem+1a7b: 3D E7 03 00 00                 - cmp eax,000003E7
+Garland.EntityControl.World.Inventory:AddItem+1a80: 7E 09                          - jle Garland.EntityControl.World.Inventory:AddItem+1a8b
+Garland.EntityControl.World.Inventory:AddItem+1a82: 41 C7 44 24 3C E7 03 00 00     - mov [r12+3C],000003E7
+Garland.EntityControl.World.Inventory:AddItem+1a8b: 48 8B 85 50 FD FF FF           - mov rax,[rbp-000002B0]
+Garland.EntityControl.World.Inventory:AddItem+1a92: 48 63 50 44                    - movsxd  rdx,dword ptr [rax+44]
+Garland.EntityControl.World.Inventory:AddItem+1a96: 49 8B CD                       - mov rcx,r13
+Garland.EntityControl.World.Inventory:AddItem+1a99: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+Garland.EntityControl.World.Inventory:AddItem+1a9e: 49 BB D0 A8 48 A7 3C 02 00 00  - mov r11,Garland.EntityControl.World.Inventory:HasItemFromGameState
+Garland.EntityControl.World.Inventory:AddItem+1aa8: 41 FF D3                       - call r11
+// ---------- INJECTING HERE ----------
+Garland.EntityControl.World.Inventory:AddItem+1aab: 49 63 4C 24 3C                 - movsxd  rcx,dword ptr [r12+3C]
+// ---------- DONE INJECTING  ----------
+Garland.EntityControl.World.Inventory:AddItem+1ab0: 89 48 14                       - mov [rax+14],ecx
+Garland.EntityControl.World.Inventory:AddItem+1ab3: 4C 89 A5 38 FD FF FF           - mov [rbp-000002C8],r12
+Garland.EntityControl.World.Inventory:AddItem+1aba: 4D 85 E4                       - test r12,r12
+Garland.EntityControl.World.Inventory:AddItem+1abd: 0F 84 41 00 00 00              - je Garland.EntityControl.World.Inventory:AddItem+1b04
+Garland.EntityControl.World.Inventory:AddItem+1ac3: 49 8B 04 24                    - mov rax,[r12]
+Garland.EntityControl.World.Inventory:AddItem+1ac7: 48 8B 00                       - mov rax,[rax]
+Garland.EntityControl.World.Inventory:AddItem+1aca: 48 89 85 30 FD FF FF           - mov [rbp-000002D0],rax
+Garland.EntityControl.World.Inventory:AddItem+1ad1: 0F B7 40 18                    - movzx eax,word ptr [rax+18]
+Garland.EntityControl.World.Inventory:AddItem+1ad5: 48 83 F8 08                    - cmp rax,08
+Garland.EntityControl.World.Inventory:AddItem+1ad9: 72 1E                          - jb Garland.EntityControl.World.Inventory:AddItem+1af9
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337111429</ID>
+                                      <Description>"Item Name"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>String</VariableType>
+                                      <Length>128</Length>
+                                      <Unicode>1</Unicode>
+                                      <CodePage>0</CodePage>
+                                      <ZeroTerminate>1</ZeroTerminate>
+                                      <Address>Amounts</Address>
+                                      <Offsets>
+                                        <Offset>14</Offset>
+                                        <Offset>20</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>1337111431</ID>
+                                      <Description>"Item Description"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>String</VariableType>
+                                      <Length>128</Length>
+                                      <Unicode>1</Unicode>
+                                      <CodePage>0</CodePage>
+                                      <ZeroTerminate>1</ZeroTerminate>
+                                      <Address>Amounts</Address>
+                                      <Offsets>
+                                        <Offset>14</Offset>
+                                        <Offset>18</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>1337111424</ID>
+                                      <Description>"amount"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Amounts</Address>
+                                      <Offsets>
+                                        <Offset>3c</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>1337111427</ID>
+                                      <Description>"value"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Amounts</Address>
+                                      <Offsets>
+                                        <Offset>38</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337111433</ID>
+                                  <Description>"Free craft [Must have at least 1 of item]"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <Color>00FF00</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Eternal Edge +.exe
+  Version: 
+  Date   : 2023-12-15
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanregion(Craft_bypass,CraftItemScreen:RequirementsMet+04,CraftItemScreen:RequirementsMet+ff,0F B6 86 A5 00 00 00 85 C0 74 0A) // should be unique
+alloc(newmem,$1000,Craft_bypass)
+registersymbol(Craft_bypass Flag)
+label(code Flag)
+label(return)
+
+newmem:
+mov [rsi+000000A5],01//True
+mov [Flag],rsi
+jmp return
+
+Flag:
+dq 0
+
+code:
+  movzx eax,byte ptr [rsi+000000A5]
+  jmp return
+
+Craft_bypass:
+  jmp newmem
+  nop 2
+return:
+
+
+[DISABLE]
+
+Craft_bypass:
+  db 0F B6 86 A5 00 00 00
+
+unregistersymbol(Craft_bypass Flag)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: CraftItemScreen:RequirementsMet+34
+
+CraftItemScreen:RequirementsMet+f: 48 89 75 D0           - mov [rbp-30],rsi
+CraftItemScreen:RequirementsMet+13: 48 89 7D D8           - mov [rbp-28],rdi
+CraftItemScreen:RequirementsMet+17: 4C 89 65 E0           - mov [rbp-20],r12
+CraftItemScreen:RequirementsMet+1b: 4C 89 6D E8           - mov [rbp-18],r13
+CraftItemScreen:RequirementsMet+1f: 4C 89 75 F0           - mov [rbp-10],r14
+CraftItemScreen:RequirementsMet+23: 4C 89 7D F8           - mov [rbp-08],r15
+CraftItemScreen:RequirementsMet+27: 48 8B F1              - mov rsi,rcx
+CraftItemScreen:RequirementsMet+2a: 33 C0                 - xor eax,eax
+CraftItemScreen:RequirementsMet+2c: 48 89 45 B8           - mov [rbp-48],rax
+CraftItemScreen:RequirementsMet+30: 48 89 45 C0           - mov [rbp-40],rax
+// ---------- INJECTING HERE ----------
+CraftItemScreen:RequirementsMet+34: 0F B6 86 A5 00 00 00  - movzx eax,byte ptr [rsi+000000A5]
+// ---------- DONE INJECTING  ----------
+CraftItemScreen:RequirementsMet+3b: 85 C0                 - test eax,eax
+CraftItemScreen:RequirementsMet+3d: 74 0A                 - je CraftItemScreen:RequirementsMet+49
+CraftItemScreen:RequirementsMet+3f: B8 01 00 00 00        - mov eax,00000001
+CraftItemScreen:RequirementsMet+44: E9 43 02 00 00        - jmp CraftItemScreen:RequirementsMet+28c
+CraftItemScreen:RequirementsMet+49: B8 01 00 00 00        - mov eax,00000001
+CraftItemScreen:RequirementsMet+4e: 40 88 45 B0           - mov [rbp-50],al
+CraftItemScreen:RequirementsMet+52: 0F B6 86 A4 00 00 00  - movzx eax,byte ptr [rsi+000000A4]
+CraftItemScreen:RequirementsMet+59: 85 C0                 - test eax,eax
+CraftItemScreen:RequirementsMet+5b: 0F 85 FA 01 00 00     - jne CraftItemScreen:RequirementsMet+25b
+CraftItemScreen:RequirementsMet+61: 48 8B 86 80 00 00 00  - mov rax,[rsi+00000080]
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337111434</ID>
+                                      <Description>"-&gt;"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Flag</Address>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>1337111435</ID>
+                                          <Description>"Item[0]"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <Color>00FFFF</Color>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Flag</Address>
+                                          <Offsets>
+                                            <Offset>20</Offset>
+                                            <Offset>10</Offset>
+                                            <Offset>18</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337111436</ID>
+                                              <Description>"Value"</Description>
+                                              <Color>FFFF80</Color>
+                                              <VariableType>String</VariableType>
+                                              <Length>128</Length>
+                                              <Unicode>1</Unicode>
+                                              <CodePage>0</CodePage>
+                                              <ZeroTerminate>1</ZeroTerminate>
+                                              <Address>Flag</Address>
+                                              <Offsets>
+                                                <Offset>14</Offset>
+                                                <Offset>18</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>18</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111437</ID>
+                                              <Description>"Value"</Description>
+                                              <Color>FFFF80</Color>
+                                              <VariableType>String</VariableType>
+                                              <Length>128</Length>
+                                              <Unicode>1</Unicode>
+                                              <CodePage>0</CodePage>
+                                              <ZeroTerminate>1</ZeroTerminate>
+                                              <Address>Flag</Address>
+                                              <Offsets>
+                                                <Offset>14</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>18</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111442</ID>
+                                              <Description>"quantity"</Description>
+                                              <Color>FFFF80</Color>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Flag</Address>
+                                              <Offsets>
+                                                <Offset>3C</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>18</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111438</ID>
+                                          <Description>"Item[1]"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <Color>00FFFF</Color>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Flag</Address>
+                                          <Offsets>
+                                            <Offset>28</Offset>
+                                            <Offset>10</Offset>
+                                            <Offset>18</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337111439</ID>
+                                              <Description>"Value"</Description>
+                                              <Color>FFFF80</Color>
+                                              <VariableType>String</VariableType>
+                                              <Length>128</Length>
+                                              <Unicode>1</Unicode>
+                                              <CodePage>0</CodePage>
+                                              <ZeroTerminate>1</ZeroTerminate>
+                                              <Address>Flag</Address>
+                                              <Offsets>
+                                                <Offset>14</Offset>
+                                                <Offset>18</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>18</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111440</ID>
+                                              <Description>"Value"</Description>
+                                              <Color>FFFF80</Color>
+                                              <VariableType>String</VariableType>
+                                              <Length>128</Length>
+                                              <Unicode>1</Unicode>
+                                              <CodePage>0</CodePage>
+                                              <ZeroTerminate>1</ZeroTerminate>
+                                              <Address>Flag</Address>
+                                              <Offsets>
+                                                <Offset>14</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>18</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111441</ID>
+                                              <Description>"quantity"</Description>
+                                              <Color>FFFF80</Color>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Flag</Address>
+                                              <Offsets>
+                                                <Offset>3C</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>18</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111443</ID>
+                                          <Description>"Item[2]"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <Color>00FFFF</Color>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Flag</Address>
+                                          <Offsets>
+                                            <Offset>30</Offset>
+                                            <Offset>10</Offset>
+                                            <Offset>18</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337111444</ID>
+                                              <Description>"Value"</Description>
+                                              <Color>FFFF80</Color>
+                                              <VariableType>String</VariableType>
+                                              <Length>128</Length>
+                                              <Unicode>1</Unicode>
+                                              <CodePage>0</CodePage>
+                                              <ZeroTerminate>1</ZeroTerminate>
+                                              <Address>Flag</Address>
+                                              <Offsets>
+                                                <Offset>14</Offset>
+                                                <Offset>18</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>18</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111445</ID>
+                                              <Description>"Value"</Description>
+                                              <Color>FFFF80</Color>
+                                              <VariableType>String</VariableType>
+                                              <Length>128</Length>
+                                              <Unicode>1</Unicode>
+                                              <CodePage>0</CodePage>
+                                              <ZeroTerminate>1</ZeroTerminate>
+                                              <Address>Flag</Address>
+                                              <Offsets>
+                                                <Offset>14</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>18</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111446</ID>
+                                              <Description>"quantity"</Description>
+                                              <Color>FFFF80</Color>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Flag</Address>
+                                              <Offsets>
+                                                <Offset>3C</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>18</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111447</ID>
+                                          <Description>"Item[3]"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <Color>00FFFF</Color>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Flag</Address>
+                                          <Offsets>
+                                            <Offset>38</Offset>
+                                            <Offset>10</Offset>
+                                            <Offset>18</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337111448</ID>
+                                              <Description>"Value"</Description>
+                                              <Color>FFFF80</Color>
+                                              <VariableType>String</VariableType>
+                                              <Length>128</Length>
+                                              <Unicode>1</Unicode>
+                                              <CodePage>0</CodePage>
+                                              <ZeroTerminate>1</ZeroTerminate>
+                                              <Address>Flag</Address>
+                                              <Offsets>
+                                                <Offset>14</Offset>
+                                                <Offset>18</Offset>
+                                                <Offset>38</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>18</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111449</ID>
+                                              <Description>"Value"</Description>
+                                              <Color>FFFF80</Color>
+                                              <VariableType>String</VariableType>
+                                              <Length>128</Length>
+                                              <Unicode>1</Unicode>
+                                              <CodePage>0</CodePage>
+                                              <ZeroTerminate>1</ZeroTerminate>
+                                              <Address>Flag</Address>
+                                              <Offsets>
+                                                <Offset>14</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>38</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>18</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337111450</ID>
+                                              <Description>"quantity"</Description>
+                                              <Color>FFFF80</Color>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Flag</Address>
+                                              <Offsets>
+                                                <Offset>3C</Offset>
+                                                <Offset>38</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>18</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337111451</ID>
+                                  <Description>"Set Currency"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <Color>FF8080</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Eternal Edge +.exe
+  Version: 
+  Date   : 2023-12-15
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanregion(Duill_hook,Garland.EntityControl.World.Inventory:AddMoney+04,Garland.EntityControl.World.Inventory:AddMoney+ff,48 63 80 B4 00 00 00 3D 9F 86 01 00 0F) // should be unique
+alloc(newmem,$1000,Duill_hook)
+registersymbol(Duill_hook Money_lol Costa)
+label(code Costa Money_lol)
+label(return)
+
+newmem:
+mov [Money_lol],rax
+mov [rax+000000B4],Costa
+jmp return
+
+
+Costa:
+dd
+
+
+Money_lol:
+dq 0
+
+code:
+  movsxd  rax,dword ptr [rax+000000B4]
+  jmp return
+
+Duill_hook:
+  jmp newmem
+  nop 2
+return:
+
+
+[DISABLE]
+
+Duill_hook:
+  db 48 63 80 B4 00 00 00
+
+unregistersymbol(Duill_hook Costa Money_lol)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Garland.EntityControl.World.Inventory:AddMoney+27
+
+Garland.EntityControl.World.Inventory:AddMoney: 55                             - push rbp
+Garland.EntityControl.World.Inventory:AddMoney+1: 48 8B EC                       - mov rbp,rsp
+Garland.EntityControl.World.Inventory:AddMoney+4: 48 83 EC 30                    - sub rsp,30
+Garland.EntityControl.World.Inventory:AddMoney+8: 48 89 75 F0                    - mov [rbp-10],rsi
+Garland.EntityControl.World.Inventory:AddMoney+c: 48 89 7D F8                    - mov [rbp-08],rdi
+Garland.EntityControl.World.Inventory:AddMoney+10: 48 8B F9                       - mov rdi,rcx
+Garland.EntityControl.World.Inventory:AddMoney+13: 48 8B F2                       - mov rsi,rdx
+Garland.EntityControl.World.Inventory:AddMoney+16: 48 B8 C8 2C ED 59 00 02 00 00  - mov rax,0000020059ED2CC8
+Garland.EntityControl.World.Inventory:AddMoney+20: 48 8B 00                       - mov rax,[rax]
+Garland.EntityControl.World.Inventory:AddMoney+23: 48 8B 40 18                    - mov rax,[rax+18]
+// ---------- INJECTING HERE ----------
+Garland.EntityControl.World.Inventory:AddMoney+27: 48 63 80 B4 00 00 00           - movsxd  rax,dword ptr [rax+000000B4]
+// ---------- DONE INJECTING  ----------
+Garland.EntityControl.World.Inventory:AddMoney+2e: 3D 9F 86 01 00                 - cmp eax,0001869F
+Garland.EntityControl.World.Inventory:AddMoney+33: 0F 8D CB 00 00 00              - jnl Garland.EntityControl.World.Inventory:AddMoney+104
+Garland.EntityControl.World.Inventory:AddMoney+39: 48 8B 4F 50                    - mov rcx,[rdi+50]
+Garland.EntityControl.World.Inventory:AddMoney+3d: 90                             - nop 
+Garland.EntityControl.World.Inventory:AddMoney+3e: 49 BB 80 40 FB 2C 02 02 00 00  - mov r11,UnityEngine.Object:op_Implicit
+Garland.EntityControl.World.Inventory:AddMoney+48: 41 FF D3                       - call r11
+Garland.EntityControl.World.Inventory:AddMoney+4b: 85 C0                          - test eax,eax
+Garland.EntityControl.World.Inventory:AddMoney+4d: 74 1C                          - je Garland.EntityControl.World.Inventory:AddMoney+6b
+Garland.EntityControl.World.Inventory:AddMoney+4f: 48 8B 47 50                    - mov rax,[rdi+50]
+Garland.EntityControl.World.Inventory:AddMoney+53: 48 8B C8                       - mov rcx,rax
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337111453</ID>
+                                      <Description>"-&gt;"</Description>
+                                      <Options moManualExpandCollapse="1"/>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Money_lol</Address>
+                                      <Offsets>
+                                        <Offset>0</Offset>
+                                      </Offsets>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>1337111454</ID>
+                                          <Description>"hasCloak"</Description>
+                                          <VariableType>Byte</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>B0</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111455</ID>
+                                          <Description>"hasClosingDistance"</Description>
+                                          <VariableType>Byte</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>B1</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111456</ID>
+                                          <Description>"hasRevolver"</Description>
+                                          <VariableType>Byte</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>B2</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111457</ID>
+                                          <Description>"money"</Description>
+                                          <VariableType>4 Bytes</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>B4</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111458</ID>
+                                          <Description>"maxBombSlots"</Description>
+                                          <VariableType>4 Bytes</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>B8</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111459</ID>
+                                          <Description>"maxBoltSlots"</Description>
+                                          <VariableType>4 Bytes</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>BC</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111460</ID>
+                                          <Description>"worldPosition_x"</Description>
+                                          <Color>FFFF00</Color>
+                                          <VariableType>Float</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>C0</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111461</ID>
+                                          <Description>"worldPosition_y"</Description>
+                                          <Color>FFFF00</Color>
+                                          <VariableType>Float</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>C4</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111462</ID>
+                                          <Description>"worldPosition_z"</Description>
+                                          <Color>FFFF00</Color>
+                                          <VariableType>Float</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>C8</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111463</ID>
+                                          <Description>"worldTerrainActive"</Description>
+                                          <VariableType>Byte</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>CC</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111464</ID>
+                                          <Description>"currentExp"</Description>
+                                          <VariableType>4 Bytes</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>D8</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111465</ID>
+                                          <Description>"num_heartContainers"</Description>
+                                          <VariableType>4 Bytes</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>FC</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337111466</ID>
+                                          <Description>"num_staminaContainers"</Description>
+                                          <VariableType>4 Bytes</VariableType>
+                                          <Address>Money_lol</Address>
+                                          <Offsets>
+                                            <Offset>100</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337111467</ID>
+                                  <Description>"Increment Stat"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <Color>FF8000</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Eternal Edge +.exe
+  Version: 
+  Date   : 2023-12-17
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanregion(Stat_points,EssenceUpgradeScreen:IncrementStat+04,EssenceUpgradeScreen:IncrementStat+560,48 63 47 60 FF C8) // should be unique
+alloc(newmem,$1000,Stat_points)
+registersymbol(Stat_points Stats_pt)
+label(code Stats_pt)
+label(return)
+
+newmem:
+mov [Stats_pt],rdi
+mov [rdi+60],1337
+jmp return
+
+Stats_pt:
+dq 0
+
+code:
+  movsxd  rax,dword ptr [rdi+60]
+  dec eax
+  jmp return
+
+Stat_points:
+  jmp newmem
+  nop
+return:
+
+
+[DISABLE]
+
+Stat_points:
+  db 48 63 47 60 FF C8
+
+unregistersymbol(Stat_points Stats_pt)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: EssenceUpgradeScreen:IncrementStat+204
+
+EssenceUpgradeScreen:IncrementStat+1d6: 48 8B 40 58                    - mov rax,[rax+58]
+EssenceUpgradeScreen:IncrementStat+1da: 48 8B 40 28                    - mov rax,[rax+28]
+EssenceUpgradeScreen:IncrementStat+1de: 48 8B C8                       - mov rcx,rax
+EssenceUpgradeScreen:IncrementStat+1e1: 48 8B D6                       - mov rdx,rsi
+EssenceUpgradeScreen:IncrementStat+1e4: 83 38 00                       - cmp dword ptr [rax],00
+EssenceUpgradeScreen:IncrementStat+1e7: 48 8D AD 00 00 00 00           - lea rbp,[rbp+00000000]
+EssenceUpgradeScreen:IncrementStat+1ee: 49 BB C0 51 C5 2F 0F 02 00 00  - mov r11,0000020F2FC551C0
+EssenceUpgradeScreen:IncrementStat+1f8: 41 FF D3                       - call r11
+EssenceUpgradeScreen:IncrementStat+1fb: 83 F8 14                       - cmp eax,14
+EssenceUpgradeScreen:IncrementStat+1fe: 0F 8D 37 01 00 00              - jnl EssenceUpgradeScreen:IncrementStat+33b
+// ---------- INJECTING HERE ----------
+EssenceUpgradeScreen:IncrementStat+204: 48 63 47 60                    - movsxd  rax,dword ptr [rdi+60]
+// ---------- DONE INJECTING  ----------
+EssenceUpgradeScreen:IncrementStat+208: FF C8                          - dec eax
+EssenceUpgradeScreen:IncrementStat+20a: 89 47 60                       - mov [rdi+60],eax
+EssenceUpgradeScreen:IncrementStat+20d: 48 8B 47 48                    - mov rax,[rdi+48]
+EssenceUpgradeScreen:IncrementStat+211: 48 63 CE                       - movsxd  rcx,esi
+EssenceUpgradeScreen:IncrementStat+214: 39 48 18                       - cmp [rax+18],ecx
+EssenceUpgradeScreen:IncrementStat+217: 0F 86 4E 01 00 00              - jbe EssenceUpgradeScreen:IncrementStat+36b
+EssenceUpgradeScreen:IncrementStat+21d: 48 8D 44 88 20                 - lea rax,[rax+rcx*4+20]
+EssenceUpgradeScreen:IncrementStat+222: 48 63 08                       - movsxd  rcx,dword ptr [rax]
+EssenceUpgradeScreen:IncrementStat+225: FF C1                          - inc ecx
+EssenceUpgradeScreen:IncrementStat+227: 89 08                          - mov [rax],ecx
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337111468</ID>
+                                      <Description>"-&gt;"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Stats_pt</Address>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>1337111469</ID>
+                                          <Description>"remainingEssence"</Description>
+                                          <VariableType>4 Bytes</VariableType>
+                                          <Address>Stats_pt</Address>
+                                          <Offsets>
+                                            <Offset>60</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>1337111426</ID>
+                              <Description>"pointers"</Description>
+                              <Options moHideChildren="1"/>
+                              <GroupHeader>1</GroupHeader>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337111411</ID>
+                                  <Description>"scaleEnemyLevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Toon</Address>
+                                  <Offsets>
+                                    <Offset>248</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337111412</ID>
+                                  <Description>"isMultiplayer"</Description>
+                                  <VariableType>Byte</VariableType>
+                                  <Address>Toon</Address>
+                                  <Offsets>
+                                    <Offset>241</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337111413</ID>
+                                  <Description>"displayHealthBar"</Description>
+                                  <VariableType>Byte</VariableType>
+                                  <Address>Toon</Address>
+                                  <Offsets>
+                                    <Offset>242</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :movzx eax,byte ptr [rsi+000000A5]</Description>
+      <AddressString>23CA73D1BE4</AddressString>
+      <Before>
+        <Byte>B8</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>86</Byte>
+        <Byte>A5</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>0A</Byte>
+        <Byte>B8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of nop </Description>
+      <AddressString>23CA75E5866</AddressString>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>08</Byte>
+        <Byte>31</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>90</Byte>
+      </Actual>
+      <After>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>C3</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :call UnityPlayer.dll+EFC310</Description>
+      <AddressString>UnityPlayer.dll+53CF88</AddressString>
+      <Before>
+        <Byte>E9</Byte>
+        <Byte>72</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>83</Byte>
+        <Byte>F3</Byte>
+        <Byte>9B</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>88</Byte>
+        <Byte>64</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov r9d,[rsi+18]</Description>
+      <AddressString>UnityPlayer.dll+449E2C</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+        <Byte>41</Byte>
+        <Byte>FF</Byte>
+        <Byte>D2</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>8B</Byte>
+        <Byte>4E</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>79</Byte>
+        <Byte>24</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of xor eax,eax</Description>
+      <AddressString>UnityPlayer.dll+EB29C9</AddressString>
+      <Before>
+        <Byte>53</Byte>
+        <Byte>60</Byte>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of test rbx,rbx</Description>
+      <AddressString>UnityPlayer.dll+43F4C8</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>A8</Byte>
+        <Byte>A7</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>DB</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>45</Byte>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of test eax,eax</Description>
+      <AddressString>nvwgf2umx.dll+10D900</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>A0</Byte>
+        <Byte>2B</Byte>
+        <Byte>1C</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>88</Byte>
+        <Byte>8C</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov rdx,rsi</Description>
+      <AddressString>UnityPlayer.dll+EAFF94</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>60</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>D6</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+        <Byte>E8</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

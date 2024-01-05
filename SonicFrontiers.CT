@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2702</ID>
+      <Description>"Sonic Frontier [Steam]"</Description>
+      <Options moHideChildren="1" moManualExpandCollapse="1"/>
+      <Color>FFFF80</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2703</ID>
+          <Description>"Youtube"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://www.youtube.com/user/droelke");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2704</ID>
+          <Description>"OCT Profile"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://opencheattables.com/memberlist.php?mode=viewprofile&amp;u=85");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"Table Author:  XxDaRealSlimballinxX"</Description>
+              <Color>FC94B0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>40</ID>
+                  <Description>"Visit us today @ GBA Services!"</Description>
+                  <Color>C080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337110746</ID>
+                  <Description>"Discord  @ SlimBallin#1687"</Description>
+                  <Color>008080</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337110747</ID>
+              <Description>"[X] &lt;=== For Full Tool View"</Description>
+              <Options moManualExpandCollapse="1"/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+// Script Creaded By mgr.inz.Player On CE Forums
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>5</ID>
+                  <Description>"Cheats"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>9</ID>
+                      <Description>"xxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>72</ID>
+                          <Description>"Find BlckboardItem v1 [Rings}  [GODMODE]"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <Color>00FFFF</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : SonicFrontiers.exe
+  Version: 
+  Date   : 2022-11-12
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(Hood_Man,SonicFrontiers.exe,8B 4B 28 44 0F B6 F8) // should be unique
+alloc(newmem,$1000,Hood_Man)
+
+label(code TH_uG return)
+
+newmem:
+
+push r11
+mov r11,[rbx+24]  //Max Ring offset for Stage but different from Open World//
+mov [TH_uG],rbx
+mov [rbx+28],r11  //On-Hand Ring offset for Stage but different from Open World//
+   pop r11
+movzx r15d,al
+ jmp return
+
+
+
+code:
+  mov ecx,[rbx+28]
+  movzx r15d,al
+  jmp return
+
+TH_uG:
+dq 0
+
+Hood_Man:
+  jmp newmem
+  nop 2
+return:
+registersymbol(Hood_Man TH_uG)
+
+[DISABLE]
+
+Hood_Man:
+  db 8B 4B 28 44 0F B6 F8
+
+unregistersymbol(Hood_Man TH_uG)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SonicFrontiers.exe.code+84F460
+
+SonicFrontiers.exe.code+84F433: 0F 29 78 B8                 - movaps [rax-48],xmm7
+SonicFrontiers.exe.code+84F437: 44 0F 29 40 A8              - movaps [rax-58],xmm8
+SonicFrontiers.exe.code+84F43C: 44 0F 28 C2                 - movaps xmm8,xmm2
+SonicFrontiers.exe.code+84F440: 44 0F 29 48 98              - movaps [rax-68],xmm9
+SonicFrontiers.exe.code+84F445: 44 0F 29 50 88              - movaps [rax-78],xmm10
+SonicFrontiers.exe.code+84F44A: E8 E1 A0 01 00              - call SonicFrontiers.exe.code+869530
+SonicFrontiers.exe.code+84F44F: 49 8B 5E 30                 - mov rbx,[r14+30]
+SonicFrontiers.exe.code+84F453: BA 27 00 00 00              - mov edx,00000027
+SonicFrontiers.exe.code+84F458: 49 8B CE                    - mov rcx,r14
+SonicFrontiers.exe.code+84F45B: E8 70 BD 01 00              - call SonicFrontiers.exe.code+86B1D0
+// ---------- INJECTING HERE ----------
+SonicFrontiers.exe.code+84F460: 8B 4B 28                    - mov ecx,[rbx+28]
+// ---------- DONE INJECTING  ----------
+SonicFrontiers.exe.code+84F463: 44 0F B6 F8                 - movzx r15d,al
+SonicFrontiers.exe.code+84F467: F3 44 0F 10 0D D0 45 82 00  - movss xmm9,[SonicFrontiers.exe.xtext+12A40]
+SonicFrontiers.exe.code+84F470: F3 44 0F 10 15 BF 45 82 00  - movss xmm10,[SonicFrontiers.exe.xtext+12A38]
+SonicFrontiers.exe.code+84F479: 39 4B 24                    - cmp [rbx+24],ecx
+SonicFrontiers.exe.code+84F47C: 74 24                       - je SonicFrontiers.exe.code+84F4A2
+SonicFrontiers.exe.code+84F47E: 0F BE 4B 30                 - movsx ecx,byte ptr [rbx+30]
+SonicFrontiers.exe.code+84F482: 66 0F 6E C9                 - movd xmm1,ecx
+SonicFrontiers.exe.code+84F486: 0F BE 4B 31                 - movsx ecx,byte ptr [rbx+31]
+SonicFrontiers.exe.code+84F48A: 0F 5B C9                    - cvtdq2ps xmm1,xmm1
+SonicFrontiers.exe.code+84F48D: 66 0F 6E C1                 - movd xmm0,ecx
+}
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>56</ID>
+                              <Description>"Ring Multiplyer {Ring INF Rings] Infinite Health "</Description>
+                              <Color>FFFF00</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ Game   : SonicFrontiers.exe
+  Version: 
+  Date   : 2022-11-11
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,SonicFrontiers.exe,41 03 40 28 41 89 40 28 C3 41) // should be unique
+alloc(newmem,$100,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+mov eax,1
+  add eax,[r8+28]
+  mov [r8+28],eax
+  jmp return
+
+INJECT:
+  jmp code
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 41 03 40 28 41 89 40 28
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SonicFrontiers.exe.udata+6EC0665
+
+SonicFrontiers.exe.udata+6EC0645: 13 EC                 - adc ebp,esp
+SonicFrontiers.exe.udata+6EC0647: F0 5D                 - lock pop rbp
+SonicFrontiers.exe.udata+6EC0649: 0F 1F 80 00 00 00 00  - nop dword ptr [rax+00000000]
+SonicFrontiers.exe.udata+6EC0650: 4C 8B 41 30           - mov r8,[rcx+30]
+SonicFrontiers.exe.udata+6EC0654: 85 D2                 - test edx,edx
+SonicFrontiers.exe.udata+6EC0656: 7E 16                 - jle SonicFrontiers.exe.udata+6EC066E
+SonicFrontiers.exe.udata+6EC0658: 41 8B 40 24           - mov eax,[r8+24]
+SonicFrontiers.exe.udata+6EC065C: 41 2B 40 28           - sub eax,[r8+28]
+SonicFrontiers.exe.udata+6EC0660: 39 C2                 - cmp edx,eax
+SonicFrontiers.exe.udata+6EC0662: 0F 4C C2              - cmovl eax,edx
+// ---------- INJECTING HERE ----------
+SonicFrontiers.exe.udata+6EC0665: 41 03 40 28           - add eax,[r8+28]
+// ---------- DONE INJECTING  ----------
+SonicFrontiers.exe.udata+6EC0669: 41 89 40 28           - mov [r8+28],eax
+SonicFrontiers.exe.udata+6EC066D: C3                    - ret 
+SonicFrontiers.exe.udata+6EC066E: 41 8B 40 20           - mov eax,[r8+20]
+SonicFrontiers.exe.udata+6EC0672: 41 2B 40 28           - sub eax,[r8+28]
+SonicFrontiers.exe.udata+6EC0676: 39 D0                 - cmp eax,edx
+SonicFrontiers.exe.udata+6EC0678: 0F 4C C2              - cmovl eax,edx
+SonicFrontiers.exe.udata+6EC067B: 41 03 40 28           - add eax,[r8+28]
+SonicFrontiers.exe.udata+6EC067F: 41 89 40 28           - mov [r8+28],eax
+SonicFrontiers.exe.udata+6EC0683: C3                    - ret 
+SonicFrontiers.exe.udata+6EC0684: 25 2B D3 5B 9F        - and eax,9F5BD32B
+}
+</AssemblerScript>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>73</ID>
+                              <Description>"symbol ptr Aob = 8B 4B 28 44 0F B6 F8"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>000000</Color>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>TH_uG</Address>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>74</ID>
+                                  <Description>"app::player::BlackboardItem"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>TH_uG</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>76</ID>
+                                      <Description>"Ring Current Amount"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>28</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>75</ID>
+                                      <Description>"Ring Max Count"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>24</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>77</ID>
+                                      <Description>"Unsure is ring count check?"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>2C</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>78</ID>
+                                      <Description>"Pointer to instance of app::player::Blackboard"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>18</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>79</ID>
+                                      <Description>"Pointer to instance of app::player::BlackboardStatus"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>40</Offset>
+                                        <Offset>18</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>81</ID>
+                                      <Description>"Pointer to instance of app::game::GOCGravity"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>218</Offset>
+                                        <Offset>40</Offset>
+                                        <Offset>18</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>82</ID>
+                                      <Description>"Pointer to instance of app::physics::GOCMoveSphereColliderQuery"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>238</Offset>
+                                        <Offset>40</Offset>
+                                        <Offset>18</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>83</ID>
+                                      <Description>"Pointer to instance of app::player::Sonic"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>308</Offset>
+                                        <Offset>40</Offset>
+                                        <Offset>18</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>84</ID>
+                                      <Description>"Pointer to instance of app::player::GOCPlayerParameter"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>80</Offset>
+                                        <Offset>308</Offset>
+                                        <Offset>40</Offset>
+                                        <Offset>18</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>213</ID>
+                          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>201</ID>
+                              <Description>"Find game stage Timer v1"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <Color>4080FF</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ 
+  Game Executable   : SonicFrontiers.exe
+  Executable Version: 
+  Module Version    : 
+  Script Date       : 2022-11-13
+  Author 			: slimb
+}
+
+[ENABLE]
+
+aobscanmodule(aob_Clock_timer,SonicFrontiers.exe,F3 0F 11 49 28 38)
+registersymbol(aob_Clock_timer)
+alloc(newmem_Clock_timer,$100,aob_Clock_timer)
+label(return_Clock_timer)
+
+alloc(bkp_Clock_timer,5,aob_Clock_timer)
+registersymbol(bkp_Clock_timer)
+
+bkp_Clock_timer:
+  readmem(aob_Clock_timer,5)
+
+  registersymbol(Clock_timer_Pointer)
+newmem_Clock_timer:
+  mov [Clock_timer_Pointer],rcx
+
+cave_Clock_timer:
+  readmem(aob_Clock_timer,5)
+
+  xorps xmm1,xmm1
+  movss [rcx+28],xmm1
+
+  jmp return_Clock_timer
+  
+Clock_timer_Pointer:
+  dq 0
+
+aob_Clock_timer:
+  jmp newmem_Clock_timer
+return_Clock_timer:
+
+[DISABLE]
+
+aob_Clock_timer:
+  readmem(bkp_Clock_timer,5)
+
+unregistersymbol(aob_Clock_timer)
+unregistersymbol(bkp_Clock_timer)
+unregistersymbol(Clock_timer_Pointer)
+dealloc(newmem_Clock_timer)
+dealloc(bkp_Clock_timer)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SonicFrontiers.exe.code+18BF73
+
+SonicFrontiers.exe.code+18BF45: CC                       - int 3 
+SonicFrontiers.exe.code+18BF46: CC                       - int 3 
+SonicFrontiers.exe.code+18BF47: CC                       - int 3 
+SonicFrontiers.exe.code+18BF48: CC                       - int 3 
+SonicFrontiers.exe.code+18BF49: CC                       - int 3 
+SonicFrontiers.exe.code+18BF4A: CC                       - int 3 
+SonicFrontiers.exe.code+18BF4B: CC                       - int 3 
+SonicFrontiers.exe.code+18BF4C: CC                       - int 3 
+SonicFrontiers.exe.code+18BF4D: CC                       - int 3 
+SonicFrontiers.exe.code+18BF4E: CC                       - int 3 
+SonicFrontiers.exe.code+18BF4F: CC                       - int 3 
+SonicFrontiers.exe.code+18BF50: 48 83 EC 28              - sub rsp,28
+SonicFrontiers.exe.code+18BF54: 83 FA 01                 - cmp edx,01
+SonicFrontiers.exe.code+18BF57: 75 75                    - jne SonicFrontiers.exe.code+18BFCE
+SonicFrontiers.exe.code+18BF59: F6 41 30 02              - test byte ptr [rcx+30],02
+SonicFrontiers.exe.code+18BF5D: 75 6F                    - jne SonicFrontiers.exe.code+18BFCE
+SonicFrontiers.exe.code+18BF5F: F3 0F 10 49 28           - movss xmm1,[rcx+28]
+SonicFrontiers.exe.code+18BF64: F3 41 0F 58 08           - addss xmm1,[r8]
+SonicFrontiers.exe.code+18BF69: 48 89 5C 24 30           - mov [rsp+30],rbx
+SonicFrontiers.exe.code+18BF6E: 48 89 7C 24 20           - mov [rsp+20],rdi
+// ---------- INJECTING HERE ----------
+SonicFrontiers.exe.code+18BF73: F3 0F 11 49 28           - movss [rcx+28],xmm1
+// ---------- DONE INJECTING  ----------
+SonicFrontiers.exe.code+18BF78: 38 51 19                 - cmp [rcx+19],dl
+SonicFrontiers.exe.code+18BF7B: 75 13                    - jne SonicFrontiers.exe.code+18BF90
+SonicFrontiers.exe.code+18BF7D: F3 0F 10 41 1C           - movss xmm0,[rcx+1C]
+SonicFrontiers.exe.code+18BF82: F3 0F 5C C1              - subss xmm0,xmm1
+SonicFrontiers.exe.code+18BF86: 0F 28 C8                 - movaps xmm1,xmm0
+SonicFrontiers.exe.code+18BF89: 0F 57 C0                 - xorps xmm0,xmm0
+SonicFrontiers.exe.code+18BF8C: F3 0F 5F C8              - maxss xmm1,xmm0
+SonicFrontiers.exe.code+18BF90: F3 0F 59 0D 40 45 EF 00  - mulss xmm1,[SonicFrontiers.exe.xtext+1F4D8]
+SonicFrontiers.exe.code+18BF98: B8 BF 27 09 00           - mov eax,000927BF
+SonicFrontiers.exe.code+18BF9D: 48 8B 59 10              - mov rbx,[rcx+10]
+SonicFrontiers.exe.code+18BFA1: F3 0F 2C F9              - cvttss2si edi,xmm1
+SonicFrontiers.exe.code+18BFA5: 3B F8                    - cmp edi,eax
+SonicFrontiers.exe.code+18BFA7: 0F 4F F8                 - cmovg edi,eax
+SonicFrontiers.exe.code+18BFAA: E8 A1 C1 07 00           - call SonicFrontiers.exe.code+208150
+SonicFrontiers.exe.code+18BFAF: 48 8B D0                 - mov rdx,rax
+SonicFrontiers.exe.code+18BFB2: 48 8B CB                 - mov rcx,rbx
+SonicFrontiers.exe.code+18BFB5: E8 06 50 FE FF           - call SonicFrontiers.exe.code+170FC0
+SonicFrontiers.exe.code+18BFBA: 8B D7                    - mov edx,edi
+SonicFrontiers.exe.code+18BFBC: 48 8B C8                 - mov rcx,rax
+SonicFrontiers.exe.code+18BFBF: E8 7C BF 07 00           - call SonicFrontiers.exe.code+207F40
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>202</ID>
+                                  <Description>"symbol ptr"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <Color>000000</Color>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Clock_timer_Pointer</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>203</ID>
+                                      <Description>"Seconds timer"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Clock_timer_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>28</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>212</ID>
+                          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>207</ID>
+                              <Description>"Speed Boost v1"</Description>
+                              <Color>4080FF</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ 
+  Game Executable   : SonicFrontiers.exe
+  Executable Version: 
+  Module Version    : 
+  Script Date       : 2022-11-13
+  Author 			: slimb
+}
+
+[ENABLE]
+
+aobscanmodule(aob_No_End_Boost,SonicFrontiers.exe,F3 0F 11 4E 3C 0F)
+registersymbol(aob_No_End_Boost)
+alloc(newmem_No_End_Boost,$100,aob_No_End_Boost)
+label(return_No_End_Boost)
+
+alloc(bkp_No_End_Boost,5,aob_No_End_Boost)
+registersymbol(bkp_No_End_Boost)
+
+bkp_No_End_Boost:
+  readmem(aob_No_End_Boost,5)
+
+  registersymbol(No_End_Boost_Pointer)
+newmem_No_End_Boost:
+  mov [No_End_Boost_Pointer],rsi
+
+cave_No_End_Boost:
+  readmem(aob_No_End_Boost,5)
+
+  movss xmm1,[rsi+38]
+  movss [rsi+3C],xmm1
+
+  jmp return_No_End_Boost
+  
+No_End_Boost_Pointer:
+  dq 0
+
+aob_No_End_Boost:
+  jmp newmem_No_End_Boost
+return_No_End_Boost:
+
+[DISABLE]
+
+aob_No_End_Boost:
+  readmem(bkp_No_End_Boost,5)
+
+unregistersymbol(aob_No_End_Boost)
+unregistersymbol(bkp_No_End_Boost)
+unregistersymbol(No_End_Boost_Pointer)
+dealloc(newmem_No_End_Boost)
+dealloc(bkp_No_End_Boost)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SonicFrontiers.exe.code+84FE70
+
+SonicFrontiers.exe.code+84FE22: 75 03                 - jne SonicFrontiers.exe.code+84FE27
+SonicFrontiers.exe.code+84FE24: 49 8B C7              - mov rax,r15
+SonicFrontiers.exe.code+84FE27: F3 0F 10 10           - movss xmm2,[rax]
+SonicFrontiers.exe.code+84FE2B: F3 0F 59 56 4C        - mulss xmm2,[rsi+4C]
+SonicFrontiers.exe.code+84FE30: F3 41 0F 59 D0        - mulss xmm2,xmm8
+SonicFrontiers.exe.code+84FE35: 0F 57 15 F4 FF 82 00  - xorps xmm2,[SonicFrontiers.exe.xtext+1EE30]
+SonicFrontiers.exe.code+84FE3C: 0F 2F D6              - comiss xmm2,xmm6
+SonicFrontiers.exe.code+84FE3F: 76 15                 - jna SonicFrontiers.exe.code+84FE56
+SonicFrontiers.exe.code+84FE41: F3 0F 10 4E 38        - movss xmm1,[rsi+38]
+SonicFrontiers.exe.code+84FE46: F3 0F 5C 4E 3C        - subss xmm1,[rsi+3C]
+SonicFrontiers.exe.code+84FE4B: F3 0F 5D CA           - minss xmm1,xmm2
+SonicFrontiers.exe.code+84FE4F: F3 0F 58 4E 3C        - addss xmm1,[rsi+3C]
+SonicFrontiers.exe.code+84FE54: EB 1A                 - jmp SonicFrontiers.exe.code+84FE70
+SonicFrontiers.exe.code+84FE56: F3 0F 10 4E 3C        - movss xmm1,[rsi+3C]
+SonicFrontiers.exe.code+84FE5B: F3 0F 10 46 34        - movss xmm0,[rsi+34]
+SonicFrontiers.exe.code+84FE60: F3 0F 5C C1           - subss xmm0,xmm1
+SonicFrontiers.exe.code+84FE64: 0F 2F C2              - comiss xmm0,xmm2
+SonicFrontiers.exe.code+84FE67: 72 03                 - jb SonicFrontiers.exe.code+84FE6C
+SonicFrontiers.exe.code+84FE69: 0F 28 D0              - movaps xmm2,xmm0
+SonicFrontiers.exe.code+84FE6C: F3 0F 58 CA           - addss xmm1,xmm2
+// ---------- INJECTING HERE ----------
+SonicFrontiers.exe.code+84FE70: F3 0F 11 4E 3C        - movss [rsi+3C],xmm1
+// ---------- DONE INJECTING  ----------
+SonicFrontiers.exe.code+84FE75: 0F BE 4E 7A           - movsx ecx,byte ptr [rsi+7A]
+SonicFrontiers.exe.code+84FE79: 85 C9                 - test ecx,ecx
+SonicFrontiers.exe.code+84FE7B: 74 0A                 - je SonicFrontiers.exe.code+84FE87
+SonicFrontiers.exe.code+84FE7D: 83 F9 01              - cmp ecx,01
+SonicFrontiers.exe.code+84FE80: 74 18                 - je SonicFrontiers.exe.code+84FE9A
+SonicFrontiers.exe.code+84FE82: E9 D9 00 00 00        - jmp SonicFrontiers.exe.code+84FF60
+SonicFrontiers.exe.code+84FE87: 48 8B 4E 20           - mov rcx,[rsi+20]
+SonicFrontiers.exe.code+84FE8B: 33 D2                 - xor edx,edx
+SonicFrontiers.exe.code+84FE8D: E8 FE B2 01 00        - call SonicFrontiers.exe.code+86B190
+SonicFrontiers.exe.code+84FE92: 84 C0                 - test al,al
+SonicFrontiers.exe.code+84FE94: 0F 85 C6 00 00 00     - jne SonicFrontiers.exe.code+84FF60
+SonicFrontiers.exe.code+84FE9A: 48 83 7E 60 00        - cmp qword ptr [rsi+60],00
+SonicFrontiers.exe.code+84FE9F: 48 8B 7E 20           - mov rdi,[rsi+20]
+SonicFrontiers.exe.code+84FEA3: 48 8B CF              - mov rcx,rdi
+SonicFrontiers.exe.code+84FEA6: 75 3D                 - jne SonicFrontiers.exe.code+84FEE5
+SonicFrontiers.exe.code+84FEA8: E8 03 0F 9A FF        - call SonicFrontiers.exe.code+1F0DB0
+SonicFrontiers.exe.code+84FEAD: 48 8B D8              - mov rbx,rax
+SonicFrontiers.exe.code+84FEB0: E8 0B F3 F4 FF        - call SonicFrontiers.exe.code+79F1C0
+SonicFrontiers.exe.code+84FEB5: 48 8B D0              - mov rdx,rax
+SonicFrontiers.exe.code+84FEB8: 48 8B CB              - mov rcx,rbx
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>208</ID>
+                                  <Description>"symbol ptr"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <Color>000000</Color>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>No_End_Boost_Pointer</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>210</ID>
+                                      <Description>"Boost Current"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>No_End_Boost_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>3C</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>209</ID>
+                                      <Description>"Boost Max"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>No_End_Boost_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>38</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110748</ID>
+                          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>114</ID>
+                              <Description>"xxx Sonic Items xxx"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <Color>FFFF00</Color>
+                              <GroupHeader>1</GroupHeader>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>111</ID>
+                                  <Description>"Level"</Description>
+                                  <Color>0080FF</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>1C543EAC0+20</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>110</ID>
+                                  <Description>"Heart [red] orbs"</Description>
+                                  <Color>8080FF</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>1C543EAC0</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>112</ID>
+                                  <Description>"Defence [blue] orbs"</Description>
+                                  <Color>FFFF00</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>1C543EAC0+4</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>113</ID>
+                                  <Description>"Fish [Hook] Tokens"</Description>
+                                  <Color>FF8080</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>1C543EAC0+8</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>126</ID>
+                                  <Description>"Golden Tickets"</Description>
+                                  <Color>00FFFF</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>1C543EAC0+C</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>105</ID>
+                                  <Description>"Total Rings Picked UP"</Description>
+                                  <Color>40FF00</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>SonicFrontiers.exe+3E4EDEC</Address>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov [rax+30],edx</Description>
+      <AddressString>SonicFrontiers.exe+95A1A4</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi+000000F0],esi</Description>
+      <AddressString>SonicFrontiers.exe+6D04C0</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>18</Byte>
+        <Byte>33</Byte>
+        <Byte>F6</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>B7</Byte>
+        <Byte>F0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>B7</Byte>
+        <Byte>F8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :add [rdi+000000F0],ebx</Description>
+      <AddressString>SonicFrontiers.exe+6D1558</AddressString>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>48</Byte>
+        <Byte>0F</Byte>
+        <Byte>2C</Byte>
+        <Byte>DA</Byte>
+      </Before>
+      <Actual>
+        <Byte>01</Byte>
+        <Byte>9F</Byte>
+        <Byte>F0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4D</Byte>
+        <Byte>87</Byte>
+        <Byte>4C</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>Game.Executable.Path</Name>
+      <Address>7FFA631E0ACB</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ExePath::ASM</Name>
+      <Address>7FFA631E0ACB</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ExePath::BASE</Name>
+      <Address>7FFA644AADC0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Game.Executable.Launch</Name>
+      <Address>7FFB3D359580</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ExeLaunch::ASM</Name>
+      <Address>7FFB3D359580</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ExeLaunch::BASE</Name>
+      <Address>7FFB3D3FE110</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

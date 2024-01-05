@@ -1,0 +1,1212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2702</ID>
+      <Description>"ElderBorn [Steam]"</Description>
+      <Options moHideChildren="1"/>
+      <Color>FFFF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2703</ID>
+          <Description>"Youtube"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://www.youtube.com/user/droelke");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2704</ID>
+          <Description>"OCT Profile"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://opencheattables.com/memberlist.php?mode=viewprofile&amp;u=85");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2705</ID>
+          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2706</ID>
+              <Description>"Table Author:  XxDaRealSlimballinxX"</Description>
+              <Color>FC94B0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>2707</ID>
+                  <Description>"Visit us today @ GBA Services!"</Description>
+                  <Color>C080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337110746</ID>
+                  <Description>"Discord  @ DaRealSlimballin"</Description>
+                  <Color>008080</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337110747</ID>
+              <Description>"[X] &lt;=== For Full Tool View"</Description>
+              <Options moManualExpandCollapse="1"/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+// Script Creaded By mgr.inz.Player On CE Forums
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337110748</ID>
+                  <Description>"Cheats"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337110749</ID>
+                      <Description>"xxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>33</ID>
+                          <Description>"ElderBorn [Steam]"</Description>
+                          <Options moHideChildren="1" moManualExpandCollapse="1"/>
+                          <Color>00FFFF</Color>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>40</ID>
+                              <Description>"Mono Link"</Description>
+                              <Options moActivateChildrenAsWell="1"/>
+                              <Color>FF80FF</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>[ENABLE]
+
+{$lua}
+if not monopipe then LaunchMonoDataCollector() end
+{$ASM}
+
+ 
+ 
+[DISABLE]
+
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>3</ID>
+                                  <Description>"GodMode + Struts"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <Color>C080FF</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Elderborn.exe
+  Version: 
+  Date   : 2023-10-31
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(God_mode,0F B6 80 F0 01 00 00) // should be unique
+alloc(newmem,$1000,God_mode)
+
+label(code Dax_pet3r pussy)
+label(return)
+
+newmem:
+cmp [rax+1f4],00000000
+jne code
+mov [Dax_pet3r],rax
+mov [rax+554],00//Is Targetable
+jmp return
+
+Dax_pet3r:
+dq 0
+
+pussy:
+mov [rax+38+68],0
+jmp return
+
+code:
+  movzx eax,byte ptr [rax+000001F0]
+  jmp return
+
+God_mode:
+  jmp newmem
+  nop 2
+return:
+registersymbol(God_mode Dax_pet3r pussy)
+
+[DISABLE]
+
+God_mode:
+  db 0F B6 80 F0 01 00 00
+
+unregistersymbol(God_mode Dax_pet3r pussy)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Hyperstrange.Combatant:get_GodMode+b
+
+System.Collections.Generic.Dictionary`2[Hyperstrange.Damage+DamageTypeEnum,System.Single]:FindEntry+19e: EB D6                 - jmp System.Collections.Generic.Dictionary`2[Hyperstrange.Damage+DamageTypeEnum,System.Single]:FindEntry+176
+1D00E54CFB0: 01 04 02              - add [rdx+rax],eax
+1D00E54CFB3: 05 04 03 01 50        - add eax,50010304
+1D00E54CFB8: 00 00                 - add [rax],al
+1D00E54CFBA: 00 00                 - add [rax],al
+1D00E54CFBC: 00 00                 - add [rax],al
+1D00E54CFBE: 00 00                 - add [rax],al
+Hyperstrange.Combatant:get_GodMode: 48 83 EC 08           - sub rsp,08
+Hyperstrange.Combatant:get_GodMode+4: 48 89 0C 24           - mov [rsp],rcx
+Hyperstrange.Combatant:get_GodMode+8: 48 8B C1              - mov rax,rcx
+// ---------- INJECTING HERE ----------
+Hyperstrange.Combatant:get_GodMode+b: 0F B6 80 F0 01 00 00  - movzx eax,byte ptr [rax+000001F0]
+// ---------- DONE INJECTING  ----------
+Hyperstrange.Combatant:get_GodMode+12: 48 83 C4 08           - add rsp,08
+Hyperstrange.Combatant:get_GodMode+16: C3                    - ret 
+1D00E54CFD7: 00 01                 - add [rcx],al
+1D00E54CFD9: 04 01                 - add al,01
+1D00E54CFDB: 00 04 02              - add [rdx+rax],al
+1D00E54CFDE: 00 00                 - add [rax],al
+1D00E54CFE0: 00 00                 - add [rax],al
+1D00E54CFE2: 00 00                 - add [rax],al
+1D00E54CFE4: 00 00                 - add [rax],al
+1D00E54CFE6: 00 00                 - add [rax],al
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>4</ID>
+                                      <Description>"-&gt;"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Dax_pet3r</Address>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>5</ID>
+                                          <Description>"[30] Actor"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <Color>00FF00</Color>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Dax_pet3r</Address>
+                                          <Offsets>
+                                            <Offset>38</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>6</ID>
+                                              <Description>"baseHitPoints"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>60</Offset>
+                                                <Offset>38</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>7</ID>
+                                              <Description>"MaxHitPoints"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>64</Offset>
+                                                <Offset>38</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>8</ID>
+                                              <Description>"_currentHitPoints"</Description>
+                                              <ShowAsSigned>0</ShowAsSigned>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>68</Offset>
+                                                <Offset>38</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>27</ID>
+                                              <Description>"spawnDuration"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>548</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>28</ID>
+                                              <Description>"deathDuration"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>54C</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>30</ID>
+                                              <Description>"isTargettable"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>554</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>31</ID>
+                                              <Description>"&lt;IsInShrineRange&gt;k__BackingField"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>555</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>29</ID>
+                                              <Description>"&lt;NewGamePlus&gt;k__BackingField"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>550</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>9</ID>
+                                          <Description>"stats"</Description>
+                                          <Options moHideChildren="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <Color>00FFFF</Color>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Dax_pet3r</Address>
+                                          <Offsets>
+                                            <Offset>508</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>10</ID>
+                                              <Description>"bountyBase"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>58</Offset>
+                                                <Offset>508</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>11</ID>
+                                              <Description>"bountyExponent"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>5C</Offset>
+                                                <Offset>508</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>12</ID>
+                                              <Description>"_firstPerkLevel"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>60</Offset>
+                                                <Offset>508</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>13</ID>
+                                              <Description>"_secondPerkLevel"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>64</Offset>
+                                                <Offset>508</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>14</ID>
+                                              <Description>"_thirdPerkLevel"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>68</Offset>
+                                                <Offset>508</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>15</ID>
+                                              <Description>"_currentBounty"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>70</Offset>
+                                                <Offset>508</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>23</ID>
+                                          <Description>"inventoryController"</Description>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Dax_pet3r</Address>
+                                          <Offsets>
+                                            <Offset>510</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>24</ID>
+                                          <Description>"weaponController"</Description>
+                                          <Options moHideChildren="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Dax_pet3r</Address>
+                                          <Offsets>
+                                            <Offset>520</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>25</ID>
+                                              <Description>"_currentWeapon"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>68</Offset>
+                                                <Offset>520</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>26</ID>
+                                              <Description>"&lt;DamageEnabled&gt;k__BackingField"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>78</Offset>
+                                                <Offset>68</Offset>
+                                                <Offset>520</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>32</ID>
+                                          <Description>"Skill pointers"</Description>
+                                          <Options moHideChildren="1"/>
+                                          <Color>FFFF00</Color>
+                                          <GroupHeader>1</GroupHeader>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>16</ID>
+                                              <Description>"skill_RipOffLimb"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>40</Offset>
+                                                <Offset>40</Offset>
+                                                <Offset>508</Offset>
+                                              </Offsets>
+                                              <CheatEntries>
+                                                <CheatEntry>
+                                                  <ID>17</ID>
+                                                  <Description>"unlocked"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Dax_pet3r</Address>
+                                                  <Offsets>
+                                                    <Offset>59</Offset>
+                                                    <Offset>40</Offset>
+                                                    <Offset>40</Offset>
+                                                    <Offset>508</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                              </CheatEntries>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>18</ID>
+                                              <Description>"skill_Charge"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>38</Offset>
+                                                <Offset>40</Offset>
+                                                <Offset>508</Offset>
+                                              </Offsets>
+                                              <CheatEntries>
+                                                <CheatEntry>
+                                                  <ID>19</ID>
+                                                  <Description>"unlocked"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Dax_pet3r</Address>
+                                                  <Offsets>
+                                                    <Offset>59</Offset>
+                                                    <Offset>38</Offset>
+                                                    <Offset>40</Offset>
+                                                    <Offset>508</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>20</ID>
+                                                  <Description>"attributesToUnlock"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Dax_pet3r</Address>
+                                                  <Offsets>
+                                                    <Offset>5C</Offset>
+                                                    <Offset>38</Offset>
+                                                    <Offset>40</Offset>
+                                                    <Offset>508</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                              </CheatEntries>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>21</ID>
+                                              <Description>"skill_Stomp"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Dax_pet3r</Address>
+                                              <Offsets>
+                                                <Offset>48</Offset>
+                                                <Offset>40</Offset>
+                                                <Offset>508</Offset>
+                                              </Offsets>
+                                              <CheatEntries>
+                                                <CheatEntry>
+                                                  <ID>22</ID>
+                                                  <Description>"unlocked"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>Dax_pet3r</Address>
+                                                  <Offsets>
+                                                    <Offset>59</Offset>
+                                                    <Offset>48</Offset>
+                                                    <Offset>40</Offset>
+                                                    <Offset>508</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                              </CheatEntries>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>39</ID>
+                                  <Description>"AI_Controls"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript>{ Game   : Elderborn.exe
+  Version: 
+  Date   : 2023-11-09
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanregion(AI_lvler,Hyperstrange.Npc:get_PowerLevel+04,Hyperstrange.Npc:get_PowerLevel+40,F3 0F 10 80 E4 02 00 00 F3 0F) // should be unique
+alloc(newmem,$1000,AI_lvler)
+registersymbol(AI_lvler Clown)
+label(code Clown)
+label(return)
+
+newmem:
+mov [Clown],rax
+mov [Clown+000002E4],(float)0.000001//powerLevel
+mov [Clown+000001f1],1//alreadyDead
+jmp return
+
+Clown:
+dq 0
+
+code:
+  movss xmm0,[rax+000002E4]
+  jmp return
+
+AI_lvler:
+  jmp newmem
+  nop 3
+return:
+
+
+[DISABLE]
+
+AI_lvler:
+  db F3 0F 10 80 E4 02 00 00
+
+unregistersymbol(AI_lvler Clown)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Hyperstrange.Npc:get_PowerLevel+b
+
+1E7B1C78442: 00 00                    - add [rax],al
+1E7B1C78444: 00 00                    - add [rax],al
+1E7B1C78446: 00 00                    - add [rax],al
+1E7B1C78448: 00 00                    - add [rax],al
+1E7B1C7844A: 00 00                    - add [rax],al
+1E7B1C7844C: 00 00                    - add [rax],al
+1E7B1C7844E: 00 00                    - add [rax],al
+Hyperstrange.Npc:get_PowerLevel: 48 83 EC 08              - sub rsp,08
+Hyperstrange.Npc:get_PowerLevel+4: 48 89 0C 24              - mov [rsp],rcx
+Hyperstrange.Npc:get_PowerLevel+8: 48 8B C1                 - mov rax,rcx
+// ---------- INJECTING HERE ----------
+Hyperstrange.Npc:get_PowerLevel+b: F3 0F 10 80 E4 02 00 00  - movss xmm0,[rax+000002E4]
+// ---------- DONE INJECTING  ----------
+Hyperstrange.Npc:get_PowerLevel+13: F3 0F 5A C0              - cvtss2sd xmm0,xmm0
+Hyperstrange.Npc:get_PowerLevel+17: F2 0F 5A C0              - cvtsd2ss xmm0,xmm0
+Hyperstrange.Npc:get_PowerLevel+1b: 48 83 C4 08              - add rsp,08
+Hyperstrange.Npc:get_PowerLevel+1f: C3                       - ret 
+1E7B1C78470: 01 04 01                 - add [rcx+rax],eax
+1E7B1C78473: 00 04 02                 - add [rdx+rax],al
+1E7B1C78476: 00 00                    - add [rax],al
+1E7B1C78478: 00 00                    - add [rax],al
+1E7B1C7847A: 00 00                    - add [rax],al
+1E7B1C7847C: 00 00                    - add [rax],al
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>41</ID>
+                                      <Description>"-&gt;"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Clown</Address>
+                                      <Offsets>
+                                        <Offset>0</Offset>
+                                      </Offsets>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>42</ID>
+                                          <Description>"isTargettable"</Description>
+                                          <VariableType>Byte</VariableType>
+                                          <Address>Clown</Address>
+                                          <Offsets>
+                                            <Offset>554</Offset>
+                                            <Offset>40</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>43</ID>
+                                          <Description>"alreadyDead"</Description>
+                                          <VariableType>Byte</VariableType>
+                                          <Address>Clown</Address>
+                                          <Offsets>
+                                            <Offset>1F1</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>44</ID>
+                                          <Description>"powerLevel"</Description>
+                                          <VariableType>Float</VariableType>
+                                          <Address>Clown</Address>
+                                          <Offsets>
+                                            <Offset>2E4</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>45</ID>
+                                  <Description>"CurrentAttackDamage"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <Color>80FF00</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Elderborn.exe
+  Version: 
+  Date   : 2023-11-09
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanregion(Attack_hits,Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+04,Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+40,48 8B F1 48 8B 86 A0 00 00 00 48 8B C8 83 38 00 66) // should be unique
+alloc(newmem,$1000,Attack_hits)
+
+label(code Weapon_tuner)
+label(return)
+
+newmem:
+mov [Weapon_tuner],rsi
+mov [Weapon_tuner+00000078],1//DamageEnabled
+//mov [Weapon_tuner+000000A0]
+jmp code
+
+Weapon_tuner:
+dq 0
+
+code:
+mov rsi,rcx
+  mov rax,[rsi+000000A0]
+  jmp return
+
+Attack_hits+3:
+  jmp newmem
+  nop 2
+return:
+registersymbol(Attack_hits Weapon_tuner)
+
+[DISABLE]
+
+Attack_hits+3:
+  db 48 8B 86 A0 00 00 00
+
+unregistersymbol(Attack_hits Weapon_tuner)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+f
+
+1E7B1C07266: 00 00                          - add [rax],al
+1E7B1C07268: 00 00                          - add [rax],al
+1E7B1C0726A: 00 00                          - add [rax],al
+1E7B1C0726C: 00 00                          - add [rax],al
+1E7B1C0726E: 00 00                          - add [rax],al
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage: 55                             - push rbp
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+1: 48 8B EC                       - mov rbp,rsp
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+4: 48 83 EC 30                    - sub rsp,30
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+8: 48 89 75 F8                    - mov [rbp-08],rsi
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+c: 48 8B F1                       - mov rsi,rcx
+// ---------- INJECTING HERE ----------
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+f: 48 8B 86 A0 00 00 00           - mov rax,[rsi+000000A0]
+// ---------- DONE INJECTING  ----------
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+16: 48 8B C8                       - mov rcx,rax
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+19: 83 38 00                       - cmp dword ptr [rax],00
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+1c: 66 90                          - nop 2
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+1e: 49 BB 40 73 C0 B1 E7 01 00 00  - mov r11,Hyperstrange.PlayerWeaponModel:get_DamageDictionary
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+28: 41 FF D3                       - call r11
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+2b: 48 8B 4E 58                    - mov rcx,[rsi+58]
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+2f: 48 8B D1                       - mov rdx,rcx
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+32: 83 3A 00                       - cmp dword ptr [rdx],00
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+35: 48 8B 51 10                    - mov rdx,[rcx+10]
+Hyperstrange.PlayerWeapon:get_CurrentAttackDamage+39: 48 8B C8                       - mov rcx,rax
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>46</ID>
+                                      <Description>"-&gt;"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Weapon_tuner</Address>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>49</ID>
+                                          <Description>"_weaponId"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <Color>FFFF00</Color>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Weapon_tuner</Address>
+                                          <Offsets>
+                                            <Offset>80</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>50</ID>
+                                              <Description>"impactParam"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Weapon_tuner</Address>
+                                              <Offsets>
+                                                <Offset>4C</Offset>
+                                                <Offset>80</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>65</ID>
+                                              <Description>"Item Description"</Description>
+                                              <ShowAsSigned>0</ShowAsSigned>
+                                              <VariableType>String</VariableType>
+                                              <Length>10</Length>
+                                              <Unicode>1</Unicode>
+                                              <CodePage>0</CodePage>
+                                              <ZeroTerminate>1</ZeroTerminate>
+                                              <Address>Weapon_tuner</Address>
+                                              <Offsets>
+                                                <Offset>14</Offset>
+                                                <Offset>40</Offset>
+                                                <Offset>80</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>51</ID>
+                                              <Description>"index"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Weapon_tuner</Address>
+                                              <Offsets>
+                                                <Offset>48</Offset>
+                                                <Offset>80</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>52</ID>
+                                              <Description>"_upgraded"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Weapon_tuner</Address>
+                                              <Offsets>
+                                                <Offset>50</Offset>
+                                                <Offset>80</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>48</ID>
+                                              <Description>"&lt;DamageEnabled&gt;k__BackingField"</Description>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Weapon_tuner</Address>
+                                              <Offsets>
+                                                <Offset>78</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>54</ID>
+                                          <Description>"playerWeaponModel"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Weapon_tuner</Address>
+                                          <Offsets>
+                                            <Offset>A0</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>55</ID>
+                                              <Description>"_playerWeaponDamageOptions"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <Color>FFFF00</Color>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Weapon_tuner</Address>
+                                              <Offsets>
+                                                <Offset>28</Offset>
+                                                <Offset>A0</Offset>
+                                              </Offsets>
+                                              <CheatEntries>
+                                                <CheatEntry>
+                                                  <ID>56</ID>
+                                                  <Description>"Item[0]"</Description>
+                                                  <Options moManualExpandCollapse="1"/>
+                                                  <ShowAsHex>1</ShowAsHex>
+                                                  <VariableType>8 Bytes</VariableType>
+                                                  <Address>Weapon_tuner</Address>
+                                                  <Offsets>
+                                                    <Offset>20</Offset>
+                                                    <Offset>28</Offset>
+                                                    <Offset>A0</Offset>
+                                                  </Offsets>
+                                                  <CheatEntries>
+                                                    <CheatEntry>
+                                                      <ID>57</ID>
+                                                      <Description>"damage"</Description>
+                                                      <ShowAsHex>1</ShowAsHex>
+                                                      <VariableType>8 Bytes</VariableType>
+                                                      <Address>Weapon_tuner</Address>
+                                                      <Offsets>
+                                                        <Offset>18</Offset>
+                                                        <Offset>20</Offset>
+                                                        <Offset>28</Offset>
+                                                        <Offset>A0</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                    <CheatEntry>
+                                                      <ID>58</ID>
+                                                      <Description>"amount"</Description>
+                                                      <VariableType>Float</VariableType>
+                                                      <Address>Weapon_tuner</Address>
+                                                      <Offsets>
+                                                        <Offset>A8</Offset>
+                                                        <Offset>18</Offset>
+                                                        <Offset>20</Offset>
+                                                        <Offset>28</Offset>
+                                                        <Offset>A0</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                    <CheatEntry>
+                                                      <ID>59</ID>
+                                                      <Description>"damageType"</Description>
+                                                      <VariableType>4 Bytes</VariableType>
+                                                      <Address>Weapon_tuner</Address>
+                                                      <Offsets>
+                                                        <Offset>AC</Offset>
+                                                        <Offset>18</Offset>
+                                                        <Offset>20</Offset>
+                                                        <Offset>28</Offset>
+                                                        <Offset>A0</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                  </CheatEntries>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>60</ID>
+                                                  <Description>"Item[1]"</Description>
+                                                  <Options moManualExpandCollapse="1"/>
+                                                  <ShowAsHex>1</ShowAsHex>
+                                                  <VariableType>8 Bytes</VariableType>
+                                                  <Address>Weapon_tuner</Address>
+                                                  <Offsets>
+                                                    <Offset>28</Offset>
+                                                    <Offset>28</Offset>
+                                                    <Offset>A0</Offset>
+                                                  </Offsets>
+                                                  <CheatEntries>
+                                                    <CheatEntry>
+                                                      <ID>61</ID>
+                                                      <Description>"damage"</Description>
+                                                      <ShowAsHex>1</ShowAsHex>
+                                                      <VariableType>8 Bytes</VariableType>
+                                                      <Address>Weapon_tuner</Address>
+                                                      <Offsets>
+                                                        <Offset>18</Offset>
+                                                        <Offset>28</Offset>
+                                                        <Offset>28</Offset>
+                                                        <Offset>A0</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                    <CheatEntry>
+                                                      <ID>62</ID>
+                                                      <Description>"amount"</Description>
+                                                      <VariableType>Float</VariableType>
+                                                      <Address>Weapon_tuner</Address>
+                                                      <Offsets>
+                                                        <Offset>A8</Offset>
+                                                        <Offset>18</Offset>
+                                                        <Offset>28</Offset>
+                                                        <Offset>28</Offset>
+                                                        <Offset>A0</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                    <CheatEntry>
+                                                      <ID>63</ID>
+                                                      <Description>"damageType"</Description>
+                                                      <VariableType>4 Bytes</VariableType>
+                                                      <Address>Weapon_tuner</Address>
+                                                      <Offsets>
+                                                        <Offset>AC</Offset>
+                                                        <Offset>18</Offset>
+                                                        <Offset>28</Offset>
+                                                        <Offset>28</Offset>
+                                                        <Offset>A0</Offset>
+                                                      </Offsets>
+                                                    </CheatEntry>
+                                                  </CheatEntries>
+                                                </CheatEntry>
+                                              </CheatEntries>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>53</ID>
+                                          <Description>"rightHandObject"</Description>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Weapon_tuner</Address>
+                                          <Offsets>
+                                            <Offset>88</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>66</ID>
+                                  <Description>"PlayerSkilll Unlocker"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <Color>C080FF</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Elderborn.exe
+  Version: 
+  Date   : 2023-11-09
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanregion(Unlock_skillz,Hyperstrange.PlayerSkillId:get_Unlockable+04,Hyperstrange.PlayerSkillId:get_Unlockable+40,0F B6 46 59 85 C0 74) // should be unique
+alloc(newmem,$1000,Unlock_skillz)
+registersymbol(Unlock_skillz AHNP)
+label(code AHNP)
+label(return)
+
+newmem:
+ mov [AHNP],rsi
+ mov [AHNP+59],1//unlocked
+ jmp return
+
+ AHNP:
+ dq 0
+
+code:
+  movzx eax,byte ptr [rsi+59]
+  test eax,eax
+  jmp return
+
+Unlock_skillz:
+  jmp newmem
+  nop
+return:
+
+
+[DISABLE]
+
+Unlock_skillz:
+  db 0F B6 46 59 85 C0
+
+unregistersymbol(Unlock_skillz AHNP)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Hyperstrange.PlayerSkillId:get_Unlockable+f
+
+1BEE11EFB33: BD 01 00 00 00     - mov ebp,00000001
+1BEE11EFB38: 00 00              - add [rax],al
+1BEE11EFB3A: 00 00              - add [rax],al
+1BEE11EFB3C: 00 00              - add [rax],al
+1BEE11EFB3E: 00 00              - add [rax],al
+Hyperstrange.PlayerSkillId:get_Unlockable: 55                 - push rbp
+Hyperstrange.PlayerSkillId:get_Unlockable+1: 48 8B EC           - mov rbp,rsp
+Hyperstrange.PlayerSkillId:get_Unlockable+4: 48 83 EC 30        - sub rsp,30
+Hyperstrange.PlayerSkillId:get_Unlockable+8: 48 89 75 F8        - mov [rbp-08],rsi
+Hyperstrange.PlayerSkillId:get_Unlockable+c: 48 8B F1           - mov rsi,rcx
+// ---------- INJECTING HERE ----------
+Hyperstrange.PlayerSkillId:get_Unlockable+f: 0F B6 46 59        - movzx eax,byte ptr [rsi+59]
+// ---------- DONE INJECTING  ----------
+Hyperstrange.PlayerSkillId:get_Unlockable+13: 85 C0              - test eax,eax
+Hyperstrange.PlayerSkillId:get_Unlockable+15: 74 0A              - je Hyperstrange.PlayerSkillId:get_Unlockable+21
+Hyperstrange.PlayerSkillId:get_Unlockable+17: B8 01 00 00 00     - mov eax,00000001
+Hyperstrange.PlayerSkillId:get_Unlockable+1c: E9 C1 01 00 00     - jmp Hyperstrange.PlayerSkillId:get_Unlockable+1e2
+Hyperstrange.PlayerSkillId:get_Unlockable+21: 0F B6 46 58        - movzx eax,byte ptr [rsi+58]
+Hyperstrange.PlayerSkillId:get_Unlockable+25: 85 C0              - test eax,eax
+Hyperstrange.PlayerSkillId:get_Unlockable+27: 0F 84 20 01 00 00  - je Hyperstrange.PlayerSkillId:get_Unlockable+14d
+Hyperstrange.PlayerSkillId:get_Unlockable+2d: 48 8B 46 38        - mov rax,[rsi+38]
+Hyperstrange.PlayerSkillId:get_Unlockable+31: 48 8B C8           - mov rcx,rax
+Hyperstrange.PlayerSkillId:get_Unlockable+34: 83 38 00           - cmp dword ptr [rax],00
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>67</ID>
+                                      <Description>"-&gt;"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>AHNP</Address>
+                                      <Offsets>
+                                        <Offset>0</Offset>
+                                      </Offsets>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>68</ID>
+                                          <Description>"description"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsSigned>0</ShowAsSigned>
+                                          <VariableType>String</VariableType>
+                                          <Length>23</Length>
+                                          <Unicode>1</Unicode>
+                                          <CodePage>0</CodePage>
+                                          <ZeroTerminate>1</ZeroTerminate>
+                                          <Address>AHNP</Address>
+                                          <Offsets>
+                                            <Offset>30</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>69</ID>
+                                              <Description>"attribute"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>AHNP</Address>
+                                              <Offsets>
+                                                <Offset>38</Offset>
+                                              </Offsets>
+                                              <CheatEntries>
+                                                <CheatEntry>
+                                                  <ID>70</ID>
+                                                  <Description>"attributePoints"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>AHNP</Address>
+                                                  <Offsets>
+                                                    <Offset>64</Offset>
+                                                    <Offset>38</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>71</ID>
+                                                  <Description>"atomicSkill"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>AHNP</Address>
+                                                  <Offsets>
+                                                    <Offset>58</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>72</ID>
+                                                  <Description>"unlocked"</Description>
+                                                  <VariableType>Byte</VariableType>
+                                                  <Address>AHNP</Address>
+                                                  <Offsets>
+                                                    <Offset>59</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>73</ID>
+                                                  <Description>"attributesToUnlock"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>AHNP</Address>
+                                                  <Offsets>
+                                                    <Offset>5C</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                              </CheatEntries>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>35</ID>
+                              <Description>"R-n-D Area"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <GroupHeader>1</GroupHeader>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>34</ID>
+                                  <Description>"OHK/Maphack setup"</Description>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Elderborn.exe
+  Version: 
+  Date   : 2023-10-31
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(Map_setup,F1 F3 0F 10 46 68 F3 0F 5A C0 F2 0F 5A) // should be unique
+alloc(newmem,$1000,Map_setup)
+registersymbol(Map_setup Play_R Noobs)
+label(code Play_R Noobs)
+label(return)
+
+newmem:
+cmp [rsi+268],00
+jne Noobs
+mov [Play_R],rsi
+//mov [rsi+68],(float)1
+jmp return
+
+Play_R:
+dq 0
+
+Noobs:
+
+mov [rsi+58],00
+mov [rsi+60],(float)1
+mov [rsi+64],(float)1
+
+//sub [rsi+68],(float)1
+jmp return
+
+code:
+  movss xmm0,[rsi+68]
+  jmp return
+
+Map_setup+01:
+  jmp newmem
+return:
+
+
+[DISABLE]
+
+Map_setup+01:
+  db F3 0F 10 46 68
+
+unregistersymbol(Map_setup Play_R Noobs)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Hyperstrange.Actor:get_HitPointsRatio+f
+
+1D00E203EF6: 00 00           - add [rax],al
+1D00E203EF8: 00 00           - add [rax],al
+1D00E203EFA: 00 00           - add [rax],al
+1D00E203EFC: 00 00           - add [rax],al
+1D00E203EFE: 00 00           - add [rax],al
+Hyperstrange.Actor:get_HitPointsRatio: 55              - push rbp
+Hyperstrange.Actor:get_HitPointsRatio+1: 48 8B EC        - mov rbp,rsp
+Hyperstrange.Actor:get_HitPointsRatio+4: 48 83 EC 30     - sub rsp,30
+Hyperstrange.Actor:get_HitPointsRatio+8: 48 89 75 F8     - mov [rbp-08],rsi
+Hyperstrange.Actor:get_HitPointsRatio+c: 48 8B F1        - mov rsi,rcx
+// ---------- INJECTING HERE ----------
+Hyperstrange.Actor:get_HitPointsRatio+f: F3 0F 10 46 68  - movss xmm0,[rsi+68]
+// ---------- DONE INJECTING  ----------
+Hyperstrange.Actor:get_HitPointsRatio+14: F3 0F 5A C0     - cvtss2sd xmm0,xmm0
+Hyperstrange.Actor:get_HitPointsRatio+18: F2 0F 5A E8     - cvtsd2ss xmm5,xmm0
+Hyperstrange.Actor:get_HitPointsRatio+1c: F3 0F 11 6D F4  - movss [rbp-0C],xmm5
+Hyperstrange.Actor:get_HitPointsRatio+21: F3 0F 10 45 F4  - movss xmm0,[rbp-0C]
+Hyperstrange.Actor:get_HitPointsRatio+26: F3 0F 5A C0     - cvtss2sd xmm0,xmm0
+Hyperstrange.Actor:get_HitPointsRatio+2a: F3 0F 10 4E 64  - movss xmm1,[rsi+64]
+Hyperstrange.Actor:get_HitPointsRatio+2f: F3 0F 5A C9     - cvtss2sd xmm1,xmm1
+Hyperstrange.Actor:get_HitPointsRatio+33: F2 0F 5A E9     - cvtsd2ss xmm5,xmm1
+Hyperstrange.Actor:get_HitPointsRatio+37: F3 0F 11 6D F4  - movss [rbp-0C],xmm5
+Hyperstrange.Actor:get_HitPointsRatio+3c: F3 0F 10 4D F4  - movss xmm1,[rbp-0C]
+}
+</AssemblerScript>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

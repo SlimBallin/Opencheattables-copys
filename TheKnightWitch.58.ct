@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2702</ID>
+      <Description>"The Knight Witch"</Description>
+      <Options moHideChildren="1"/>
+      <Color>C080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2703</ID>
+          <Description>"Youtube"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://www.youtube.com/user/droelke");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2704</ID>
+          <Description>"OCT Profile"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://opencheattables.com/memberlist.php?mode=viewprofile&amp;u=85");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"Table Author:  XxDaRealSlimballinxX"</Description>
+              <Color>FC94B0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>40</ID>
+                  <Description>"Visit us today @ GBA Services!"</Description>
+                  <Color>C080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337110746</ID>
+                  <Description>"Discord  @ SlimBallin#1687"</Description>
+                  <Color>008080</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337110747</ID>
+              <Description>"[X] &lt;=== For Full Tool View"</Description>
+              <Options moManualExpandCollapse="1"/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+// Script Creaded By mgr.inz.Player On CE Forums
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>5</ID>
+                  <Description>"Cheats"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>9</ID>
+                      <Description>"xxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>84</ID>
+                          <Description>"Infinite Mana"</Description>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : TheKnightWitch.58.exe
+  Version: 
+  Date   : 2022-12-09
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(I_N_F_M_N_A,89 48 5C 49 8B 47 30 48 63 40 5C 49 8B CE) // should be unique
+alloc(newmem,$16,I_N_F_M_N_A)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+mov ecx,[rax+58]
+  mov [rax+5C],ecx
+  mov rax,[r15+30]
+  jmp return
+
+I_N_F_M_N_A:
+  jmp code
+  nop 2
+return:
+registersymbol(I_N_F_M_N_A)
+
+[DISABLE]
+
+I_N_F_M_N_A:
+  db 89 48 5C 49 8B 47 30
+
+unregistersymbol(I_N_F_M_N_A)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 260A1E85742
+
+260A1E85722: 7F 21                          - jg 260A1E85745
+260A1E85724: 49 8B 47 30                    - mov rax,[r15+30]
+260A1E85728: 48 8B C8                       - mov rcx,rax
+260A1E8572B: 48 63 51 5C                    - movsxd  rdx,dword ptr [rcx+5C]
+260A1E8572F: 03 D7                          - add edx,edi
+260A1E85731: 49 8B 4F 30                    - mov rcx,[r15+30]
+260A1E85735: 48 63 49 58                    - movsxd  rcx,dword ptr [rcx+58]
+260A1E85739: 3B D1                          - cmp edx,ecx
+260A1E8573B: 48 0F 4C CA                    - cmovl rcx,rdx
+260A1E8573F: 83 38 00                       - cmp dword ptr [rax],00
+// ---------- INJECTING HERE ----------
+260A1E85742: 89 48 5C                       - mov [rax+5C],ecx
+// ---------- DONE INJECTING  ----------
+260A1E85745: 49 8B 47 30                    - mov rax,[r15+30]
+260A1E85749: 48 63 40 5C                    - movsxd  rax,dword ptr [rax+5C]
+260A1E8574D: 49 8B CE                       - mov rcx,r14
+260A1E85750: 4C 8B F0                       - mov r14,rax
+260A1E85753: 44 2B F1                       - sub r14d,ecx
+260A1E85756: 49 8B CE                       - mov rcx,r14
+260A1E85759: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+260A1E8575E: 49 BB 20 58 E8 A1 60 02 00 00  - mov r11,00000260A1E85820
+260A1E85768: 41 FF D3                       - call r11
+260A1E8576B: 49 8B 47 30                    - mov rax,[r15+30]
+}
+</AssemblerScript>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>11</ID>
+                          <Description>"Find my Perk Points"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <Color>80FFFF</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ 
+  Game Executable   : TheKnightWitch.58.exe
+  Executable Version: 2020.3.33.23162
+  Module Version    : 
+  Script Date       : 2022-12-09
+  Author 			: slimb
+}
+
+[ENABLE]
+
+aobscan(aob_P_HP,0F B6 86 E8 00 00 00 85 C0 0F 84 AD)
+registersymbol(aob_P_HP)
+alloc(newmem_P_HP,$100,aob_P_HP)
+label(return_P_HP)
+
+alloc(bkp_P_HP,7,aob_P_HP)
+registersymbol(bkp_P_HP)
+
+bkp_P_HP:
+  readmem(aob_P_HP,7)
+
+  registersymbol(P_HP_Pointer)
+newmem_P_HP:
+  mov [P_HP_Pointer],rsi
+
+cave_P_HP:
+  readmem(aob_P_HP,7)
+  {
+  movzx eax,byte ptr [rsi+000000E8]
+  }
+  jmp return_P_HP
+  
+P_HP_Pointer:
+  dq 0
+
+aob_P_HP:
+  jmp newmem_P_HP
+  nop 2
+return_P_HP:
+
+[DISABLE]
+
+aob_P_HP:
+  readmem(bkp_P_HP,7)
+
+unregistersymbol(aob_P_HP)
+unregistersymbol(bkp_P_HP)
+unregistersymbol(P_HP_Pointer)
+dealloc(newmem_P_HP)
+dealloc(bkp_P_HP)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 260D0A2C87F
+
+260D0A2C848: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+260D0A2C84C: F3 0F 11 6E 7C                 - movss [rsi+7C],xmm5
+260D0A2C851: 48 8B 75 F8                    - mov rsi,[rbp-08]
+260D0A2C855: 48 8D 65 00                    - lea rsp,[rbp+00]
+260D0A2C859: 5D                             - pop rbp
+260D0A2C85A: C3                             - ret 
+260D0A2C85B: 00 00                          - add [rax],al
+260D0A2C85D: 00 00                          - add [rax],al
+260D0A2C85F: 00 01                          - add [rcx],al
+260D0A2C861: 04 02                          - add al,02
+260D0A2C863: 05 04 03 01 50                 - add eax,50010304
+260D0A2C868: 00 00                          - add [rax],al
+260D0A2C86A: 00 00                          - add [rax],al
+260D0A2C86C: 00 00                          - add [rax],al
+260D0A2C86E: 00 00                          - add [rax],al
+260D0A2C870: 55                             - push rbp
+260D0A2C871: 48 8B EC                       - mov rbp,rsp
+260D0A2C874: 48 83 EC 30                    - sub rsp,30
+260D0A2C878: 48 89 75 F8                    - mov [rbp-08],rsi
+260D0A2C87C: 48 8B F1                       - mov rsi,rcx
+// ---------- INJECTING HERE ----------
+260D0A2C87F: 0F B6 86 E8 00 00 00           - movzx eax,byte ptr [rsi+000000E8]
+// ---------- DONE INJECTING  ----------
+260D0A2C886: 85 C0                          - test eax,eax
+260D0A2C888: 0F 84 AD 00 00 00              - je 260D0A2C93B
+260D0A2C88E: F3 0F 10 86 EC 00 00 00        - movss xmm0,[rsi+000000EC]
+260D0A2C896: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+260D0A2C89A: F2 0F 11 45 F0                 - movsd [rbp-10],xmm0
+260D0A2C89F: 48 8D AD 00 00 00 00           - lea rbp,[rbp+00000000]
+260D0A2C8A6: 49 BB EB 25 AC C2 60 02 00 00  - mov r11,00000260C2AC25EB
+260D0A2C8B0: 41 FF D3                       - call r11
+260D0A2C8B3: F3 0F 5A C8                    - cvtss2sd xmm1,xmm0
+260D0A2C8B7: F2 0F 10 45 F0                 - movsd xmm0,[rbp-10]
+260D0A2C8BC: F2 0F 58 C1                    - addsd xmm0,xmm1
+260D0A2C8C0: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+260D0A2C8C4: F3 0F 11 AE EC 00 00 00        - movss [rsi+000000EC],xmm5
+260D0A2C8CC: F3 0F 10 86 EC 00 00 00        - movss xmm0,[rsi+000000EC]
+260D0A2C8D4: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+260D0A2C8D8: F3 0F 10 8E D4 00 00 00        - movss xmm1,[rsi+000000D4]
+260D0A2C8E0: F3 0F 5A C9                    - cvtss2sd xmm1,xmm1
+260D0A2C8E4: 66 0F 2F C8                    - comisd xmm1,xmm0
+260D0A2C8E8: 0F 8A 4D 00 00 00              - jp 260D0A2C93B
+260D0A2C8EE: 0F 87 47 00 00 00              - ja 260D0A2C93B
+}
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>83</ID>
+                              <Description>"GodMode/OHK"</Description>
+                              <Options moHideChildren="1" moManualExpandCollapse="1"/>
+                              <Color>4080FF</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ Game   : TheKnightWitch.58.exe
+  Version: 
+  Date   : 2022-12-09
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(I_N_F_H_P,F3 0F 11 6E 48 48 8B 75) // should be unique
+alloc(newmem,$10,I_N_F_H_P)
+
+label(code)
+label(return)
+
+newmem:
+cmp [rsi],1
+je code
+mov [rsi+48],(float)50 //Current Health
+jmp return
+
+code:
+ xorps xmm5,xmm5
+  movss [rsi+48],xmm5 //Current Health
+  jmp return
+
+I_N_F_H_P:
+  jmp newmem
+return:
+registersymbol(I_N_F_H_P)
+
+[DISABLE]
+
+I_N_F_H_P:
+  db F3 0F 11 6E 48
+
+unregistersymbol(I_N_F_H_P)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 260A2067360
+
+260A206732E: F3 0F 10 45 D8                 - movss xmm0,[rbp-28]
+260A2067333: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+260A2067337: 0F B6 55 E0                    - movzx edx,byte ptr [rbp-20]
+260A206733B: F2 0F 5A C0                    - cvtsd2ss xmm0,xmm0
+260A206733F: 48 8D AD 00 00 00 00           - lea rbp,[rbp+00000000]
+260A2067346: 49 BB C0 73 06 A2 60 02 00 00  - mov r11,00000260A20673C0
+260A2067350: 41 FF D3                       - call r11
+260A2067353: F3 0F 10 45 D8                 - movss xmm0,[rbp-28]
+260A2067358: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+260A206735C: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+// ---------- INJECTING HERE ----------
+260A2067360: F3 0F 11 6E 48                 - movss [rsi+48],xmm5
+// ---------- DONE INJECTING  ----------
+260A2067365: 48 8B 75 E8                    - mov rsi,[rbp-18]
+260A2067369: 4C 8B 75 F0                    - mov r14,[rbp-10]
+260A206736D: 4C 8B 7D F8                    - mov r15,[rbp-08]
+260A2067371: 48 8D 65 00                    - lea rsp,[rbp+00]
+260A2067375: 5D                             - pop rbp
+260A2067376: C3                             - ret 
+260A2067377: 00 01                          - add [rcx],al
+260A2067379: 04 02                          - add al,02
+260A206737B: 05 04 03 01 50                 - add eax,50010304
+260A2067380: 00 00                          - add [rax],al
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337110751</ID>
+                                  <Description>"GODMODE {Set to 1=ON]"</Description>
+                                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:OFF
+1:ON
+</DropDownList>
+                                  <Color>FFFF00</Color>
+                                  <VariableType>Byte</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>38</Offset>
+                                    <Offset>58</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>12</ID>
+                              <Description>"symbol ptr"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>000000</Color>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>P_HP_Pointer</Address>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337110748</ID>
+                                  <Description>"PerksDatabase"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>18</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>14</ID>
+                                  <Description>"DropsMagnetCollider"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>20</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>15</ID>
+                                  <Description>"GainGratitudeFX"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>28</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>16</ID>
+                                  <Description>"GainGratitudeParticles"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>30</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>17</ID>
+                                  <Description>"LoseGratitudeParticles"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>38</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>18</ID>
+                                  <Description>"perksToUpgrade"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>40</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>19</ID>
+                                  <Description>"perkToUpgrade"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>48</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>20</ID>
+                                  <Description>"perkToDowngrade"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>50</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>21</ID>
+                                  <Description>"playerBaseStats"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <Color>00FFFF</Color>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>58</Offset>
+                                  </Offsets>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>65</ID>
+                                      <Description>"GODMODE"</Description>
+                                      <Color>FFFF00</Color>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>38</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>66</ID>
+                                      <Description>"NormalInmunity"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>39</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>67</ID>
+                                      <Description>"TimedInmunity"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>3C</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>68</ID>
+                                      <Description>"ImmuneToKnockback"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>40</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>69</ID>
+                                      <Description>"InmuneToStun"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>41</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>70</ID>
+                                      <Description>"InmuneToHexDamage"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>42</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>71</ID>
+                                      <Description>"DefaultHealth"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>44</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>72</ID>
+                                      <Description>"CurrentHealth"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>48</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>73</ID>
+                                      <Description>"InmunityTimeAfterHit"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>4C</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>74</ID>
+                                      <Description>"MaxArmor"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>50</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>75</ID>
+                                      <Description>"CurrentArmor"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>54</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>76</ID>
+                                      <Description>"DefaultMana"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>58</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>77</ID>
+                                      <Description>"CurrentMana"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>5C</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>78</ID>
+                                      <Description>"InitialDelay"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>60</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>79</ID>
+                                      <Description>"TimeBeetweenAttacks"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>64</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>80</ID>
+                                      <Description>"TimeBeetweenAttacksMax"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>68</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>81</ID>
+                                      <Description>"DefaultMoveSpeed"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>6C</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>82</ID>
+                                      <Description>"CurrentMoveSpeed"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>P_HP_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>70</Offset>
+                                        <Offset>58</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>22</ID>
+                                  <Description>"probabilityQueue"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>60</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>23</ID>
+                                  <Description>"PlayerBackupLevels"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>68</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>24</ID>
+                                  <Description>"CurrentLevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>70</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>25</ID>
+                                  <Description>"RemainingLevelsToUpgrade"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>74</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>26</ID>
+                                  <Description>"PhysicalDamageSublevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>78</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>27</ID>
+                                  <Description>"FireRateSublevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>7C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>28</ID>
+                                  <Description>"InmunityTimeSublevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>80</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>29</ID>
+                                  <Description>"CritBulletsSublevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>84</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>30</ID>
+                                  <Description>"WeaponsDurationSublevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>88</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>31</ID>
+                                  <Description>"UltimateKnightSublevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>8C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>32</ID>
+                                  <Description>"SpellDamageSublevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>90</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>33</ID>
+                                  <Description>"SuperManaDropSublevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>94</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>34</ID>
+                                  <Description>"CollectionRadiusSublevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>98</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>35</ID>
+                                  <Description>"ManaOverloadSubelevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>9C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>36</ID>
+                                  <Description>"SpellsDurationSublevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>A0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>37</ID>
+                                  <Description>"UltimateWitchSublevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>A4</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>38</ID>
+                                  <Description>"DamageIncreasePercentage"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>A8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337110749</ID>
+                                  <Description>"FireRateReductionPercentage"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>AC</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337110750</ID>
+                                  <Description>"InmunityTimeIncreasePctg"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>B0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>41</ID>
+                                  <Description>"CriticalBulletChance"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>B4</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>42</ID>
+                                  <Description>"WeaponsDurationIncreasePctg"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>B8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>43</ID>
+                                  <Description>"SpellDamageIncreasePercentage"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>BC</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>44</ID>
+                                  <Description>"SuperManaDropChance"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>C0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>45</ID>
+                                  <Description>"CollectionRadiusIncreasePctg"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>C4</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>46</ID>
+                                  <Description>"ManaOverloadActive"</Description>
+                                  <VariableType>Byte</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>C8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>47</ID>
+                                  <Description>"SpellsDurationIncreasePctg"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>CC</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>48</ID>
+                                  <Description>"MaxGratitudePerLevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>D0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>49</ID>
+                                  <Description>"TimeToGainManaInUltimateWitch"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>D4</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>50</ID>
+                                  <Description>"PauseOpenedAfterLevelIncrease"</Description>
+                                  <VariableType>Byte</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>D8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>51</ID>
+                                  <Description>"MaxLevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>DC</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>52</ID>
+                                  <Description>"MaxBranchLevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>E0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>53</ID>
+                                  <Description>"currentGratitude"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>E4</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>54</ID>
+                                  <Description>"IsUltimateWitch"</Description>
+                                  <Color>FFFF00</Color>
+                                  <VariableType>Byte</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>E8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>55</ID>
+                                  <Description>"UltimateWitchTimer"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>EC</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>56</ID>
+                                  <Description>"ingratitude"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>F0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>57</ID>
+                                  <Description>"gratitudePool"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>F4</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>58</ID>
+                                  <Description>"numberOfCases"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>F8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>59</ID>
+                                  <Description>"favorableCases"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>FC</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>60</ID>
+                                  <Description>"luck"</Description>
+                                  <Color>FFFF00</Color>
+                                  <VariableType>Float</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>100</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>61</ID>
+                                  <Description>"CurrentKnightLevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>104</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>62</ID>
+                                  <Description>"CurrentWitchLevel"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>108</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>63</ID>
+                                  <Description>"NumberPerksToUpgrade"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>10C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>64</ID>
+                                  <Description>"ProbInitialized"</Description>
+                                  <VariableType>Byte</VariableType>
+                                  <Address>P_HP_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>110</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

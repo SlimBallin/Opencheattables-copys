@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"No description"</Description>
+      <VariableType>Double</VariableType>
+      <Address>235196FC438</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Auto Assemble script"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ 
+  Game Executable   : BloonsTD6-Epic
+  Executable Version: 2021.3.12.62403
+  Module Version    : 
+  Script Date       : 2022-12-17
+  Author 			: slimb
+}
+
+[ENABLE]
+
+aobscanmodule(aob_ExampleName,GameAssembly.dll,28 F2 0F 11 73 28)
+registersymbol(aob_ExampleName)
+alloc(newmem_ExampleName,$100,aob_ExampleName)
+label(return_ExampleName)
+
+alloc(bkp_ExampleName,5,aob_ExampleName)
+registersymbol(bkp_ExampleName)
+
+bkp_ExampleName:
+  readmem(aob_ExampleName+01,5)
+
+  registersymbol(ExampleName_Pointer)
+newmem_ExampleName:
+  mov [ExampleName_Pointer],rbx
+
+cave_ExampleName:
+  readmem(aob_ExampleName+01,5)
+  {
+  movsd [rbx+28],xmm6
+  }
+  jmp return_ExampleName
+  
+ExampleName_Pointer:
+  dq 0
+
+aob_ExampleName+01:
+  jmp newmem_ExampleName
+return_ExampleName:
+
+[DISABLE]
+
+aob_ExampleName+01:
+  readmem(bkp_ExampleName,5)
+
+unregistersymbol(aob_ExampleName)
+unregistersymbol(bkp_ExampleName)
+unregistersymbol(ExampleName_Pointer)
+dealloc(newmem_ExampleName)
+dealloc(bkp_ExampleName)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll.il2cpp+27F07D
+
+GameAssembly.dll.il2cpp+27F045: 0F 28 74 24 20  - movaps xmm6,[rsp+20]
+GameAssembly.dll.il2cpp+27F04A: 48 83 C4 30     - add rsp,30
+GameAssembly.dll.il2cpp+27F04E: 5F              - pop rdi
+GameAssembly.dll.il2cpp+27F04F: C3              - ret 
+GameAssembly.dll.il2cpp+27F050: E8 AB 33 D2 FF  - call GameAssembly.dll.text+323400
+GameAssembly.dll.il2cpp+27F055: CC              - int 3 
+GameAssembly.dll.il2cpp+27F056: E8 95 33 D2 FF  - call GameAssembly.dll.text+3233F0
+GameAssembly.dll.il2cpp+27F05B: CC              - int 3 
+GameAssembly.dll.il2cpp+27F05C: CC              - int 3 
+GameAssembly.dll.il2cpp+27F05D: CC              - int 3 
+GameAssembly.dll.il2cpp+27F05E: CC              - int 3 
+GameAssembly.dll.il2cpp+27F05F: CC              - int 3 
+GameAssembly.dll.il2cpp+27F060: 40 53           - push rbx
+GameAssembly.dll.il2cpp+27F062: 48 83 EC 30     - sub rsp,30
+GameAssembly.dll.il2cpp+27F066: 0F 29 74 24 20  - movaps [rsp+20],xmm6
+GameAssembly.dll.il2cpp+27F06B: 45 33 C0        - xor r8d,r8d
+GameAssembly.dll.il2cpp+27F06E: 0F 28 F1        - movaps xmm6,xmm1
+GameAssembly.dll.il2cpp+27F071: 48 8B D9        - mov rbx,rcx
+GameAssembly.dll.il2cpp+27F074: E8 C7 FD FF FF  - call GameAssembly.dll.il2cpp+27EE40
+GameAssembly.dll.il2cpp+27F079: 48 8B 43 28     - mov rax,[rbx+28]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll.il2cpp+27F07D: F2 0F 11 73 28  - movsd [rbx+28],xmm6
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll.il2cpp+27F082: 0F 28 74 24 20  - movaps xmm6,[rsp+20]
+GameAssembly.dll.il2cpp+27F087: 48 89 43 30     - mov [rbx+30],rax
+GameAssembly.dll.il2cpp+27F08B: 48 83 C4 30     - add rsp,30
+GameAssembly.dll.il2cpp+27F08F: 5B              - pop rbx
+GameAssembly.dll.il2cpp+27F090: C3              - ret 
+GameAssembly.dll.il2cpp+27F091: CC              - int 3 
+GameAssembly.dll.il2cpp+27F092: CC              - int 3 
+GameAssembly.dll.il2cpp+27F093: CC              - int 3 
+GameAssembly.dll.il2cpp+27F094: CC              - int 3 
+GameAssembly.dll.il2cpp+27F095: CC              - int 3 
+GameAssembly.dll.il2cpp+27F096: CC              - int 3 
+GameAssembly.dll.il2cpp+27F097: CC              - int 3 
+GameAssembly.dll.il2cpp+27F098: CC              - int 3 
+GameAssembly.dll.il2cpp+27F099: CC              - int 3 
+GameAssembly.dll.il2cpp+27F09A: CC              - int 3 
+GameAssembly.dll.il2cpp+27F09B: CC              - int 3 
+GameAssembly.dll.il2cpp+27F09C: CC              - int 3 
+GameAssembly.dll.il2cpp+27F09D: CC              - int 3 
+GameAssembly.dll.il2cpp+27F09E: CC              - int 3 
+GameAssembly.dll.il2cpp+27F09F: CC              - int 3 
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"No description"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>8 Bytes</VariableType>
+          <Address>ExampleName_Pointer</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"rng"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>8 Bytes</VariableType>
+          <Address>ExampleName_Pointer</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"rngEncrypt"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>8 Bytes</VariableType>
+          <Address>ExampleName_Pointer</Address>
+          <Offsets>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"seedAtLastSet"</Description>
+          <VariableType>8 Bytes</VariableType>
+          <Address>ExampleName_Pointer</Address>
+          <Offsets>
+            <Offset>20</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"buffer"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>8 Bytes</VariableType>
+          <Address>ExampleName_Pointer</Address>
+          <Offsets>
+            <Offset>38</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"honey"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Double</VariableType>
+          <Address>ExampleName_Pointer</Address>
+          <Offsets>
+            <Offset>28</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"pot"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Double</VariableType>
+          <Address>ExampleName_Pointer</Address>
+          <Offsets>
+            <Offset>30</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Structures StructVersion="2">
+    <Structure Name="ExampleName_Pointer" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+      <Elements>
+        <Element Offset="0" Vartype="Pointer" Bytesize="8" OffsetHex="00000000" DisplayMethod="unsigned integer">
+          <Structure Name="KonFuze" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+            <Elements>
+              <Element Offset="16" Vartype="Pointer" Bytesize="8" OffsetHex="00000010" Description="rng" DisplayMethod="unsigned integer">
+                <Structure Name="SeededRandom" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                  <Elements>
+                    <Element Offset="16" Vartype="8 Bytes" Bytesize="8" OffsetHex="00000010" Description="initialSeed" DisplayMethod="unsigned integer"/>
+                    <Element Offset="24" Vartype="8 Bytes" Bytesize="8" OffsetHex="00000018" Description="currentSeed" DisplayMethod="unsigned integer"/>
+                    <Element Offset="32" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000020" Description="useCount" DisplayMethod="unsigned integer"/>
+                  </Elements>
+                </Structure>
+              </Element>
+              <Element Offset="24" Vartype="Pointer" Bytesize="8" OffsetHex="00000018" Description="rngEncrypt" DisplayMethod="unsigned integer">
+                <Structure Name="SeededRandom" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                  <Elements>
+                    <Element Offset="16" Vartype="8 Bytes" Bytesize="8" OffsetHex="00000010" Description="initialSeed" DisplayMethod="unsigned integer"/>
+                    <Element Offset="24" Vartype="8 Bytes" Bytesize="8" OffsetHex="00000018" Description="currentSeed" DisplayMethod="unsigned integer"/>
+                    <Element Offset="32" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000020" Description="useCount" DisplayMethod="unsigned integer"/>
+                  </Elements>
+                </Structure>
+              </Element>
+              <Element Offset="32" Vartype="8 Bytes" Bytesize="8" OffsetHex="00000020" Description="seedAtLastSet" DisplayMethod="unsigned integer"/>
+              <Element Offset="40" Vartype="Float" Bytesize="4" OffsetHex="00000028" Description="honey" DisplayMethod="signed integer"/>
+              <Element Offset="48" Vartype="Float" Bytesize="4" OffsetHex="00000030" Description="pot" DisplayMethod="signed integer"/>
+              <Element Offset="56" Vartype="Pointer" Bytesize="8" OffsetHex="00000038" Description="buffer" DisplayMethod="unsigned integer">
+                <Structure Name="Double[]" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                  <Elements>
+                    <Element Offset="24" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000018" Description="Count" DisplayMethod="unsigned integer"/>
+                    <Element Offset="32" Vartype="Pointer" Bytesize="8" OffsetHex="00000020" Description="Item[0]" DisplayMethod="unsigned integer">
+                      <Structure Name="System.Double" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                        <Elements>
+                          <Element Offset="16" Vartype="Double" Bytesize="8" OffsetHex="00000010" Description="m_value" DisplayMethod="unsigned integer"/>
+                        </Elements>
+                      </Structure>
+                    </Element>
+                    <Element Offset="40" Vartype="Pointer" Bytesize="8" OffsetHex="00000028" Description="Item[1]" DisplayMethod="unsigned integer">
+                      <Structure Name="System.Double" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                        <Elements>
+                          <Element Offset="16" Vartype="Double" Bytesize="8" OffsetHex="00000010" Description="m_value" DisplayMethod="unsigned integer"/>
+                        </Elements>
+                      </Structure>
+                    </Element>
+                    <Element Offset="48" Vartype="Pointer" Bytesize="8" OffsetHex="00000030" Description="Item[2]" DisplayMethod="unsigned integer">
+                      <Structure Name="System.Double" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                        <Elements>
+                          <Element Offset="16" Vartype="Double" Bytesize="8" OffsetHex="00000010" Description="m_value" DisplayMethod="unsigned integer"/>
+                        </Elements>
+                      </Structure>
+                    </Element>
+                    <Element Offset="56" Vartype="Pointer" Bytesize="8" OffsetHex="00000038" Description="Item[3]" DisplayMethod="unsigned integer">
+                      <Structure Name="System.Double" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                        <Elements>
+                          <Element Offset="16" Vartype="Double" Bytesize="8" OffsetHex="00000010" Description="m_value" DisplayMethod="unsigned integer"/>
+                        </Elements>
+                      </Structure>
+                    </Element>
+                    <Element Offset="64" Vartype="Pointer" Bytesize="8" OffsetHex="00000040" Description="Item[4]" DisplayMethod="unsigned integer">
+                      <Structure Name="System.Double" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                        <Elements>
+                          <Element Offset="16" Vartype="Double" Bytesize="8" OffsetHex="00000010" Description="m_value" DisplayMethod="unsigned integer"/>
+                        </Elements>
+                      </Structure>
+                    </Element>
+                    <Element Offset="72" Vartype="Pointer" Bytesize="8" OffsetHex="00000048" Description="Item[5]" DisplayMethod="unsigned integer">
+                      <Structure Name="System.Double" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                        <Elements>
+                          <Element Offset="16" Vartype="Double" Bytesize="8" OffsetHex="00000010" Description="m_value" DisplayMethod="unsigned integer"/>
+                        </Elements>
+                      </Structure>
+                    </Element>
+                    <Element Offset="80" Vartype="Pointer" Bytesize="8" OffsetHex="00000050" Description="Item[6]" DisplayMethod="unsigned integer">
+                      <Structure Name="System.Double" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                        <Elements>
+                          <Element Offset="16" Vartype="Double" Bytesize="8" OffsetHex="00000010" Description="m_value" DisplayMethod="unsigned integer"/>
+                        </Elements>
+                      </Structure>
+                    </Element>
+                    <Element Offset="88" Vartype="Pointer" Bytesize="8" OffsetHex="00000058" Description="Item[7]" DisplayMethod="unsigned integer">
+                      <Structure Name="System.Double" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                        <Elements>
+                          <Element Offset="16" Vartype="Double" Bytesize="8" OffsetHex="00000010" Description="m_value" DisplayMethod="unsigned integer"/>
+                        </Elements>
+                      </Structure>
+                    </Element>
+                    <Element Offset="96" Vartype="Pointer" Bytesize="8" OffsetHex="00000060" Description="Item[8]" DisplayMethod="unsigned integer">
+                      <Structure Name="System.Double" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                        <Elements>
+                          <Element Offset="16" Vartype="Double" Bytesize="8" OffsetHex="00000010" Description="m_value" DisplayMethod="unsigned integer"/>
+                        </Elements>
+                      </Structure>
+                    </Element>
+                    <Element Offset="104" Vartype="Pointer" Bytesize="8" OffsetHex="00000068" Description="Item[9]" DisplayMethod="unsigned integer">
+                      <Structure Name="System.Double" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+                        <Elements>
+                          <Element Offset="16" Vartype="Double" Bytesize="8" OffsetHex="00000010" Description="m_value" DisplayMethod="unsigned integer"/>
+                        </Elements>
+                      </Structure>
+                    </Element>
+                  </Elements>
+                </Structure>
+              </Element>
+            </Elements>
+          </Structure>
+        </Element>
+        <Element Offset="1" Vartype="Byte" Bytesize="1" RLECount="2" OffsetHex="00000001" DisplayMethod="unsigned integer"/>
+        <Element Offset="3" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000003" DisplayMethod="hexadecimal"/>
+        <Element Offset="7" Vartype="4 Bytes" Bytesize="4" RLECount="58" OffsetHex="00000007" DisplayMethod="unsigned integer"/>
+        <Element Offset="239" Vartype="4 Bytes" Bytesize="4" OffsetHex="000000EF" DisplayMethod="hexadecimal"/>
+        <Element Offset="243" Vartype="4 Bytes" Bytesize="4" RLECount="959" OffsetHex="000000F3" DisplayMethod="unsigned integer"/>
+      </Elements>
+    </Structure>
+  </Structures>
+</CheatTable>

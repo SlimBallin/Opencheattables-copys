@@ -1,0 +1,2225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2702</ID>
+      <Description>"Remnant 1/REMNANET 2"</Description>
+      <Options moHideChildren="1"/>
+      <Color>280592</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2703</ID>
+          <Description>"Youtube"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://www.youtube.com/user/droelke");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2704</ID>
+          <Description>"OCT Profile"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://opencheattables.com/memberlist.php?mode=viewprofile&amp;u=85");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"Table Author:  XxDaRealSlimballinxX"</Description>
+              <Color>FC94B0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>40</ID>
+                  <Description>"Visit us today @ GBA Services!"</Description>
+                  <Color>C080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337110746</ID>
+                  <Description>"Discord  @ DaRealSlimballin"</Description>
+                  <Color>008080</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337110747</ID>
+              <Description>"[X] &lt;=== For Full Tool View"</Description>
+              <Options moManualExpandCollapse="1"/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+// Script Creaded By mgr.inz.Player On CE Forums
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>5</ID>
+                  <Description>"Cheats"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>9</ID>
+                      <Description>"xxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1337142906</ID>
+                          <Description>"Remnant 1"</Description>
+                          <Options moHideChildren="1" moManualExpandCollapse="1"/>
+                          <Color>FFFF00</Color>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>46464</ID>
+                              <Description>"Dax_PeT3R"</Description>
+                              <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                              <Color>4080FF</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript Async="1">{ Game   : Win64-Shipping.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-07-18
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(plaw,Remnant2-Win64-Shipping.exe,48 8B 00 48 8B 00 48 85 C0 74 15 48 8B 40 30) // should be unique
+alloc(newmem,$1000,plaw)
+registersymbol(plaw Dax_PeT3R)
+label(code Dax_PeT3R)
+label(return)
+
+newmem:
+  mov [Dax_PeT3R],rax
+  jmp return
+
+  Dax_PeT3R:
+  dq 0
+
+code:
+mov rax,[rax]
+mov rax,[rax]
+  test rax,rax
+  jmp return
+
+plaw:
+  jmp newmem
+  nop
+return:
+
+
+[DISABLE]
+
+plaw:
+  db 48 8B 00 48 85 C0
+
+unregistersymbol(plaw Dax_PeT3R)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant-Win64-Shipping.exe+1C3EE1A
+
+Remnant-Win64-Shipping.exe+1C3EDFB: 40 0F 95 C6           - setne sil
+Remnant-Win64-Shipping.exe+1C3EDFF: 48 85 C9              - test rcx,rcx
+Remnant-Win64-Shipping.exe+1C3EE02: 74 33                 - je Remnant-Win64-Shipping.exe+1C3EE37
+Remnant-Win64-Shipping.exe+1C3EE04: 48 85 FF              - test rdi,rdi
+Remnant-Win64-Shipping.exe+1C3EE07: 74 2E                 - je Remnant-Win64-Shipping.exe+1C3EE37
+Remnant-Win64-Shipping.exe+1C3EE09: 48 8B D7              - mov rdx,rdi
+Remnant-Win64-Shipping.exe+1C3EE0C: E8 BF 5D 00 00        - call Remnant-Win64-Shipping.exe+1C44BD0
+Remnant-Win64-Shipping.exe+1C3EE11: 83 78 08 00           - cmp dword ptr [rax+08],00
+Remnant-Win64-Shipping.exe+1C3EE15: 74 20                 - je Remnant-Win64-Shipping.exe+1C3EE37
+Remnant-Win64-Shipping.exe+1C3EE17:               - mov rax,[rax]
+// ---------- INJECTING HERE ----------
+Remnant-Win64-Shipping.exe+1C3EE1A: 48 8B 00              - mov rax,[rax]
+// ---------- DONE INJECTING  ----------
+Remnant-Win64-Shipping.exe+1C3EE1D: 48 85 C0              - test rax,rax
+Remnant-Win64-Shipping.exe+1C3EE20: 74 15                 - je Remnant-Win64-Shipping.exe+1C3EE37
+Remnant-Win64-Shipping.exe+1C3EE22: 48 8B 40 30           - mov rax,[rax+30]
+Remnant-Win64-Shipping.exe+1C3EE26: 48 85 C0              - test rax,rax
+Remnant-Win64-Shipping.exe+1C3EE29: 74 0C                 - je Remnant-Win64-Shipping.exe+1C3EE37
+Remnant-Win64-Shipping.exe+1C3EE2B: F6 80 E0 04 00 00 02  - test byte ptr [rax+000004E0],02
+Remnant-Win64-Shipping.exe+1C3EE32: 74 03                 - je Remnant-Win64-Shipping.exe+1C3EE37
+Remnant-Win64-Shipping.exe+1C3EE34: 40 B6 01              - mov sil,01
+Remnant-Win64-Shipping.exe+1C3EE37: 48 8B 03              - mov rax,[rbx]
+Remnant-Win64-Shipping.exe+1C3EE3A: 41 0F B6 D5           - movzx edx,r13b
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>46493</ID>
+                                  <Description>"_____________________________________"</Description>
+                                  <Color>00FFFF</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript>{$lua}
+
+[ENABLE]
+
+GodMode = writePointer('[[[[[[[[Dax_PeT3R]+10]+20]+38]+0]+30]+360]+FA9]',1)
+Untargetable = writePointer('[[[[[[[[Dax_PeT3R]+10]+20]+38]+0]+30]+360]+FC8]',1)
+StatusEffectsApplied = writePointer('[[[[[[[[Dax_PeT3R]+10]+20]+38]+0]+30]+360]+1378]',0)
+Stamina = writePointer('[[[[[[[[Dax_PeT3R]+10]+20]+38]+0]+30]+360]+EA8]+140]',100)
+SkipWallChecks = writePointer('[[[[[[[[Dax_PeT3R]+10]+20]+38]+0]+30]+360]+A51]',1)
+TraitPoints = writePointer('[[[[[[[Dax_PeT3R]+10]+20]+38]+0]+30]+360]+CF8]+124]',100)
+TraitPointsSpent = writePointer('[[[[[[[[Dax_PeT3R]+10]+20]+38]+0]+30]+360]+CF8]+120]',0)
+
+{$ASM}
+[DISABLE]
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>46410</ID>
+                                      <Description>"Move Faster"</Description>
+                                      <Color>FFFF00</Color>
+                                      <VariableType>Auto Assembler Script</VariableType>
+                                      <AssemblerScript>{ Game   : Win64-Shipping.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-07-18
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(P_sped,Remnant-Win64-Shipping.exe,F3 0F 11 B3 C0 00 00 00 48 8B) // should be unique
+alloc(newmem,$100,P_sped)
+
+label(code)
+label(return)
+
+newmem:
+  mov [rbx+c0],(float)2//Time Dialation
+  jmp return
+code:
+  movss [rbx+000000C0],xmm6
+  jmp return
+
+P_sped:
+  jmp newmem
+  nop 3
+return:
+registersymbol(P_sped)
+
+[DISABLE]
+
+P_sped:
+  db F3 0F 11 B3 C0 00 00 00
+
+unregistersymbol(P_sped)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant-Win64-Shipping.exe+6DA678
+
+Remnant-Win64-Shipping.exe+6DA654: 0F 2F F0                 - comiss xmm6,xmm0
+Remnant-Win64-Shipping.exe+6DA657: 72 0B                    - jb Remnant-Win64-Shipping.exe+6DA664
+Remnant-Win64-Shipping.exe+6DA659: 0F 28 C2                 - movaps xmm0,xmm2
+Remnant-Win64-Shipping.exe+6DA65C: F3 0F 58 C1              - addss xmm0,xmm1
+Remnant-Win64-Shipping.exe+6DA660: F3 0F 5D C6              - minss xmm0,xmm6
+Remnant-Win64-Shipping.exe+6DA664: 40 84 ED                 - test bpl,bpl
+Remnant-Win64-Shipping.exe+6DA667: 74 05                    - je Remnant-Win64-Shipping.exe+6DA66E
+Remnant-Win64-Shipping.exe+6DA669: F3 0F 11 46 6C           - movss [rsi+6C],xmm0
+Remnant-Win64-Shipping.exe+6DA66E: F3 0F 11 83 C0 00 00 00  - movss [rbx+000000C0],xmm0
+Remnant-Win64-Shipping.exe+6DA676: EB 08                    - jmp Remnant-Win64-Shipping.exe+6DA680
+// ---------- INJECTING HERE ----------
+Remnant-Win64-Shipping.exe+6DA678: F3 0F 11 B3 C0 00 00 00  - movss [rbx+000000C0],xmm6
+// ---------- DONE INJECTING  ----------
+Remnant-Win64-Shipping.exe+6DA680: 48 8B 5C 24 50           - mov rbx,[rsp+50]
+Remnant-Win64-Shipping.exe+6DA685: 48 8B 6C 24 60           - mov rbp,[rsp+60]
+Remnant-Win64-Shipping.exe+6DA68A: 48 8B 74 24 68           - mov rsi,[rsp+68]
+Remnant-Win64-Shipping.exe+6DA68F: 0F 28 74 24 30           - movaps xmm6,[rsp+30]
+Remnant-Win64-Shipping.exe+6DA694: 0F 28 7C 24 20           - movaps xmm7,[rsp+20]
+Remnant-Win64-Shipping.exe+6DA699: 48 83 C4 40              - add rsp,40
+Remnant-Win64-Shipping.exe+6DA69D: 5F                       - pop rdi
+Remnant-Win64-Shipping.exe+6DA69E: C3                       - ret 
+Remnant-Win64-Shipping.exe+6DA69F: CC                       - int 3 
+Remnant-Win64-Shipping.exe+6DA6A0: 4C 8B DC                 - mov r11,rsp
+}
+</AssemblerScript>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>46420</ID>
+                                          <Description>"Traders Pocket"</Description>
+                                          <Color>FFFF80</Color>
+                                          <VariableType>Auto Assembler Script</VariableType>
+                                          <AssemblerScript>{ Game   : Remnant-Win64-Shipping.exe
+  Version: 
+  Date   : 2023-07-18
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(buy_sell,Remnant-Win64-Shipping.exe,41 2B C7 89 41 2C) // should be unique
+alloc(newmem,$400,buy_sell)
+
+label(code)
+label(return)
+
+newmem:
+mov r15d,99
+add eax,r15d
+mov [rcx+2C],eax
+jmp return
+
+code:
+sub eax,r15d
+  mov [rcx+2C],eax
+  jmp return
+
+buy_sell:
+  jmp newmem
+  nop
+return:
+registersymbol(buy_sell)
+
+[DISABLE]
+
+free buy:
+  db 41 2B C7 89 41 2C
+
+unregistersymbol(buy_sell)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant-Win64-Shipping.exe+79C51D
+
+Remnant-Win64-Shipping.exe+79C503: 48 8B 74 24 50  - mov rsi,[rsp+50]
+Remnant-Win64-Shipping.exe+79C508: 48 83 C4 20     - add rsp,20
+Remnant-Win64-Shipping.exe+79C50C: 41 5F           - pop r15
+Remnant-Win64-Shipping.exe+79C50E: 41 5E           - pop r14
+Remnant-Win64-Shipping.exe+79C510: 5F              - pop rdi
+Remnant-Win64-Shipping.exe+79C511: C3              - ret 
+Remnant-Win64-Shipping.exe+79C512: 8B 41 2C        - mov eax,[rcx+2C]
+Remnant-Win64-Shipping.exe+79C515: 41 3B C7        - cmp eax,r15d
+Remnant-Win64-Shipping.exe+79C518: 7E 12           - jle Remnant-Win64-Shipping.exe+79C52C
+Remnant-Win64-Shipping.exe+79C51A: 41 2B C7        -
+// ---------- INJECTING HERE ----------
+Remnant-Win64-Shipping.exe+79C51D: 89 41 2C        - mov [rcx+2C],eax
+// ---------- DONE INJECTING  ----------
+Remnant-Win64-Shipping.exe+79C520: 48 8B CD        - mov rcx,rbp
+Remnant-Win64-Shipping.exe+79C523: E8 98 A5 FF FF  - call Remnant-Win64-Shipping.exe+796AC0
+Remnant-Win64-Shipping.exe+79C528: B0 01           - mov al,01
+Remnant-Win64-Shipping.exe+79C52A: EB CD           - jmp Remnant-Win64-Shipping.exe+79C4F9
+Remnant-Win64-Shipping.exe+79C52C: 48 83 7A 20 00  - cmp qword ptr [rdx+20],00
+Remnant-Win64-Shipping.exe+79C531: 74 0B           - je Remnant-Win64-Shipping.exe+79C53E
+Remnant-Win64-Shipping.exe+79C533: 41 B0 01        - mov r8l,01
+Remnant-Win64-Shipping.exe+79C536: 48 8B CD        - mov rcx,rbp
+Remnant-Win64-Shipping.exe+79C539: E8 B2 97 00 00  - call Remnant-Win64-Shipping.exe+7A5CF0
+Remnant-Win64-Shipping.exe+79C53E: 41 8B 4E 08     - mov ecx,[r14+08]
+}
+</AssemblerScript>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>46465</ID>
+                                  <Description>"ptr"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <Color>000000</Color>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Dax_PeT3R</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>46466</ID>
+                                      <Description>"Level"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>858</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46467</ID>
+                                      <Description>"HealthNormalized"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>870</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46468</ID>
+                                      <Description>"bSkipWallChecks"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>A51</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46469</ID>
+                                      <Description>"Inventory"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>AB0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46470</ID>
+                                      <Description>"bHasAggro"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>AF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46471</ID>
+                                      <Description>"Progression"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46472</ID>
+                                      <Description>"StartingLevel"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>100</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46473</ID>
+                                      <Description>"InitialRequiredExperience"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>104</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46474</ID>
+                                      <Description>"RequiredExperienceInc"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>108</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46475</ID>
+                                      <Description>"RequiredExperienceExp"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>10C</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46476</ID>
+                                      <Description>"MaxRequiredExperience"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>110</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46477</ID>
+                                      <Description>"IncomingExperienceScalar"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>114</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46478</ID>
+                                      <Description>"RequiredExperienceRound"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>118</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46479</ID>
+                                      <Description>"MaxLevel"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>11C</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46480</ID>
+                                      <Description>"Level"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>120</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46481</ID>
+                                      <Description>"Experience"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>124</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46482</ID>
+                                      <Description>"QueuedExperience"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>128</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46483</ID>
+                                      <Description>"AutoAcquireExperience"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>12C</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46484</ID>
+                                      <Description>"QueueExperience"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>12D</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46485</ID>
+                                      <Description>"SharedExperience"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>12E</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46486</ID>
+                                      <Description>"SharedExperienceRange"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>130</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46487</ID>
+                                      <Description>"MaxValidExperienceOverTime"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>148</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46488</ID>
+                                      <Description>"ExpTimeOutSeconds"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>14C</Offset>
+                                        <Offset>CF0</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46489</ID>
+                                      <Description>"Traits"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>CF8</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46409</ID>
+                                      <Description>"DefaultTraitLevel"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>120</Offset>
+                                        <Offset>CF8</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46490</ID>
+                                      <Description>"TraitPoints"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>124</Offset>
+                                        <Offset>CF8</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46491</ID>
+                                      <Description>"TraitPointsSpent"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>128</Offset>
+                                        <Offset>CF8</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46412</ID>
+                                      <Description>"Stamina"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>EA8</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>46413</ID>
+                                          <Description>"Value"</Description>
+                                          <VariableType>Float</VariableType>
+                                          <Address>Dax_PeT3R</Address>
+                                          <Offsets>
+                                            <Offset>140</Offset>
+                                            <Offset>EA8</Offset>
+                                            <Offset>360</Offset>
+                                            <Offset>30</Offset>
+                                            <Offset>0</Offset>
+                                            <Offset>38</Offset>
+                                            <Offset>20</Offset>
+                                            <Offset>10</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46414</ID>
+                                      <Description>"AimCast"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>FA8</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46415</ID>
+                                      <Description>"God Mode"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>FA9</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>1337142904</ID>
+                                      <Description>"Untargetable"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>FC8</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46492</ID>
+                                      <Description>"StatusEffectsApplied"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>1378</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>1337142905</ID>
+                                      <Description>"HasEquippedHarsgaardRootGun"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>1390</Offset>
+                                        <Offset>360</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46419</ID>
+                                      <Description>"bJoiningMustSpectate"</Description>
+                                      <VariableType>Byte</VariableType>
+                                      <Address>Dax_PeT3R</Address>
+                                      <Offsets>
+                                        <Offset>754</Offset>
+                                        <Offset>30</Offset>
+                                        <Offset>0</Offset>
+                                        <Offset>38</Offset>
+                                        <Offset>20</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>46417</ID>
+                          <Description>"REMNANET 2"</Description>
+                          <Options moHideChildren="1" moManualExpandCollapse="1"/>
+                          <Color>00FFFF</Color>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>1337142944</ID>
+                              <Description>"xxxx Player Options xxxxx"</Description>
+                              <Options moHideChildren="1" moManualExpandCollapse="1"/>
+                              <Color>C080FF</Color>
+                              <GroupHeader>1</GroupHeader>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337142913</ID>
+                                  <Description>"[2 PLAYERS]GodMode"</Description>
+                                  <Color>FF80FF</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Win64-Shipping.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-07-27
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(G_Mod,Remnant2-Win64-Shipping.exe,F3 0F 11 B3 60 08 00 00) // should be unique
+alloc(newmem,$100,G_Mod)
+registersymbol(G_Mod Hookme)
+label(code Hookme)
+label(return)
+
+newmem:
+cmp [rbx+8D0],00000001
+//cmp [rbx+228],FFFFFFFF
+jne  code
+mov [Hookme],rbx
+mov [rbx+860],(float)10001// P[layer Health
+
+//mov [rbx+11E0],1// GoD Mode
+//mov [rbx+B48],0// bHasAggro
+//mov [rbx+1200],1// Untargetable
+//mov [rbx+1215],1// IsplayingConsole
+//mov [rbx+12E8],1// SkillCooldownDisabled
+
+jmp return
+
+Hookme:
+dq 0
+
+code:
+  movss [rbx+00000860],xmm6
+  jmp return
+
+G_Mod:
+  jmp newmem
+  nop 3
+return:
+
+
+[DISABLE]
+
+G_Mod:
+  db F3 0F 11 B3 60 08 00 00
+
+unregistersymbol(G_Mod Hookme)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant2-Win64-Shipping.exe+1FAA997
+
+Remnant2-Win64-Shipping.exe+1FAA975: 0F 28 F1                 - movaps xmm6,xmm1
+Remnant2-Win64-Shipping.exe+1FAA978: 48 8B 01                 - mov rax,[rcx]
+Remnant2-Win64-Shipping.exe+1FAA97B: FF 50 50                 - call qword ptr [rax+50]
+Remnant2-Win64-Shipping.exe+1FAA97E: 0F 57 C9                 - xorps xmm1,xmm1
+Remnant2-Win64-Shipping.exe+1FAA981: 0F 2F C1                 - comiss xmm0,xmm1
+Remnant2-Win64-Shipping.exe+1FAA984: 76 0E                    - jna Remnant2-Win64-Shipping.exe+1FAA994
+Remnant2-Win64-Shipping.exe+1FAA986: F3 0F 59 35 D6 39 7A 03  - mulss xmm6,[Remnant2-Win64-Shipping.exe+574E364]
+Remnant2-Win64-Shipping.exe+1FAA98E: F3 0F 5E F0              - divss xmm6,xmm0
+Remnant2-Win64-Shipping.exe+1FAA992: EB 03                    - jmp Remnant2-Win64-Shipping.exe+1FAA997
+Remnant2-Win64-Shipping.exe+1FAA994: 0F 57 F6                 - xorps xmm6,xmm6
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+1FAA997: F3 0F 11 B3 60 08 00 00  - movss [rbx+00000860],xmm6
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+1FAA99F: 48 8D 8B 38 09 00 00     - lea rcx,[rbx+00000938]
+Remnant2-Win64-Shipping.exe+1FAA9A6: 48 8D 54 24 40           - lea rdx,[rsp+40]
+Remnant2-Win64-Shipping.exe+1FAA9AB: 48 89 5C 24 40           - mov [rsp+40],rbx
+Remnant2-Win64-Shipping.exe+1FAA9B0: E8 EB F1 AA FE           - call Remnant2-Win64-Shipping.exe+A59BA0
+Remnant2-Win64-Shipping.exe+1FAA9B5: 0F 28 74 24 20           - movaps xmm6,[rsp+20]
+Remnant2-Win64-Shipping.exe+1FAA9BA: 48 83 C4 30              - add rsp,30
+Remnant2-Win64-Shipping.exe+1FAA9BE: 5B                       - pop rbx
+Remnant2-Win64-Shipping.exe+1FAA9BF: C3                       - ret 
+Remnant2-Win64-Shipping.exe+1FAA9C0: 40 53                    - push rbx
+Remnant2-Win64-Shipping.exe+1FAA9C2: 48 83 EC 20              - sub rsp,20
+}
+</AssemblerScript>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>46416</ID>
+                                  <Description>"[2 PLAYERS]GodMode+1 OHk [Not Safe for Boss fights]"</Description>
+                                  <Color>8080FF</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Win64-Shipping.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-07-27
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(G_Mod,Remnant2-Win64-Shipping.exe,F3 0F 11 B3 60 08 00 00) // should be unique
+alloc(newmem,$100,G_Mod)
+registersymbol(G_Mod Pussy Hookme)
+label(code Pussy Hookme)
+label(return)
+
+newmem:
+cmp [rbx+228],FFFFFFFF
+//cmp [rbx+8D0],00000001
+jne  Pussy
+mov [Hookme],rbx
+mov [rbx+860],(float)10001// P[layer Health
+//mov [rbx+11E0],1// GoD Mode
+//mov [rbx+B48],0// bHasAggro
+//mov [rbx+1200],1// Untargetable
+mov [rbx+1215],1// IsplayingConsole
+//mov [rbx+12E8],1// SkillCooldownDisabled
+jmp return
+
+Hookme:
+dq 0
+
+Pussy:
+// Enemy's Health
+sub [rbx+00000860],(float)200000
+mov [rbx+00000860],(float)0.00001
+jmp return
+
+code:
+  movss [rbx+00000860],xmm6
+  jmp return
+
+G_Mod:
+  jmp newmem
+  nop 3
+return:
+
+
+[DISABLE]
+
+G_Mod:
+  db F3 0F 11 B3 60 08 00 00
+
+unregistersymbol(G_Mod Pussy Hookme)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant2-Win64-Shipping.exe+1FAA997
+
+Remnant2-Win64-Shipping.exe+1FAA975: 0F 28 F1                 - movaps xmm6,xmm1
+Remnant2-Win64-Shipping.exe+1FAA978: 48 8B 01                 - mov rax,[rcx]
+Remnant2-Win64-Shipping.exe+1FAA97B: FF 50 50                 - call qword ptr [rax+50]
+Remnant2-Win64-Shipping.exe+1FAA97E: 0F 57 C9                 - xorps xmm1,xmm1
+Remnant2-Win64-Shipping.exe+1FAA981: 0F 2F C1                 - comiss xmm0,xmm1
+Remnant2-Win64-Shipping.exe+1FAA984: 76 0E                    - jna Remnant2-Win64-Shipping.exe+1FAA994
+Remnant2-Win64-Shipping.exe+1FAA986: F3 0F 59 35 D6 39 7A 03  - mulss xmm6,[Remnant2-Win64-Shipping.exe+574E364]
+Remnant2-Win64-Shipping.exe+1FAA98E: F3 0F 5E F0              - divss xmm6,xmm0
+Remnant2-Win64-Shipping.exe+1FAA992: EB 03                    - jmp Remnant2-Win64-Shipping.exe+1FAA997
+Remnant2-Win64-Shipping.exe+1FAA994: 0F 57 F6                 - xorps xmm6,xmm6
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+1FAA997: F3 0F 11 B3 60 08 00 00  - movss [rbx+00000860],xmm6
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+1FAA99F: 48 8D 8B 38 09 00 00     - lea rcx,[rbx+00000938]
+Remnant2-Win64-Shipping.exe+1FAA9A6: 48 8D 54 24 40           - lea rdx,[rsp+40]
+Remnant2-Win64-Shipping.exe+1FAA9AB: 48 89 5C 24 40           - mov [rsp+40],rbx
+Remnant2-Win64-Shipping.exe+1FAA9B0: E8 EB F1 AA FE           - call Remnant2-Win64-Shipping.exe+A59BA0
+Remnant2-Win64-Shipping.exe+1FAA9B5: 0F 28 74 24 20           - movaps xmm6,[rsp+20]
+Remnant2-Win64-Shipping.exe+1FAA9BA: 48 83 C4 30              - add rsp,30
+Remnant2-Win64-Shipping.exe+1FAA9BE: 5B                       - pop rbx
+Remnant2-Win64-Shipping.exe+1FAA9BF: C3                       - ret 
+Remnant2-Win64-Shipping.exe+1FAA9C0: 40 53                    - push rbx
+Remnant2-Win64-Shipping.exe+1FAA9C2: 48 83 EC 20              - sub rsp,20
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337142947</ID>
+                                      <Description>"ptr"</Description>
+                                      <Options moManualExpandCollapse="1"/>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <Color>000000</Color>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Hookme</Address>
+                                      <Offsets>
+                                        <Offset>0</Offset>
+                                      </Offsets>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>1337142980</ID>
+                                          <Description>"Health"</Description>
+                                          <VariableType>Float</VariableType>
+                                          <Address>Hookme</Address>
+                                          <Offsets>
+                                            <Offset>860</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337142981</ID>
+                                              <Description>"God Mode flag"</Description>
+                                              <ShowAsSigned>0</ShowAsSigned>
+                                              <VariableType>Byte</VariableType>
+                                              <Address>Hookme</Address>
+                                              <Offsets>
+                                                <Offset>11E0</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337142938</ID>
+                                  <Description>"Inf Ammo"</Description>
+                                  <Options moHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                                  <Color>00FFFF</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Remnant2-Win64-Shipping.exe
+  Version: 
+  Date   : 2023-07-30
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(Ammo,Remnant2-Win64-Shipping.exe,F3 0F 11 B3 F0 00 00 00 B0) // should be unique
+alloc(newmem,$70,Ammo)
+registersymbol(Ammo Am_mo)
+label(code Am_mo)
+label(return)
+
+newmem:
+cmp [rbx+3EC],00000000
+jne code
+mov [Am_mo],rbx
+mov [rbx+000000F0],(float)1000
+jmp return
+
+
+Am_mo:
+dq 0
+
+code:
+  movss [rbx+000000F0],xmm6
+  jmp return
+
+Ammo:
+  jmp newmem
+  nop 3
+return:
+
+
+[DISABLE]
+
+Ammo:
+  db F3 0F 11 B3 F0 00 00 00
+
+unregistersymbol(Ammo Am_mo)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant2-Win64-Shipping.exe+1F82FA0
+
+Remnant2-Win64-Shipping.exe+1F82F7E: 0F 57 C0                 - xorps xmm0,xmm0
+Remnant2-Win64-Shipping.exe+1F82F81: 0F 28 C8                 - movaps xmm1,xmm0
+Remnant2-Win64-Shipping.exe+1F82F84: F3 0F 58 CF              - addss xmm1,xmm7
+Remnant2-Win64-Shipping.exe+1F82F88: 0F 2F CE                 - comiss xmm1,xmm6
+Remnant2-Win64-Shipping.exe+1F82F8B: 72 08                    - jb Remnant2-Win64-Shipping.exe+1F82F95
+Remnant2-Win64-Shipping.exe+1F82F8D: 0F 28 F1                 - movaps xmm6,xmm1
+Remnant2-Win64-Shipping.exe+1F82F90: F3 41 0F 5D F0           - minss xmm6,xmm8
+Remnant2-Win64-Shipping.exe+1F82F95: 0F 2E F0                 - ucomiss xmm6,xmm0
+Remnant2-Win64-Shipping.exe+1F82F98: 44 0F 28 44 24 20        - movaps xmm8,[rsp+20]
+Remnant2-Win64-Shipping.exe+1F82F9E: 74 1A                    - je Remnant2-Win64-Shipping.exe+1F82FBA
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+1F82FA0: F3 0F 11 B3 F0 00 00 00  - movss [rbx+000000F0],xmm6
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+1F82FA8: B0 01                    - mov al,01
+Remnant2-Win64-Shipping.exe+1F82FAA: 0F 28 74 24 40           - movaps xmm6,[rsp+40]
+Remnant2-Win64-Shipping.exe+1F82FAF: 0F 28 7C 24 30           - movaps xmm7,[rsp+30]
+Remnant2-Win64-Shipping.exe+1F82FB4: 48 83 C4 50              - add rsp,50
+Remnant2-Win64-Shipping.exe+1F82FB8: 5B                       - pop rbx
+Remnant2-Win64-Shipping.exe+1F82FB9: C3                       - ret 
+Remnant2-Win64-Shipping.exe+1F82FBA: 0F 28 74 24 40           - movaps xmm6,[rsp+40]
+Remnant2-Win64-Shipping.exe+1F82FBF: 32 C0                    - xor al,al
+Remnant2-Win64-Shipping.exe+1F82FC1: 0F 28 7C 24 30           - movaps xmm7,[rsp+30]
+Remnant2-Win64-Shipping.exe+1F82FC6: 48 83 C4 50              - add rsp,50
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337142941</ID>
+                                      <Description>"No Reload"</Description>
+                                      <VariableType>Auto Assembler Script</VariableType>
+                                      <AssemblerScript Async="1">{ Game   : Remnant2-Win64-Shipping.exe
+  Version: 
+  Date   : 2023-07-30
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(No_reloading,Remnant2-Win64-Shipping.exe,29 68 54 F7 DD) // should be unique
+registersymbol(No_reloading)
+
+No_reloading:
+  db 90 90 90 90 90
+[DISABLE]
+
+No_reloading:
+  db 29 68 54 F7 DD
+
+unregistersymbol(No_reloading)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant2-Win64-Shipping.exe+20D6A62
+
+Remnant2-Win64-Shipping.exe+20D6A33: B8 D4 04 00 00        - mov eax,000004D4
+Remnant2-Win64-Shipping.exe+20D6A38: B9 2C 01 00 00        - mov ecx,0000012C
+Remnant2-Win64-Shipping.exe+20D6A3D: 0F 44 C1              - cmove eax,ecx
+Remnant2-Win64-Shipping.exe+20D6A40: 80 3C 38 00           - cmp byte ptr [rax+rdi],00
+Remnant2-Win64-Shipping.exe+20D6A44: 74 09                 - je Remnant2-Win64-Shipping.exe+20D6A4F
+Remnant2-Win64-Shipping.exe+20D6A46: 80 BF E0 05 00 00 00  - cmp byte ptr [rdi+000005E0],00
+Remnant2-Win64-Shipping.exe+20D6A4D: 75 27                 - jne Remnant2-Win64-Shipping.exe+20D6A76
+Remnant2-Win64-Shipping.exe+20D6A4F: 48 8D 8F E8 F9 FF FF  - lea rcx,[rdi-00000618]
+Remnant2-Win64-Shipping.exe+20D6A56: E8 A5 F1 FE FF        - call Remnant2-Win64-Shipping.exe+20C5C00
+Remnant2-Win64-Shipping.exe+20D6A5B: 48 8D 8F E8 F9 FF FF  - lea rcx,[rdi-00000618]
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+20D6A62: 29 68 54              - sub [rax+54],ebp
+Remnant2-Win64-Shipping.exe+20D6A65: F7 DD                 - neg ebp
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+20D6A67: 48 8B 87 E8 F9 FF FF  - mov rax,[rdi-00000618]
+Remnant2-Win64-Shipping.exe+20D6A6E: 8B D5                 - mov edx,ebp
+Remnant2-Win64-Shipping.exe+20D6A70: FF 90 10 09 00 00     - call qword ptr [rax+00000910]
+Remnant2-Win64-Shipping.exe+20D6A76: 48 8B 6C 24 38        - mov rbp,[rsp+38]
+Remnant2-Win64-Shipping.exe+20D6A7B: 48 8B 74 24 40        - mov rsi,[rsp+40]
+Remnant2-Win64-Shipping.exe+20D6A80: 48 83 C4 20           - add rsp,20
+Remnant2-Win64-Shipping.exe+20D6A84: 5F                    - pop rdi
+Remnant2-Win64-Shipping.exe+20D6A85: C3                    - ret 
+Remnant2-Win64-Shipping.exe+20D6A86: CC                    - int 3 
+}
+</AssemblerScript>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>1337142943</ID>
+                              <Description>"xxxxx Crafting/upgrades options xxxxxxx"</Description>
+                              <Options moHideChildren="1" moManualExpandCollapse="1"/>
+                              <Color>FFFF80</Color>
+                              <GroupHeader>1</GroupHeader>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337142912</ID>
+                                  <Description>"Traders Pocket [Sell to get x99item back]"</Description>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript>{ Game   : Remnant2-Win64-Shipping.exe
+  Version: 
+  Date   : 2023-07-27
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(buy_sell,Remnant2-Win64-Shipping.exe,41 2B C7 89 41 2C) // should be unique
+alloc(newmem,$50,buy_sell)
+
+label(code)
+label(return)
+
+newmem:
+mov r15d,99
+add eax,r15d
+mov [rcx+2C],eax
+jmp return
+
+code:
+sub eax,r15d
+  mov [rcx+2C],eax
+  jmp return
+
+buy_sell:
+  jmp newmem
+  nop
+return:
+registersymbol(buy_sell)
+
+[DISABLE]
+
+free buy:
+  db 41 2B C7 89 41 2C
+
+unregistersymbol(buy_sell)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant2-Win64-Shipping.exe+20F63EA
+
+Remnant2-Win64-Shipping.exe+20F63CE: 48 8B 6C 24 48  - mov rbp,[rsp+48]
+Remnant2-Win64-Shipping.exe+20F63D3: 48 8B 74 24 50  - mov rsi,[rsp+50]
+Remnant2-Win64-Shipping.exe+20F63D8: 48 83 C4 20     - add rsp,20
+Remnant2-Win64-Shipping.exe+20F63DC: 41 5F           - pop r15
+Remnant2-Win64-Shipping.exe+20F63DE: 41 5E           - pop r14
+Remnant2-Win64-Shipping.exe+20F63E0: 5F              - pop rdi
+Remnant2-Win64-Shipping.exe+20F63E1: C3              - ret 
+Remnant2-Win64-Shipping.exe+20F63E2: 8B 41 2C        - mov eax,[rcx+2C]
+Remnant2-Win64-Shipping.exe+20F63E5: 41 3B C7        - cmp eax,r15d
+Remnant2-Win64-Shipping.exe+20F63E8: 7E 12           - jle Remnant2-Win64-Shipping.exe+20F63FC
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+20F63EA: 41 2B C7        - sub eax,r15d
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+20F63ED: 89 41 2C        - mov [rcx+2C],eax
+Remnant2-Win64-Shipping.exe+20F63F0: 49 8B CE        - mov rcx,r14
+Remnant2-Win64-Shipping.exe+20F63F3: E8 28 AB FF FF  - call Remnant2-Win64-Shipping.exe+20F0F20
+Remnant2-Win64-Shipping.exe+20F63F8: B0 01           - mov al,01
+Remnant2-Win64-Shipping.exe+20F63FA: EB CD           - jmp Remnant2-Win64-Shipping.exe+20F63C9
+Remnant2-Win64-Shipping.exe+20F63FC: 48 83 7A 20 00  - cmp qword ptr [rdx+20],00
+Remnant2-Win64-Shipping.exe+20F6401: 74 0B           - je Remnant2-Win64-Shipping.exe+20F640E
+Remnant2-Win64-Shipping.exe+20F6403: 41 B0 01        - mov r8l,01
+Remnant2-Win64-Shipping.exe+20F6406: 49 8B CE        - mov rcx,r14
+Remnant2-Win64-Shipping.exe+20F6409: E8 D2 9B 00 00  - call Remnant2-Win64-Shipping.exe+20FFFE0
+}
+</AssemblerScript>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337142935</ID>
+                                  <Description>"Upgrade_increase via Don "Rigs" Rigler"</Description>
+                                  <Color>FF00FF</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript>{ Game   : Win64-Shipping.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-07-29
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(Upgrade_increase,Remnant2-Win64-Shipping.exe,41 2B C4 89 41 2C) // should be unique
+alloc(newmem,$68,Upgrade_increase)
+
+label(code)
+label(return)
+
+newmem:
+mov r12d,99
+add eax,r12d
+mov [rcx+2C],eax
+jmp return
+
+code:
+  sub eax,r12d
+  mov [rcx+2C],eax
+  jmp return
+
+Upgrade_increase:
+  jmp newmem
+  nop
+return:
+registersymbol(Upgrade_increase)
+
+[DISABLE]
+
+Upgrade_increase:
+  db 41 2B C4 89 41 2C
+
+unregistersymbol(Upgrade_increase)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant2-Win64-Shipping.exe+20F663D
+
+Remnant2-Win64-Shipping.exe+20F6619: 41 FF 4E 08        - dec [r14+08]
+Remnant2-Win64-Shipping.exe+20F661D: 49 8B CE           - mov rcx,r14
+Remnant2-Win64-Shipping.exe+20F6620: E8 4B 50 BF FE     - call Remnant2-Win64-Shipping.exe+CEB670
+Remnant2-Win64-Shipping.exe+20F6625: 45 85 E4           - test r12d,r12d
+Remnant2-Win64-Shipping.exe+20F6628: 7E 29              - jle Remnant2-Win64-Shipping.exe+20F6653
+Remnant2-Win64-Shipping.exe+20F662A: FF 4C 24 20        - dec [rsp+20]
+Remnant2-Win64-Shipping.exe+20F662E: 49 83 ED 28        - sub r13,28
+Remnant2-Win64-Shipping.exe+20F6632: 83 ED 01           - sub ebp,01
+Remnant2-Win64-Shipping.exe+20F6635: 0F 89 D5 FE FF FF  - jns Remnant2-Win64-Shipping.exe+20F6510
+Remnant2-Win64-Shipping.exe+20F663B: EB 16              - jmp Remnant2-Win64-Shipping.exe+20F6653
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+20F663D: 41 2B C4           - sub eax,r12d
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+20F6640: 89 41 2C           - mov [rcx+2C],eax
+Remnant2-Win64-Shipping.exe+20F6643: 48 8B 4F 18        - mov rcx,[rdi+18]
+Remnant2-Win64-Shipping.exe+20F6647: 48 83 C1 30        - add rcx,30
+Remnant2-Win64-Shipping.exe+20F664B: E8 50 35 96 FE     - call Remnant2-Win64-Shipping.exe+A59BA0
+Remnant2-Win64-Shipping.exe+20F6650: 45 33 E4           - xor r12d,r12d
+Remnant2-Win64-Shipping.exe+20F6653: 4C 8B 74 24 30     - mov r14,[rsp+30]
+Remnant2-Win64-Shipping.exe+20F6658: 4C 8B 6C 24 38     - mov r13,[rsp+38]
+Remnant2-Win64-Shipping.exe+20F665D: 48 8B 74 24 48     - mov rsi,[rsp+48]
+Remnant2-Win64-Shipping.exe+20F6662: 44 3B 64 24 24     - cmp r12d,[rsp+24]
+Remnant2-Win64-Shipping.exe+20F6667: 7C 1B              - jl Remnant2-Win64-Shipping.exe+20F6684
+}
+</AssemblerScript>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337142982</ID>
+                                  <Description>"Give Trait Points"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <Color>FFFF00</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Win64-Shipping.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-08-06
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(t_points,Remnant2-Win64-Shipping.exe,8B B1 D4 00 00 00 48) // should be unique
+alloc(newmem,$30,t_points)
+
+label(code Traits_p)
+label(return)
+
+newmem:
+mov [Traits_p],rcx
+jmp return
+
+Traits_p:
+dq 0
+
+
+code:
+  mov esi,[rcx+000000D4]
+  jmp return
+
+t_points:
+  jmp newmem
+  nop
+return:
+registersymbol(t_points Traits_p)
+
+[DISABLE]
+
+t_points:
+  db 8B B1 D4 00 00 00
+
+unregistersymbol(t_points Traits_p)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant2-Win64-Shipping.exe+21546C6
+
+Remnant2-Win64-Shipping.exe+21546AB: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+21546AC: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+21546AD: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+21546AE: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+21546AF: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+21546B0: 48 89 5C 24 08        - mov [rsp+08],rbx
+Remnant2-Win64-Shipping.exe+21546B5: 48 89 74 24 10        - mov [rsp+10],rsi
+Remnant2-Win64-Shipping.exe+21546BA: 57                    - push rdi
+Remnant2-Win64-Shipping.exe+21546BB: 48 83 EC 20           - sub rsp,20
+Remnant2-Win64-Shipping.exe+21546BF: 48 8B B9 90 00 00 00  - mov rdi,[rcx+00000090]
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+21546C6: 8B B1 D4 00 00 00     - mov esi,[rcx+000000D4]
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+21546CC: 48 8B 07              - mov rax,[rdi]
+Remnant2-Win64-Shipping.exe+21546CF: 48 8B 98 D0 06 00 00  - mov rbx,[rax+000006D0]
+Remnant2-Win64-Shipping.exe+21546D6: E8 D5 22 F3 FF        - call Remnant2-Win64-Shipping.exe+20869B0
+Remnant2-Win64-Shipping.exe+21546DB: 48 8B D0              - mov rdx,rax
+Remnant2-Win64-Shipping.exe+21546DE: 48 8B CF              - mov rcx,rdi
+Remnant2-Win64-Shipping.exe+21546E1: FF D3                 - call rbx
+Remnant2-Win64-Shipping.exe+21546E3: 48 8B D8              - mov rbx,rax
+Remnant2-Win64-Shipping.exe+21546E6: 48 85 C0              - test rax,rax
+Remnant2-Win64-Shipping.exe+21546E9: 74 29                 - je Remnant2-Win64-Shipping.exe+2154714
+Remnant2-Win64-Shipping.exe+21546EB: E8 A0 9C 01 00        - call Remnant2-Win64-Shipping.exe+216E390
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337142983</ID>
+                                      <Description>"p"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <Color>000000</Color>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>Traits_p</Address>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>1337142984</ID>
+                                          <Description>"Set -&gt; Amount Total Trait points"</Description>
+                                          <VariableType>4 Bytes</VariableType>
+                                          <Address>Traits_p</Address>
+                                          <Offsets>
+                                            <Offset>D4</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>8</ID>
+                                  <Description>"Give Scrap"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <Color>00FFFF</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Win64-Shipping.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-08-06
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(scrap_t,Remnant2-Win64-Shipping.exe,48 8B 4B 18 48 85 C9 74 11) // should be unique
+alloc(newmem,$48,scrap_t)
+
+label(code scrap_d)
+label(return)
+
+newmem:
+mov [scrap_d],rbx
+jmp return
+
+scrap_d:
+dq 0
+
+code:
+  mov rcx,[rbx+18]
+  test rcx,rcx
+  jmp return
+
+scrap_t:
+  jmp newmem
+  nop 2
+return:
+registersymbol(scrap_t scrap_d)
+
+[DISABLE]
+
+scrap_t:
+  db 48 8B 4B 18 48 85 C9
+
+unregistersymbol(scrap_t scrap_d)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant2-Win64-Shipping.exe+20FA623
+
+Remnant2-Win64-Shipping.exe+20FA604: 48 85 F6        - test rsi,rsi
+Remnant2-Win64-Shipping.exe+20FA607: 74 34           - je Remnant2-Win64-Shipping.exe+20FA63D
+Remnant2-Win64-Shipping.exe+20FA609: E8 82 F7 FF FF  - call Remnant2-Win64-Shipping.exe+20F9D90
+Remnant2-Win64-Shipping.exe+20FA60E: 48 8B D0        - mov rdx,rax
+Remnant2-Win64-Shipping.exe+20FA611: 48 8B CE        - mov rcx,rsi
+Remnant2-Win64-Shipping.exe+20FA614: E8 37 BE C4 FF  - call Remnant2-Win64-Shipping.exe+1D46450
+Remnant2-Win64-Shipping.exe+20FA619: 84 C0           - test al,al
+Remnant2-Win64-Shipping.exe+20FA61B: 74 20           - je Remnant2-Win64-Shipping.exe+20FA63D
+Remnant2-Win64-Shipping.exe+20FA61D: 48 39 6B 08     - cmp [rbx+08],rbp
+Remnant2-Win64-Shipping.exe+20FA621: 75 1A           - jne Remnant2-Win64-Shipping.exe+20FA63D
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+20FA623: 48 8B 4B 18     - mov rcx,[rbx+18]
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+20FA627: 48 85 C9        - test rcx,rcx
+Remnant2-Win64-Shipping.exe+20FA62A: 74 11           - je Remnant2-Win64-Shipping.exe+20FA63D
+Remnant2-Win64-Shipping.exe+20FA62C: 45 85 FF        - test r15d,r15d
+Remnant2-Win64-Shipping.exe+20FA62F: 78 09           - js Remnant2-Win64-Shipping.exe+20FA63A
+Remnant2-Win64-Shipping.exe+20FA631: 0F B6 41 28     - movzx eax,byte ptr [rcx+28]
+Remnant2-Win64-Shipping.exe+20FA635: 41 3B C7        - cmp eax,r15d
+Remnant2-Win64-Shipping.exe+20FA638: 75 03           - jne Remnant2-Win64-Shipping.exe+20FA63D
+Remnant2-Win64-Shipping.exe+20FA63A: 03 79 2C        - add edi,[rcx+2C]
+Remnant2-Win64-Shipping.exe+20FA63D: 48 83 C3 28     - add rbx,28
+Remnant2-Win64-Shipping.exe+20FA641: 49 3B DC        - cmp rbx,r12
+}
+</AssemblerScript>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337142985</ID>
+                                      <Description>"p"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>scrap_d</Address>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>10</ID>
+                                          <Description>"Scrap Amount"</Description>
+                                          <VariableType>4 Bytes</VariableType>
+                                          <Address>scrap_d</Address>
+                                          <Offsets>
+                                            <Offset>2C</Offset>
+                                            <Offset>18</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337142989</ID>
+                                  <Description>"InFinite Dragon Hearts"</Description>
+                                  <Color>80FF00</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Remnant2-Win64-Shipping.exe
+  Version: 
+  Date   : 2023-08-06
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(dragon_herts,Remnant2-Win64-Shipping.exe,66 0F 6E CB 0F 5B C9 F3 0F 58 * F3 0F 2C D8) // should be unique
+registersymbol(dragon_herts)
+
+dragon_herts+7:
+ db BB DE 03 00 00 0F 1F 00
+
+[DISABLE]
+
+dragon_herts+7:
+  db F3 0F 58 C1 F3 0F 2C D8
+
+unregistersymbol(*)
+
+
+{
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+1D809A3: 66 0F 6E CB           - movd xmm1,ebx
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+1D809A7: 0F 5B C9              - cvtdq2ps xmm1,xmm1
+Remnant2-Win64-Shipping.exe+1D809AA: F3 0F 58 C1           - addss xmm0,xmm1
+Remnant2-Win64-Shipping.exe+1D809AE: F3 0F 2C D8           - cvttss2si ebx,xmm0
+Remnant2-Win64-Shipping.exe+1D809B2: 8B 87 40 07 00 00     - mov eax,[rdi+00000740]
+}
+</AssemblerScript>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>1337142945</ID>
+                              <Description>"xxx World Settings xxx"</Description>
+                              <Options moHideChildren="1"/>
+                              <GroupHeader>1</GroupHeader>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337142903</ID>
+                                  <Description>"World Speed"</Description>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript>{ Game   : Win64-Shipping.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-07-27
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(P_sped,Remnant2-Win64-Shipping.exe,F3 0F 59 81 C8 03 00 00) // should be unique
+alloc(newmem,$1000,P_sped)
+
+label(code)
+label(return)
+
+newmem:
+  mov [rcx+000003CC],(float)1.0//Time Dialation
+  jmp return
+
+code:
+  mulss xmm0,[rcx+000003C8]
+  jmp return
+
+P_sped:
+  jmp newmem
+  nop 3
+return:
+registersymbol(P_sped)
+
+[DISABLE]
+
+P_sped:
+  db F3 0F 59 81 C8 03 00 00
+
+unregistersymbol(P_sped)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant2-Win64-Shipping.exe+3EB0368
+
+Remnant2-Win64-Shipping.exe+3EB0343: 48 8B CB                 - mov rcx,rbx
+Remnant2-Win64-Shipping.exe+3EB0346: 48 8D 15 6B 57 A3 02     - lea rdx,[Remnant2-Win64-Shipping.exe+68E5AB8]
+Remnant2-Win64-Shipping.exe+3EB034D: 89 44 24 20              - mov [rsp+20],eax
+Remnant2-Win64-Shipping.exe+3EB0351: E8 8A 49 39 FE           - call Remnant2-Win64-Shipping.exe+2244CE0
+Remnant2-Win64-Shipping.exe+3EB0356: 48 8B C3                 - mov rax,rbx
+Remnant2-Win64-Shipping.exe+3EB0359: 48 83 C4 30              - add rsp,30
+Remnant2-Win64-Shipping.exe+3EB035D: 5B                       - pop rbx
+Remnant2-Win64-Shipping.exe+3EB035E: C3                       - ret 
+Remnant2-Win64-Shipping.exe+3EB035F: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+3EB0360: F3 0F 10 81 CC 03 00 00  - movss xmm0,[rcx+000003CC]
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+3EB0368: F3 0F 59 81 C8 03 00 00  - mulss xmm0,[rcx+000003C8]
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+3EB0370: F3 0F 59 81 D0 03 00 00  - mulss xmm0,[rcx+000003D0]
+Remnant2-Win64-Shipping.exe+3EB0378: C3                       - ret 
+Remnant2-Win64-Shipping.exe+3EB0379: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+3EB037A: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+3EB037B: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+3EB037C: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+3EB037D: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+3EB037E: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+3EB037F: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+3EB0380: F2 0F 10 01              - movsd xmm0,[rcx]
+}
+</AssemblerScript>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337142991</ID>
+                                  <Description>"Map Hack"</Description>
+                                  <Color>FF80FF</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Remnant2-Win64-Shipping.exe
+  Version: 
+  Date   : 2023-08-05
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(g_pop,Remnant2-Win64-Shipping.exe,0F 2F 81 38 02 00 00) // should be unique
+alloc(newmem,$1000,g_pop)
+label(code)
+label(dm_Rewind)
+label(return)
+
+newmem:
+cmp [rcx+00000230],00000001
+jna code
+mov [dm_Rewind],rcx
+//mov [rcx+11E9],1// GoD Mode
+jmp return
+
+dm_Rewind:
+dq 0
+
+code:
+  comiss xmm0,[rcx+00000238]
+  jmp return
+
+g_pop:
+  jmp newmem
+  nop 2
+return:
+registersymbol(g_pop dm_Rewind)
+
+[DISABLE]
+
+g_pop:
+  db 0F 2F 81 38 02 00 00
+
+unregistersymbol(g_pop dm_Rewind)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant2-Win64-Shipping.exe+1FAD773
+
+Remnant2-Win64-Shipping.exe+1FAD767: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD768: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD769: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD76A: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD76B: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD76C: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD76D: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD76E: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD76F: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD770: 0F 57 C0              - xorps xmm0,xmm0
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+1FAD773: 0F 2F 81 38 02 00 00  - comiss xmm0,[rcx+00000238]
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+1FAD77A: 0F 92 C0              - setb al
+Remnant2-Win64-Shipping.exe+1FAD77D: C3                    - ret 
+Remnant2-Win64-Shipping.exe+1FAD77E: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD77F: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD780: 48 8B C4              - mov rax,rsp
+Remnant2-Win64-Shipping.exe+1FAD783: 48 89 58 10           - mov [rax+10],rbx
+Remnant2-Win64-Shipping.exe+1FAD787: 48 89 70 18           - mov [rax+18],rsi
+Remnant2-Win64-Shipping.exe+1FAD78B: 48 89 78 20           - mov [rax+20],rdi
+Remnant2-Win64-Shipping.exe+1FAD78F: 55                    - push rbp
+Remnant2-Win64-Shipping.exe+1FAD790: 41 54                 - push r12
+}
+</AssemblerScript>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337142990</ID>
+                                  <Description>"Pause game"</Description>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Win64-Shipping.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-08-08
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(ject_func_newt,Remnant2-Win64-Shipping.exe,48 8B 89 60 06 00 00 48 85 C9 74 28) // should be unique
+alloc(newmem,$1000,ject_func_newt)
+registersymbol(ject_func_newt)
+label(code)
+label(return)
+
+newmem:
+test byte ptr [rcx+000006CC],01
+jmp Remnant2-Win64-Shipping.exe+C6A7C9
+mov rcx,[rcx+00000660]
+test rcx,rcx
+je Remnant2-Win64-Shipping.exe+C6A7FD
+
+//ject_func_newt:
+//dq 0
+code:
+  mov rcx,[rcx+00000660]
+  jmp return
+
+ject_func_newt:
+  jmp newmem
+  nop 2
+return:
+
+
+[DISABLE]
+
+ject_func_newt:
+  db 48 8B 89 60 06 00 00
+
+unregistersymbol(ject_func_newt)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant2-Win64-Shipping.exe+C6A7C9
+
+Remnant2-Win64-Shipping.exe+C6A7B8: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+C6A7B9: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+C6A7BA: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+C6A7BB: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+C6A7BC: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+C6A7BD: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+C6A7BE: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+C6A7BF: CC                       - int 3 
+Remnant2-Win64-Shipping.exe+C6A7C0: F6 81 CC 06 00 00 01     - test byte ptr [rcx+000006CC],01
+Remnant2-Win64-Shipping.exe+C6A7C7: 75 34                    - jne Remnant2-Win64-Shipping.exe+C6A7FD
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+C6A7C9: 48 8B 89 60 06 00 00     - mov rcx,[rcx+00000660]
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+C6A7D0: 48 85 C9                 - test rcx,rcx
+Remnant2-Win64-Shipping.exe+C6A7D3: 74 28                    - je Remnant2-Win64-Shipping.exe+C6A7FD
+Remnant2-Win64-Shipping.exe+C6A7D5: 48 8B 49 30              - mov rcx,[rcx+30]
+Remnant2-Win64-Shipping.exe+C6A7D9: 8B 81 38 07 00 00        - mov eax,[rcx+00000738]
+Remnant2-Win64-Shipping.exe+C6A7DF: 0F BA F0 08              - btr eax,08
+Remnant2-Win64-Shipping.exe+C6A7E3: F3 0F 11 89 D8 00 00 00  - movss [rcx+000000D8],xmm1
+Remnant2-Win64-Shipping.exe+C6A7EB: 0F BA E8 07              - bts eax,07
+Remnant2-Win64-Shipping.exe+C6A7EF: F3 0F 11 91 DC 00 00 00  - movss [rcx+000000DC],xmm2
+Remnant2-Win64-Shipping.exe+C6A7F7: 89 81 38 07 00 00        - mov [rcx+00000738],eax
+Remnant2-Win64-Shipping.exe+C6A7FD: C3                       - ret 
+}
+</AssemblerScript>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>1337142942</ID>
+                              <Description>"R-N-D"</Description>
+                              <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+                              <Color>0000FF</Color>
+                              <GroupHeader>1</GroupHeader>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>46418</ID>
+                                  <Description>"_Hook"</Description>
+                                  <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <Color>000000</Color>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337142907</ID>
+                                      <Description>"Group 3"</Description>
+                                      <Options moManualExpandCollapse="1"/>
+                                      <GroupHeader>1</GroupHeader>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>26227</ID>
+                                      <Description>"UE sigs"</Description>
+                                      <Options moHideChildren="1"/>
+                                      <GroupHeader>1</GroupHeader>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>2</ID>
+                                          <Description>"GEngine"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <GroupHeader>1</GroupHeader>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>0</ID>
+                                              <Description>"48 8B ?? ?? ?? ?? ?? 0F 28 ?? 49 8B ?? 48 8B ?? 48 85 ??"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>Array of byte</VariableType>
+                                              <ByteLength>19</ByteLength>
+                                              <Address>"Remnant2-Win64-Shipping.exe"+425CC60</Address>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>3</ID>
+                                          <Description>"FNamePool"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <GroupHeader>1</GroupHeader>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1</ID>
+                                              <Description>"48 8D 0D ? ? ? ? E8 ? ? ? ? C6 05 ? ? ? ? 01 0F 10"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>Array of byte</VariableType>
+                                              <ByteLength>21</ByteLength>
+                                              <Address>"Remnant2-Win64-Shipping.exe"+237872C</Address>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337142936</ID>
+                                          <Description>"Fobject Array"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <GroupHeader>1</GroupHeader>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>4</ID>
+                                              <Description>"48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8D 8D ? ? ? ? E8 ? ? ? ? 48 8D 8D ?? ?? ?? ?? E8 ?? ?? ?? ?? F3"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>Array of byte</VariableType>
+                                              <ByteLength>37</ByteLength>
+                                              <Address>"Remnant2-Win64-Shipping.exe"+9E0A2B</Address>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337142977</ID>
+                                  <Description>"World Rewind "</Description>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript Async="1">{ Game   : Remnant2-Win64-Shipping.exe
+  Version: 
+  Date   : 2023-08-05
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(g_pop,Remnant2-Win64-Shipping.exe,0F 2F 81 38 02 00 00) // should be unique
+alloc(newmem,$1000,g_pop)
+
+label(code Hookme)
+label(return)
+
+newmem:
+cmp [rcx+00000230],00000001
+jne code
+mov [Hookme],rcx
+//mov [rcx+11E9],1// GoD Mode
+jmp return
+
+Hookme:
+dq 0
+
+code:
+  comiss xmm0,[rcx+00000238]
+  jmp return
+
+g_pop:
+  jmp newmem
+  nop 2
+return:
+registersymbol(g_pop Hookme)
+
+[DISABLE]
+
+g_pop:
+  db 0F 2F 81 38 02 00 00
+
+unregistersymbol(g_pop Hookme)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Remnant2-Win64-Shipping.exe+1FAD773
+
+Remnant2-Win64-Shipping.exe+1FAD767: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD768: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD769: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD76A: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD76B: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD76C: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD76D: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD76E: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD76F: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD770: 0F 57 C0              - xorps xmm0,xmm0
+// ---------- INJECTING HERE ----------
+Remnant2-Win64-Shipping.exe+1FAD773: 0F 2F 81 38 02 00 00  - comiss xmm0,[rcx+00000238]
+// ---------- DONE INJECTING  ----------
+Remnant2-Win64-Shipping.exe+1FAD77A: 0F 92 C0              - setb al
+Remnant2-Win64-Shipping.exe+1FAD77D: C3                    - ret 
+Remnant2-Win64-Shipping.exe+1FAD77E: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD77F: CC                    - int 3 
+Remnant2-Win64-Shipping.exe+1FAD780: 48 8B C4              - mov rax,rsp
+Remnant2-Win64-Shipping.exe+1FAD783: 48 89 58 10           - mov [rax+10],rbx
+Remnant2-Win64-Shipping.exe+1FAD787: 48 89 70 18           - mov [rax+18],rsi
+Remnant2-Win64-Shipping.exe+1FAD78B: 48 89 78 20           - mov [rax+20],rdi
+Remnant2-Win64-Shipping.exe+1FAD78F: 55                    - push rbp
+Remnant2-Win64-Shipping.exe+1FAD790: 41 54                 - push r12
+}
+</AssemblerScript>
+                                  <Hotkeys>
+                                    <Hotkey>
+                                      <Action>Activate</Action>
+                                      <Keys>
+                                        <Key>100</Key>
+                                      </Keys>
+                                      <Description>World Rewind </Description>
+                                      <ID>0</ID>
+                                      <ActivateSound TTS="EN">World Rewind  Activated</ActivateSound>
+                                      <DeactivateSound TTS="EN">World Rewind  Deactivated</DeactivateSound>
+                                    </Hotkey>
+                                  </Hotkeys>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :movss [rbx+000000F0],xmm6</Description>
+      <AddressString>Remnant2-Win64-Shipping.exe+1F82FA0</AddressString>
+      <Before>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+        <Byte>74</Byte>
+        <Byte>1A</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>B3</Byte>
+        <Byte>F0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of sub [rax+54],ebp</Description>
+      <AddressString>Remnant2-Win64-Shipping.exe+20D6A62</AddressString>
+      <Before>
+        <Byte>8F</Byte>
+        <Byte>E8</Byte>
+        <Byte>F9</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>29</Byte>
+        <Byte>68</Byte>
+        <Byte>54</Byte>
+      </Actual>
+      <After>
+        <Byte>F7</Byte>
+        <Byte>DD</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>87</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of neg ebp</Description>
+      <AddressString>Remnant2-Win64-Shipping.exe+20D6A65</AddressString>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>F7</Byte>
+        <Byte>DD</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>87</Byte>
+        <Byte>E8</Byte>
+        <Byte>F9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov bl,bl</Description>
+      <AddressString>7FF7F674001C</AddressString>
+      <Before>
+        <Byte>E9</Byte>
+        <Byte>5E</Byte>
+        <Byte>D7</Byte>
+        <Byte>FB</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>88</Byte>
+        <Byte>DB</Byte>
+      </Actual>
+      <After>
+        <Byte>18</Byte>
+        <Byte>A1</Byte>
+        <Byte>5A</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of nop </Description>
+      <AddressString>7FF7F674000C</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>75</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>90</Byte>
+      </Actual>
+      <After>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>Hood_Man_Hook</Name>
+      <Address>7FF70DA04C28</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>PE_SEGMENTS</Name>
+      <Address>7FF6E3AE0348</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

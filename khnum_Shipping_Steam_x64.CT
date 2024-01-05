@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2702</ID>
+      <Description>"Turok 3 Oblivion remastered"</Description>
+      <Options moHideChildren="1"/>
+      <Color>FFFF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2703</ID>
+          <Description>"Youtube"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://www.youtube.com/user/droelke");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2704</ID>
+          <Description>"OCT Profile"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://opencheattables.com/memberlist.php?mode=viewprofile&amp;u=85");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2705</ID>
+          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"Table Author:  XxDaRealSlimballinxX"</Description>
+              <Color>FC94B0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>40</ID>
+                  <Description>"Visit us today @ GBA Services!"</Description>
+                  <Color>C080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337110746</ID>
+                  <Description>"Discord  @ DaRealSlimballin"</Description>
+                  <Color>008080</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337110747</ID>
+              <Description>"[X] &lt;=== For Full Tool View"</Description>
+              <Options moManualExpandCollapse="1"/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+// Script Creaded By mgr.inz.Player On CE Forums
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337110748</ID>
+                  <Description>"Cheats"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337110749</ID>
+                      <Description>"xxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>5</ID>
+                          <Description>"Get Health"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <Color>FFFF00</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript Async="1">{ Game   : khnum_Shipping_Steam_x64.exe
+  Version: 
+  Date   : 2024-01-02
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(Health_hook,khnum_Shipping_Steam_x64.exe,F3 0F 11 83 58 06 00 00 48 8D) // should be unique
+alloc(newmem,$1000,Health_hook)
+
+label(code Player_hook)
+label(return)
+
+newmem:
+mov [Player_hook],rbx
+mov [Player_hook+658],(float)1337
+mov [Player_hook+44],(float)1337
+jmp return
+
+
+Player_hook:
+dq 0
+
+code:
+  movss [rbx+00000658],xmm0
+  jmp return
+
+Health_hook:
+  jmp newmem
+  nop 3
+return:
+registersymbol(Health_hook Player_hook)
+
+[DISABLE]
+
+Health_hook:
+  db F3 0F 11 83 58 06 00 00
+
+unregistersymbol(Health_hook Player_hook)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: khnum_Shipping_Steam_x64.exe+F2B88
+
+khnum_Shipping_Steam_x64.exe+F2B58: 0F 29 B4 24 B0 00 00 00  - movaps [rsp+000000B0],xmm6
+khnum_Shipping_Steam_x64.exe+F2B60: 44 0F 29 54 24 70        - movaps [rsp+70],xmm10
+khnum_Shipping_Steam_x64.exe+F2B66: E8 15 6D F6 FF           - call khnum_Shipping_Steam_x64.exe+59880
+khnum_Shipping_Steam_x64.exe+F2B6B: F3 0F 10 B3 58 06 00 00  - movss xmm6,[rbx+00000658]
+khnum_Shipping_Steam_x64.exe+F2B73: 45 0F 57 D2              - xorps xmm10,xmm10
+khnum_Shipping_Steam_x64.exe+F2B77: 0F 28 C6                 - movaps xmm0,xmm6
+khnum_Shipping_Steam_x64.exe+F2B7A: F3 0F 5C 47 10           - subss xmm0,[rdi+10]
+khnum_Shipping_Steam_x64.exe+F2B7F: 44 0F 2F D0              - comiss xmm10,xmm0
+khnum_Shipping_Steam_x64.exe+F2B83: 76 03                    - jna khnum_Shipping_Steam_x64.exe+F2B88
+khnum_Shipping_Steam_x64.exe+F2B85: 0F 57 C0                 - xorps xmm0,xmm0
+// ---------- INJECTING HERE ----------
+khnum_Shipping_Steam_x64.exe+F2B88: F3 0F 11 83 58 06 00 00  - movss [rbx+00000658],xmm0
+// ---------- DONE INJECTING  ----------
+khnum_Shipping_Steam_x64.exe+F2B90: 48 8D 0D 69 85 6C 00     - lea rcx,[khnum_Shipping_Steam_x64.exe+7BB100]
+khnum_Shipping_Steam_x64.exe+F2B97: 48 8B 05 62 85 6C 00     - mov rax,[khnum_Shipping_Steam_x64.exe+7BB100]
+khnum_Shipping_Steam_x64.exe+F2B9E: FF 90 10 01 00 00        - call qword ptr [rax+00000110]
+khnum_Shipping_Steam_x64.exe+F2BA4: C1 E8 07                 - shr eax,07
+khnum_Shipping_Steam_x64.exe+F2BA7: A8 01                    - test al,01
+khnum_Shipping_Steam_x64.exe+F2BA9: 75 1B                    - jne khnum_Shipping_Steam_x64.exe+F2BC6
+khnum_Shipping_Steam_x64.exe+F2BAB: 48 8B 05 4E 85 6C 00     - mov rax,[khnum_Shipping_Steam_x64.exe+7BB100]
+khnum_Shipping_Steam_x64.exe+F2BB2: 48 8D 0D 47 85 6C 00     - lea rcx,[khnum_Shipping_Steam_x64.exe+7BB100]
+khnum_Shipping_Steam_x64.exe+F2BB9: FF 90 10 01 00 00        - call qword ptr [rax+00000110]
+khnum_Shipping_Steam_x64.exe+F2BBF: C1 E8 03                 - shr eax,03
+}
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>7</ID>
+                              <Description>"-&gt;"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>Player_hook</Address>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>6</ID>
+                                  <Description>"health"</Description>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Player_hook</Address>
+                                  <Offsets>
+                                    <Offset>658</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>21</ID>
+                                  <Description>"max health"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Player_hook</Address>
+                                  <Offsets>
+                                    <Offset>65C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>22</ID>
+                                  <Description>"?"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Player_hook</Address>
+                                  <Offsets>
+                                    <Offset>664</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>26</ID>
+                                  <Description>"Coords"</Description>
+                                  <Options moHideChildren="1"/>
+                                  <Color>00FFFF</Color>
+                                  <GroupHeader>1</GroupHeader>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>8</ID>
+                                      <Description>"x"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Player_hook</Address>
+                                      <Offsets>
+                                        <Offset>18</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>9</ID>
+                                      <Description>"y"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Player_hook</Address>
+                                      <Offsets>
+                                        <Offset>1C</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>10</ID>
+                                      <Description>"z"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Player_hook</Address>
+                                      <Offsets>
+                                        <Offset>24</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>11</ID>
+                                      <Description>"Float"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Player_hook</Address>
+                                      <Offsets>
+                                        <Offset>28</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>13</ID>
+                                      <Description>"tp me back to spot locked value"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Player_hook</Address>
+                                      <Offsets>
+                                        <Offset>34</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>14</ID>
+                                      <Description>"changes when I jump"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Player_hook</Address>
+                                      <Offsets>
+                                        <Offset>44</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>23</ID>
+                              <Description>"Float"</Description>
+                              <VariableType>Float</VariableType>
+                              <Address>Player_hook</Address>
+                              <Offsets>
+                                <Offset>820</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>24</ID>
+                              <Description>"Float"</Description>
+                              <VariableType>Float</VariableType>
+                              <Address>Player_hook</Address>
+                              <Offsets>
+                                <Offset>824</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>25</ID>
+                              <Description>"Float"</Description>
+                              <VariableType>Float</VariableType>
+                              <Address>Player_hook</Address>
+                              <Offsets>
+                                <Offset>828</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>30</ID>
+                          <Description>"Infinite ammo"</Description>
+                          <Color>008080</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript Async="1">{ Game   : khnum_Shipping_Steam_x64.exe
+  Version: 
+  Date   : 2024-01-02
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(ammo,khnum_Shipping_Steam_x64.exe,89 01 48 8B 47 18) // should be unique
+alloc(newmem,$1000,ammo)
+
+label(code)
+label(return)
+
+newmem:
+jmp code
+code:
+mov eax,999
+  mov [rcx],eax
+  mov rax,[rdi+18]
+  jmp return
+
+ammo:
+  jmp newmem
+  nop
+return:
+registersymbol(ammo)
+
+[DISABLE]
+
+ammo:
+  db 89 01 48 8B 47 18
+
+unregistersymbol(ammo)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: khnum_Shipping_Steam_x64.exe+FAF03
+
+khnum_Shipping_Steam_x64.exe+FAEEB: 5B                 - pop rbx
+khnum_Shipping_Steam_x64.exe+FAEEC: C3                 - ret 
+khnum_Shipping_Steam_x64.exe+FAEED: 8B 11              - mov edx,[rcx]
+khnum_Shipping_Steam_x64.exe+FAEEF: 4C 89 7C 24 58     - mov [rsp+58],r15
+khnum_Shipping_Steam_x64.exe+FAEF4: 45 33 FF           - xor r15d,r15d
+khnum_Shipping_Steam_x64.exe+FAEF7: 85 D2              - test edx,edx
+khnum_Shipping_Steam_x64.exe+FAEF9: 7E 14              - jle khnum_Shipping_Steam_x64.exe+FAF0F
+khnum_Shipping_Steam_x64.exe+FAEFB: 2B D6              - sub edx,esi
+khnum_Shipping_Steam_x64.exe+FAEFD: 41 8B C7           - mov eax,r15d
+khnum_Shipping_Steam_x64.exe+FAF00: 0F 49 C2           - cmovns eax,edx
+// ---------- INJECTING HERE ----------
+khnum_Shipping_Steam_x64.exe+FAF03: 89 01              - mov [rcx],eax
+// ---------- DONE INJECTING  ----------
+khnum_Shipping_Steam_x64.exe+FAF05: 48 8B 47 18        - mov rax,[rdi+18]
+khnum_Shipping_Steam_x64.exe+FAF09: 4C 8B 47 08        - mov r8,[rdi+08]
+khnum_Shipping_Steam_x64.exe+FAF0D: 8B 10              - mov edx,[rax]
+khnum_Shipping_Steam_x64.exe+FAF0F: 41 3B 50 70        - cmp edx,[r8+70]
+khnum_Shipping_Steam_x64.exe+FAF13: 0F 8D EB 01 00 00  - jnl khnum_Shipping_Steam_x64.exe+FB104
+khnum_Shipping_Steam_x64.exe+FAF19: 48 8B CB           - mov rcx,rbx
+khnum_Shipping_Steam_x64.exe+FAF1C: E8 4F 0A 00 00     - call khnum_Shipping_Steam_x64.exe+FB970
+khnum_Shipping_Steam_x64.exe+FAF21: 48 8B F8           - mov rdi,rax
+khnum_Shipping_Steam_x64.exe+FAF24: 48 85 C0           - test rax,rax
+khnum_Shipping_Steam_x64.exe+FAF27: 74 08              - je khnum_Shipping_Steam_x64.exe+FAF31
+}
+</AssemblerScript>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>27</ID>
+                          <Description>"R-N-D"</Description>
+                          <Options moHideChildren="1"/>
+                          <Color>0000FF</Color>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>16</ID>
+                              <Description>"Get X coord"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript Async="1">{ Game   : khnum_Shipping_Steam_x64.exe
+  Version: 
+  Date   : 2024-01-02
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(x_grid_cood,khnum_Shipping_Steam_x64.exe,F3 41 0F 10 46 44) // should be unique
+alloc(newmem,$1000,x_grid_cood)
+
+label(code X_axis)
+label(return)
+
+newmem:
+mov [X_axis],r14
+mov [X_axis+44],(float)0
+jmp return
+
+X_axis:
+dq 0
+
+code:
+  movss xmm0,[r14+44]
+  jmp return
+
+x_grid_cood:
+  jmp newmem
+  nop
+return:
+registersymbol(x_grid_cood X_axis)
+
+[DISABLE]
+
+x_grid_cood:
+  db F3 41 0F 10 46 44
+
+unregistersymbol(x_grid_cood X_axis)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: khnum_Shipping_Steam_x64.exe+186A53
+
+khnum_Shipping_Steam_x64.exe+186A2A: 76 07                       - jna khnum_Shipping_Steam_x64.exe+186A33
+khnum_Shipping_Steam_x64.exe+186A2C: C7 45 74 CD CC CC 3D        - mov [rbp+74],3DCCCCCD
+khnum_Shipping_Steam_x64.exe+186A33: F3 0F 10 45 70              - movss xmm0,[rbp+70]
+khnum_Shipping_Steam_x64.exe+186A38: 0F 2F D8                    - comiss xmm3,xmm0
+khnum_Shipping_Steam_x64.exe+186A3B: 76 09                       - jna khnum_Shipping_Steam_x64.exe+186A46
+khnum_Shipping_Steam_x64.exe+186A3D: C7 45 70 CD CC CC BD        - mov [rbp+70],BDCCCCCD
+khnum_Shipping_Steam_x64.exe+186A44: EB 0D                       - jmp khnum_Shipping_Steam_x64.exe+186A53
+khnum_Shipping_Steam_x64.exe+186A46: 41 0F 2F C3                 - comiss xmm0,xmm11
+khnum_Shipping_Steam_x64.exe+186A4A: 76 07                       - jna khnum_Shipping_Steam_x64.exe+186A53
+khnum_Shipping_Steam_x64.exe+186A4C: C7 45 70 CD CC CC 3D        - mov [rbp+70],3DCCCCCD
+// ---------- INJECTING HERE ----------
+khnum_Shipping_Steam_x64.exe+186A53: F3 41 0F 10 46 44           - movss xmm0,[r14+44]
+// ---------- DONE INJECTING  ----------
+khnum_Shipping_Steam_x64.exe+186A59: 41 0F 2F C1                 - comiss xmm0,xmm9
+khnum_Shipping_Steam_x64.exe+186A5D: 76 11                       - jna khnum_Shipping_Steam_x64.exe+186A70
+khnum_Shipping_Steam_x64.exe+186A5F: F3 0F 58 C0                 - addss xmm0,xmm0
+khnum_Shipping_Steam_x64.exe+186A63: F3 0F 5E 05 31 3C 4C 00     - divss xmm0,[khnum_Shipping_Steam_x64.exe+64A69C]
+khnum_Shipping_Steam_x64.exe+186A6B: F3 44 0F 5C C8              - subss xmm9,xmm0
+khnum_Shipping_Steam_x64.exe+186A70: F3 0F 10 85 08 0A 00 00     - movss xmm0,[rbp+00000A08]
+khnum_Shipping_Steam_x64.exe+186A78: F3 44 0F 5C A5 20 0A 00 00  - subss xmm12,[rbp+00000A20]
+khnum_Shipping_Steam_x64.exe+186A81: F3 44 0F 5C C8              - subss xmm9,xmm0
+khnum_Shipping_Steam_x64.exe+186A86: F3 44 0F 59 0D 11 38 4C 00  - mulss xmm9,[khnum_Shipping_Steam_x64.exe+64A2A0]
+khnum_Shipping_Steam_x64.exe+186A8F: F3 44 0F 58 C8              - addss xmm9,xmm0
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>17</ID>
+                                  <Description>"-&gt;"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>X_axis</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>18</ID>
+                                      <Description>"X"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>X_axis</Address>
+                                      <Offsets>
+                                        <Offset>44</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>19</ID>
+                                      <Description>"y"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>X_axis</Address>
+                                      <Offsets>
+                                        <Offset>4C</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>20</ID>
+                                      <Description>"z"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>X_axis</Address>
+                                      <Offsets>
+                                        <Offset>44</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>15</ID>
+                              <Description>"Pointer to instance of kexTurokPuppet"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>Player_hook</Address>
+                              <Offsets>
+                                <Offset>98</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[r14+44]</Description>
+      <AddressString>khnum_Shipping_Steam_x64.exe+186A53</AddressString>
+      <Before>
+        <Byte>70</Byte>
+        <Byte>CD</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>3D</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>46</Byte>
+        <Byte>44</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C1</Byte>
+        <Byte>76</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+24],xmm0</Description>
+      <AddressString>khnum_Shipping_Steam_x64.exe+F62DA</AddressString>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>4B</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>24</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm0,[rsi+rdx*4]</Description>
+      <AddressString>PhysX3_x64.dll+16117D</AddressString>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>04</Byte>
+        <Byte>96</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>42</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>0C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm1,[rax+r8*4]</Description>
+      <AddressString>PhysX3_x64.dll+161182</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>42</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>0C</Byte>
+        <Byte>80</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C1</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

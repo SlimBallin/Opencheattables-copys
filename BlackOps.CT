@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>10</ID>
+      <Description>"Unlimited Reserve Clip"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript Async="1">{ Game   : BlackOps.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-08-06
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(clip_po,BlackOps.exe,8B 84 CE 48 03 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+mov [esi+ecx*8+00000348],FF
+jmp return
+
+code:
+  mov eax,[esi+ecx*8+00000348]
+  jmp return
+
+clip_po:
+  jmp newmem
+  nop 2
+return:
+registersymbol(clip_po)
+
+[DISABLE]
+
+clip_po:
+  db 8B 84 CE 48 03 00 00
+
+unregistersymbol(clip_po)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: BlackOps.exe+B9911
+
+BlackOps.exe+B98FA: 8D 9B 00 00 00 00     - lea ebx,[ebx+00000000]
+BlackOps.exe+B9900: 39 02                 - cmp [edx],eax
+BlackOps.exe+B9902: 74 0D                 - je BlackOps.exe+B9911
+BlackOps.exe+B9904: 41                    - inc ecx
+BlackOps.exe+B9905: 83 C2 08              - add edx,08
+BlackOps.exe+B9908: 83 F9 0F              - cmp ecx,0F
+BlackOps.exe+B990B: 7C F3                 - jl BlackOps.exe+B9900
+BlackOps.exe+B990D: 33 C0                 - xor eax,eax
+BlackOps.exe+B990F: 5E                    - pop esi
+BlackOps.exe+B9910: C3                    - ret 
+// ---------- INJECTING HERE ----------
+BlackOps.exe+B9911: 8B 84 CE 48 03 00 00  - mov eax,[esi+ecx*8+00000348]
+// ---------- DONE INJECTING  ----------
+BlackOps.exe+B9918: 5E                    - pop esi
+BlackOps.exe+B9919: C3                    - ret 
+BlackOps.exe+B991A: CC                    - int 3 
+BlackOps.exe+B991B: CC                    - int 3 
+BlackOps.exe+B991C: CC                    - int 3 
+BlackOps.exe+B991D: CC                    - int 3 
+BlackOps.exe+B991E: CC                    - int 3 
+BlackOps.exe+B991F: CC                    - int 3 
+BlackOps.exe+B9920: 51                    - push ecx
+BlackOps.exe+B9921: 8B 44 24 0C           - mov eax,[esp+0C]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>34</ID>
+      <Description>"Player coods"</Description>
+      <Options moManualExpandCollapse="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>30</ID>
+          <Description>"x"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>01C08B64</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>31</ID>
+          <Description>"y"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>01C08B68</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"z"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>01C08B6C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>33</ID>
+          <Description>"w"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>01C08B70</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>35</ID>
+      <Description>"Sumper janky teleport"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : BlackOps.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-08-06
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,BlackOps.exe,F3 0F 11 41 08 8B 0E) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+sub [ecx+08],(float)-900.875
+movss xmm0,[ecx+08]
+jmp code
+
+code:
+  movss [ecx+08],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 41 08
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: BlackOps.exe+3651BC
+
+BlackOps.exe+36518B: 52                          - push edx
+BlackOps.exe+36518C: 50                          - push eax
+BlackOps.exe+36518D: E8 1E 76 D8 FF              - call BlackOps.exe+EC7B0
+BlackOps.exe+365192: 8B 0E                       - mov ecx,[esi]
+BlackOps.exe+365194: F3 0F 10 84 24 A8 00 00 00  - movss xmm0,[esp+000000A8]
+BlackOps.exe+36519D: F3 0F 11 41 24              - movss [ecx+24],xmm0
+BlackOps.exe+3651A2: F3 0F 10 84 24 AC 00 00 00  - movss xmm0,[esp+000000AC]
+BlackOps.exe+3651AB: 83 C1 24                    - add ecx,24
+BlackOps.exe+3651AE: F3 0F 11 41 04              - movss [ecx+04],xmm0
+BlackOps.exe+3651B3: F3 0F 10 84 24 B0 00 00 00  - movss xmm0,[esp+000000B0]
+// ---------- INJECTING HERE ----------
+BlackOps.exe+3651BC: F3 0F 11 41 08              - movss [ecx+08],xmm0
+// ---------- DONE INJECTING  ----------
+BlackOps.exe+3651C1: 8B 0E                       - mov ecx,[esi]
+BlackOps.exe+3651C3: F3 0F 10 84 24 B4 00 00 00  - movss xmm0,[esp+000000B4]
+BlackOps.exe+3651CC: 83 C4 1C                    - add esp,1C
+BlackOps.exe+3651CF: 83 C1 30                    - add ecx,30
+BlackOps.exe+3651D2: F3 0F 11 01                 - movss [ecx],xmm0
+BlackOps.exe+3651D6: F3 0F 10 84 24 9C 00 00 00  - movss xmm0,[esp+0000009C]
+BlackOps.exe+3651DF: F3 0F 11 41 04              - movss [ecx+04],xmm0
+BlackOps.exe+3651E4: F3 0F 10 84 24 A0 00 00 00  - movss xmm0,[esp+000000A0]
+BlackOps.exe+3651ED: F3 0F 11 41 08              - movss [ecx+08],xmm0
+BlackOps.exe+3651F2: 5E                          - pop esi
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>x coord</Description>
+      <AddressString>BlackOps.exe+364E7F</AddressString>
+      <Before>
+        <Byte>18</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>84</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm0,[esi+28]</Description>
+      <AddressString>BlackOps.exe+417E4B</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>4C</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>46</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>05</Byte>
+        <Byte>88</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm0,[esi+2C]</Description>
+      <AddressString>BlackOps.exe+417E66</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>46</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>05</Byte>
+        <Byte>8C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [ecx+08],xmm0</Description>
+      <AddressString>BlackOps.exe+3651BC</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>B0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>0E</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [ecx+04],xmm0</Description>
+      <AddressString>BlackOps.exe+3651AE</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>83</Byte>
+        <Byte>C1</Byte>
+        <Byte>24</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>41</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>84</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [ecx+24],xmm0</Description>
+      <AddressString>BlackOps.exe+36519D</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>A8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>41</Byte>
+        <Byte>24</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>84</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>PE_SEGMENTS</Name>
+      <Address>400230</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Structures StructVersion="2">
+    <Structure Name="unnamed structure" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+      <Elements>
+        <Element Offset="0" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000000" DisplayMethod="hexadecimal"/>
+        <Element Offset="4" Vartype="4 Bytes" Bytesize="4" RLECount="8" OffsetHex="00000004" DisplayMethod="unsigned integer"/>
+        <Element Offset="36" Vartype="Float" Bytesize="4" RLECount="3" OffsetHex="00000024" DisplayMethod="unsigned integer"/>
+        <Element Offset="48" Vartype="4 Bytes" Bytesize="4" RLECount="21" OffsetHex="00000030" DisplayMethod="unsigned integer"/>
+        <Element Offset="132" Vartype="Float" Bytesize="4" OffsetHex="00000084" DisplayMethod="unsigned integer"/>
+        <Element Offset="136" Vartype="Pointer" Bytesize="4" RLECount="2" OffsetHex="00000088" DisplayMethod="unsigned integer"/>
+        <Element Offset="144" Vartype="4 Bytes" Bytesize="4" RLECount="22" OffsetHex="00000090" DisplayMethod="unsigned integer"/>
+        <Element Offset="232" Vartype="Pointer" Bytesize="4" OffsetHex="000000E8" DisplayMethod="unsigned integer"/>
+        <Element Offset="236" Vartype="4 Bytes" Bytesize="4" RLECount="37" OffsetHex="000000EC" DisplayMethod="unsigned integer"/>
+        <Element Offset="384" Vartype="Pointer" Bytesize="4" RLECount="2" OffsetHex="00000180" DisplayMethod="unsigned integer"/>
+        <Element Offset="392" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000188" DisplayMethod="unsigned integer"/>
+        <Element Offset="400" Vartype="Float" Bytesize="4" OffsetHex="00000190" DisplayMethod="unsigned integer"/>
+        <Element Offset="404" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000194" DisplayMethod="unsigned integer"/>
+        <Element Offset="416" Vartype="Pointer" Bytesize="4" RLECount="2" OffsetHex="000001A0" DisplayMethod="unsigned integer"/>
+        <Element Offset="424" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="000001A8" DisplayMethod="unsigned integer"/>
+        <Element Offset="432" Vartype="4 Bytes" Bytesize="4" RLECount="21" OffsetHex="000001B0" DisplayMethod="unsigned integer"/>
+        <Element Offset="516" Vartype="Pointer" Bytesize="4" OffsetHex="00000204" DisplayMethod="unsigned integer"/>
+        <Element Offset="520" Vartype="4 Bytes" Bytesize="4" RLECount="169" OffsetHex="00000208" DisplayMethod="unsigned integer"/>
+        <Element Offset="1196" Vartype="Double" Bytesize="8" RLECount="2" OffsetHex="000004AC" DisplayMethod="unsigned integer"/>
+        <Element Offset="1212" Vartype="4 Bytes" Bytesize="4" RLECount="32" OffsetHex="000004BC" DisplayMethod="unsigned integer"/>
+        <Element Offset="1340" Vartype="Double" Bytesize="8" OffsetHex="0000053C" DisplayMethod="unsigned integer"/>
+        <Element Offset="1348" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000544" DisplayMethod="unsigned integer"/>
+        <Element Offset="1352" Vartype="Double" Bytesize="8" OffsetHex="00000548" DisplayMethod="unsigned integer"/>
+        <Element Offset="1360" Vartype="4 Bytes" Bytesize="4" RLECount="400" OffsetHex="00000550" DisplayMethod="unsigned integer"/>
+        <Element Offset="2960" Vartype="Float" Bytesize="4" OffsetHex="00000B90" DisplayMethod="unsigned integer"/>
+        <Element Offset="2964" Vartype="Double" Bytesize="8" OffsetHex="00000B94" DisplayMethod="unsigned integer"/>
+        <Element Offset="2972" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000B9C" DisplayMethod="unsigned integer"/>
+        <Element Offset="2980" Vartype="Pointer" Bytesize="4" OffsetHex="00000BA4" DisplayMethod="unsigned integer"/>
+        <Element Offset="2984" Vartype="4 Bytes" Bytesize="4" RLECount="9" OffsetHex="00000BA8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3020" Vartype="Float" Bytesize="4" OffsetHex="00000BCC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3024" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000BD0" DisplayMethod="hexadecimal"/>
+        <Element Offset="3028" Vartype="4 Bytes" Bytesize="4" RLECount="9" OffsetHex="00000BD4" DisplayMethod="unsigned integer"/>
+        <Element Offset="3064" Vartype="Pointer" Bytesize="4" OffsetHex="00000BF8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3068" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000BFC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3072" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000C00" DisplayMethod="hexadecimal"/>
+        <Element Offset="3076" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000C04" DisplayMethod="unsigned integer"/>
+        <Element Offset="3080" Vartype="Float" Bytesize="4" OffsetHex="00000C08" DisplayMethod="unsigned integer"/>
+        <Element Offset="3084" Vartype="Double" Bytesize="8" OffsetHex="00000C0C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3092" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000C14" DisplayMethod="unsigned integer"/>
+        <Element Offset="3100" Vartype="Pointer" Bytesize="4" OffsetHex="00000C1C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3104" Vartype="4 Bytes" Bytesize="4" RLECount="9" OffsetHex="00000C20" DisplayMethod="unsigned integer"/>
+        <Element Offset="3140" Vartype="Float" Bytesize="4" OffsetHex="00000C44" DisplayMethod="unsigned integer"/>
+        <Element Offset="3144" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000C48" DisplayMethod="hexadecimal"/>
+        <Element Offset="3148" Vartype="4 Bytes" Bytesize="4" RLECount="9" OffsetHex="00000C4C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3184" Vartype="Pointer" Bytesize="4" OffsetHex="00000C70" DisplayMethod="unsigned integer"/>
+        <Element Offset="3188" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000C74" DisplayMethod="unsigned integer"/>
+        <Element Offset="3192" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000C78" DisplayMethod="hexadecimal"/>
+        <Element Offset="3196" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000C7C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3200" Vartype="Float" Bytesize="4" OffsetHex="00000C80" DisplayMethod="unsigned integer"/>
+        <Element Offset="3204" Vartype="Double" Bytesize="8" OffsetHex="00000C84" DisplayMethod="unsigned integer"/>
+        <Element Offset="3212" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000C8C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3220" Vartype="Pointer" Bytesize="4" OffsetHex="00000C94" DisplayMethod="unsigned integer"/>
+        <Element Offset="3224" Vartype="4 Bytes" Bytesize="4" RLECount="9" OffsetHex="00000C98" DisplayMethod="unsigned integer"/>
+        <Element Offset="3260" Vartype="Float" Bytesize="4" OffsetHex="00000CBC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3264" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000CC0" DisplayMethod="hexadecimal"/>
+        <Element Offset="3268" Vartype="4 Bytes" Bytesize="4" RLECount="9" OffsetHex="00000CC4" DisplayMethod="unsigned integer"/>
+        <Element Offset="3304" Vartype="Pointer" Bytesize="4" OffsetHex="00000CE8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3308" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000CEC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3312" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000CF0" DisplayMethod="hexadecimal"/>
+        <Element Offset="3316" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000CF4" DisplayMethod="unsigned integer"/>
+        <Element Offset="3320" Vartype="Float" Bytesize="4" OffsetHex="00000CF8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3324" Vartype="Double" Bytesize="8" OffsetHex="00000CFC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3332" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000D04" DisplayMethod="unsigned integer"/>
+        <Element Offset="3340" Vartype="Pointer" Bytesize="4" OffsetHex="00000D0C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3344" Vartype="4 Bytes" Bytesize="4" RLECount="14" OffsetHex="00000D10" DisplayMethod="unsigned integer"/>
+        <Element Offset="3400" Vartype="Pointer" Bytesize="4" OffsetHex="00000D48" DisplayMethod="unsigned integer"/>
+        <Element Offset="3404" Vartype="4 Bytes" Bytesize="4" RLECount="5" OffsetHex="00000D4C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3424" Vartype="Pointer" Bytesize="4" OffsetHex="00000D60" DisplayMethod="unsigned integer"/>
+        <Element Offset="3428" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000D64" DisplayMethod="hexadecimal"/>
+        <Element Offset="3436" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000D6C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3440" Vartype="Float" Bytesize="4" OffsetHex="00000D70" DisplayMethod="unsigned integer"/>
+        <Element Offset="3444" Vartype="Double" Bytesize="8" OffsetHex="00000D74" DisplayMethod="unsigned integer"/>
+        <Element Offset="3452" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000D7C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3460" Vartype="Pointer" Bytesize="4" OffsetHex="00000D84" DisplayMethod="unsigned integer"/>
+        <Element Offset="3464" Vartype="4 Bytes" Bytesize="4" RLECount="9" OffsetHex="00000D88" DisplayMethod="unsigned integer"/>
+        <Element Offset="3500" Vartype="Float" Bytesize="4" OffsetHex="00000DAC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3504" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000DB0" DisplayMethod="hexadecimal"/>
+        <Element Offset="3508" Vartype="4 Bytes" Bytesize="4" RLECount="9" OffsetHex="00000DB4" DisplayMethod="unsigned integer"/>
+        <Element Offset="3544" Vartype="Pointer" Bytesize="4" OffsetHex="00000DD8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3548" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000DDC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3552" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000DE0" DisplayMethod="hexadecimal"/>
+        <Element Offset="3556" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000DE4" DisplayMethod="unsigned integer"/>
+        <Element Offset="3564" Vartype="Double" Bytesize="8" OffsetHex="00000DEC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3572" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000DF4" DisplayMethod="unsigned integer"/>
+        <Element Offset="3580" Vartype="Pointer" Bytesize="4" OffsetHex="00000DFC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3584" Vartype="4 Bytes" Bytesize="4" RLECount="20" OffsetHex="00000E00" DisplayMethod="unsigned integer"/>
+        <Element Offset="3664" Vartype="Pointer" Bytesize="4" OffsetHex="00000E50" DisplayMethod="unsigned integer"/>
+        <Element Offset="3668" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000E54" DisplayMethod="hexadecimal"/>
+        <Element Offset="3676" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000E5C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3684" Vartype="Double" Bytesize="8" OffsetHex="00000E64" DisplayMethod="unsigned integer"/>
+        <Element Offset="3692" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000E6C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3700" Vartype="Pointer" Bytesize="4" OffsetHex="00000E74" DisplayMethod="unsigned integer"/>
+        <Element Offset="3704" Vartype="4 Bytes" Bytesize="4" RLECount="8" OffsetHex="00000E78" DisplayMethod="unsigned integer"/>
+        <Element Offset="3736" Vartype="Double" Bytesize="8" OffsetHex="00000E98" DisplayMethod="unsigned integer"/>
+        <Element Offset="3744" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="00000EA0" DisplayMethod="unsigned integer"/>
+        <Element Offset="3760" Vartype="Pointer" Bytesize="4" OffsetHex="00000EB0" DisplayMethod="unsigned integer"/>
+        <Element Offset="3764" Vartype="4 Bytes" Bytesize="4" RLECount="5" OffsetHex="00000EB4" DisplayMethod="unsigned integer"/>
+        <Element Offset="3784" Vartype="Pointer" Bytesize="4" OffsetHex="00000EC8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3788" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000ECC" DisplayMethod="hexadecimal"/>
+        <Element Offset="3796" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000ED4" DisplayMethod="unsigned integer"/>
+        <Element Offset="3800" Vartype="Float" Bytesize="4" OffsetHex="00000ED8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3804" Vartype="Double" Bytesize="8" OffsetHex="00000EDC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3812" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000EE4" DisplayMethod="unsigned integer"/>
+        <Element Offset="3820" Vartype="Pointer" Bytesize="4" OffsetHex="00000EEC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3824" Vartype="4 Bytes" Bytesize="4" RLECount="20" OffsetHex="00000EF0" DisplayMethod="unsigned integer"/>
+        <Element Offset="3904" Vartype="Pointer" Bytesize="4" OffsetHex="00000F40" DisplayMethod="unsigned integer"/>
+        <Element Offset="3908" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000F44" DisplayMethod="unsigned integer"/>
+        <Element Offset="3912" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000F48" DisplayMethod="hexadecimal"/>
+        <Element Offset="3916" Vartype="4 Bytes" Bytesize="4" RLECount="45" OffsetHex="00000F4C" DisplayMethod="unsigned integer"/>
+      </Elements>
+    </Structure>
+  </Structures>
+</CheatTable>

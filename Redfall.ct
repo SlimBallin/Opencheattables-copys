@@ -1,0 +1,1865 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2702</ID>
+      <Description>"RedFall[GamePass] Edition"</Description>
+      <Options moHideChildren="1"/>
+      <Color>009700</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2703</ID>
+          <Description>"Youtube"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://www.youtube.com/user/droelke");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2704</ID>
+          <Description>"OCT Profile"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://opencheattables.com/memberlist.php?mode=viewprofile&amp;u=85");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337111649</ID>
+          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1337111650</ID>
+              <Description>"Table Author:  XxDaRealSlimballinxX"</Description>
+              <Color>FC94B0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337111651</ID>
+                  <Description>"Visit us today @ GBA Services!"</Description>
+                  <Color>C080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337110746</ID>
+                  <Description>"Discord  @ SlimBallin#1687"</Description>
+                  <Color>008080</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337110747</ID>
+              <Description>"[X] &lt;=== For Full Tool View"</Description>
+              <Options moManualExpandCollapse="1"/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+// Script Creaded By mgr.inz.Player On CE Forums
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337111652</ID>
+                  <Description>"Cheats"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337111653</ID>
+                      <Description>"xxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>46921</ID>
+                          <Description>"Scripts"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>46908</ID>
+                              <Description>"Find my Health v1"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <Color>40FF00</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ Game   : Redfall.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-05-02
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(H_P,Redfall.exe,F3 0F 11 B3 D0 00 00 00) // should be unique
+alloc(newmem,$1000,H_P)
+registersymbol(H_P TH_G)
+label(code TH_G)
+label(return)
+
+newmem:
+mov [TH_G],rbx
+movss xmm6,[rbx+D8]
+movss [rbx+D0],xmm6
+jmp return
+
+
+TH_G:
+dq 0
+
+code:
+  movss [rbx+D0],xmm6
+  jmp return
+
+H_P:
+  jmp newmem
+  nop 3
+return:
+registersymbol(H_P TH_G)
+
+[DISABLE]
+
+H_P:
+  db F3 0F 11 B3 D0 00 00 00
+
+unregistersymbol(H_P TH_G)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Redfall.exe+1122227
+
+Redfall.exe+11221F5: 48 8D 54 24 40           - lea rdx,[rsp+40]
+Redfall.exe+11221FA: F3 0F 11 7C 24 28        - movss [rsp+28],xmm7
+Redfall.exe+1122200: 4C 8B CF                 - mov r9,rdi
+Redfall.exe+1122203: 4C 8B C7                 - mov r8,rdi
+Redfall.exe+1122206: 48 89 7C 24 20           - mov [rsp+20],rdi
+Redfall.exe+112220B: 48 8B C8                 - mov rcx,rax
+Redfall.exe+112220E: E8 4D 20 C6 FF           - call Redfall.exe+D84260
+Redfall.exe+1122213: 0F 28 7C 24 60           - movaps xmm7,[rsp+60]
+Redfall.exe+1122218: 48 8B BC 24 A8 00 00 00  - mov rdi,[rsp+000000A8]
+Redfall.exe+1122220: 80 BB 7D 01 00 00 00     - cmp byte ptr [rbx+0000017D],00
+// ---------- INJECTING HERE ----------
+Redfall.exe+1122227: F3 0F 11 B3 D0 00 00 00  - movss [rbx+000000D0],xmm6
+// ---------- DONE INJECTING  ----------
+Redfall.exe+112222F: 75 4A                    - jne Redfall.exe+112227B
+Redfall.exe+1122231: F3 0F 10 B3 D4 00 00 00  - movss xmm6,[rbx+000000D4]
+Redfall.exe+1122239: 48 8B CB                 - mov rcx,rbx
+Redfall.exe+112223C: F3 0F 5E B3 EC 00 00 00  - divss xmm6,[rbx+000000EC]
+Redfall.exe+1122244: E8 17 FE FE FF           - call Redfall.exe+1112060
+Redfall.exe+1122249: 48 8D 8B B0 00 00 00     - lea rcx,[rbx+000000B0]
+Redfall.exe+1122250: 40 88 74 24 50           - mov [rsp+50],sil
+Redfall.exe+1122255: 48 8D 54 24 48           - lea rdx,[rsp+48]
+Redfall.exe+112225A: F3 0F 58 83 D0 00 00 00  - addss xmm0,[rbx+000000D0]
+Redfall.exe+1122262: F3 0F 11 74 24 4C        - movss [rsp+4C],xmm6
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>46910</ID>
+                                  <Description>"ptr"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>TH_G</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>46909</ID>
+                                      <Description>"Current health"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>TH_G</Address>
+                                      <Offsets>
+                                        <Offset>d0</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>47122</ID>
+                                      <Description>"Max health"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>TH_G</Address>
+                                      <Offsets>
+                                        <Offset>D8</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>46918</ID>
+                              <Description>"Find reserve clip v2"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <Color>00FFFF</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ Game   : Redfall.exe
+  Version: 
+  Date   : 2023-05-02
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INF_clip,Redfall.exe,44 0F B6 2A FF 46 14) // should be unique
+alloc(newmem,$1000,INF_clip)
+registersymbol(INF_clip Clip)
+label(code Clip)
+label(return)
+
+newmem:
+mov [Clip],rdx
+mov [rdx+48],999// Clip count
+jmp return
+
+Clip:
+dq 0
+
+code:
+  movzx r13d,byte ptr [rdx]
+  inc [rsi+14]
+  jmp return
+
+INF_clip:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INF_clip Clip)
+
+[DISABLE]
+
+INF_clip:
+  db 44 0F B6 2A FF 46 14
+
+unregistersymbol(INF_clip Clip)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Redfall.exe+11497C5
+
+Redfall.exe+114979D: 4C 8B F1              - mov r14,rcx
+Redfall.exe+11497A0: 49 89 73 18           - mov [r11+18],rsi
+Redfall.exe+11497A4: 40 32 ED              - xor bpl,bpl
+Redfall.exe+11497A7: 49 89 7B F0           - mov [r11-10],rdi
+Redfall.exe+11497AB: 48 8D B1 08 01 00 00  - lea rsi,[rcx+00000108]
+Redfall.exe+11497B2: 4D 89 63 E8           - mov [r11-18],r12
+Redfall.exe+11497B6: 45 0F B6 E0           - movzx r12d,r8b
+Redfall.exe+11497BA: 44 89 4A 48           - mov [rdx+48],r9d
+Redfall.exe+11497BE: 8B 46 08              - mov eax,[rsi+08]
+Redfall.exe+11497C1: 4D 89 6B E0           - mov [r11-20],r13
+// ---------- INJECTING HERE ----------
+Redfall.exe+11497C5: 44 0F B6 2A           - movzx r13d,byte ptr [rdx]
+// ---------- DONE INJECTING  ----------
+Redfall.exe+11497C9: FF 46 14              - inc [rsi+14]
+Redfall.exe+11497CC: 8B 56 14              - mov edx,[rsi+14]
+Redfall.exe+11497CF: 83 E8 01              - sub eax,01
+Redfall.exe+11497D2: 4D 89 7B D8           - mov [r11-28],r15
+Redfall.exe+11497D6: 45 8B F9              - mov r15d,r9d
+Redfall.exe+11497D9: 48 63 F8              - movsxd  rdi,eax
+Redfall.exe+11497DC: 78 4F                 - js Redfall.exe+114982D
+Redfall.exe+11497DE: 49 89 5B 08           - mov [r11+08],rbx
+Redfall.exe+11497E2: 48 8B DF              - mov rbx,rdi
+Redfall.exe+11497E5: 48 C1 E3 04           - shl rbx,04
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>46919</ID>
+                                  <Description>"ptr"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <Color>000000</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Clip</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>46920</ID>
+                                      <Description>"Reserve Mag"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>48</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46922</ID>
+                                      <Description>"4 Bytes"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>60</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46923</ID>
+                                      <Description>"4 Bytes"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>68</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46924</ID>
+                                      <Description>"Float"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>6C</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46925</ID>
+                                      <Description>"4 Bytes"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>70</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46926</ID>
+                                      <Description>"4 Bytes"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>74</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46927</ID>
+                                      <Description>"Float"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>1AC</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46928</ID>
+                                      <Description>"Float"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>810</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46929</ID>
+                                      <Description>"Float"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>814</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46930</ID>
+                                      <Description>"Float"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>818</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46931</ID>
+                                      <Description>"Double"</Description>
+                                      <VariableType>Double</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>81C</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46932</ID>
+                                      <Description>"Float"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>824</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46933</ID>
+                                      <Description>"Float"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>828</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46934</ID>
+                                      <Description>"Double"</Description>
+                                      <VariableType>Double</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>84C</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46935</ID>
+                                      <Description>"Float"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>854</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46936</ID>
+                                      <Description>"Float"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>858</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46937</ID>
+                                      <Description>"Sway/ADs"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>868</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46938</ID>
+                                      <Description>"Float"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>86C</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46939</ID>
+                                      <Description>"Float"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>870</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46940</ID>
+                                      <Description>"Float"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>874</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46941</ID>
+                                      <Description>"Float"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>878</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46942</ID>
+                                      <Description>"Double"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Double</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>87C</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46943</ID>
+                                      <Description>"Float"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>884</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46944</ID>
+                                      <Description>"Float"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>888</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46945</ID>
+                                      <Description>"Float"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>Clip</Address>
+                                      <Offsets>
+                                        <Offset>8B8</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>46952</ID>
+                              <Description>"Find my Wallet v1"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <Color>FF00FF</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ Game   : Redfall.exe
+  Version: 
+  Date   : 2023-05-02
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(C_a_SH,Redfall.exe,41 8B 81 EC 00 00 00) // should be unique
+alloc(newmem,$1000,C_a_SH)
+registersymbol(C_a_SH P_l_u Amount)
+label(code P_l_u Amount)
+label(return)
+
+newmem:
+mov [P_l_u],r9
+mov [Amount],eax
+jmp return
+
+P_l_u:
+dq 0
+
+Amount:
+dd 0
+
+code:
+  mov eax,[r9+000000EC]
+  jmp return
+
+C_a_SH:
+  jmp newmem
+  nop 2
+return:
+
+
+[DISABLE]
+
+C_a_SH:
+  db 41 8B 81 EC 00 00 00
+
+unregistersymbol(*)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Redfall.exe+FFF1FD
+
+Redfall.exe+FFF1E1: 48 8B 0C C8                 - mov rcx,[rax+rcx*8]
+Redfall.exe+FFF1E5: 48 8D 04 D1                 - lea rax,[rcx+rdx*8]
+Redfall.exe+FFF1E9: EB 02                       - jmp Redfall.exe+FFF1ED
+Redfall.exe+FFF1EB: 33 C0                       - xor eax,eax
+Redfall.exe+FFF1ED: 8B 40 08                    - mov eax,[rax+08]
+Redfall.exe+FFF1F0: C1 E8 1D                    - shr eax,1D
+Redfall.exe+FFF1F3: A8 01                       - test al,01
+Redfall.exe+FFF1F5: 75 57                       - jne Redfall.exe+FFF24E
+Redfall.exe+FFF1F7: 41 80 FA 03                 - cmp r10b,03
+Redfall.exe+FFF1FB: 75 51                       - jne Redfall.exe+FFF24E
+// ---------- INJECTING HERE ----------
+Redfall.exe+FFF1FD: 41 8B 81 EC 00 00 00        - mov eax,[r9+000000EC]
+// ---------- DONE INJECTING  ----------
+Redfall.exe+FFF204: 66 0F 6E C0                 - movd xmm0,eax
+Redfall.exe+FFF208: 0F 5B C0                    - cvtdq2ps xmm0,xmm0
+Redfall.exe+FFF20B: F3 41 0F 59 81 D0 00 00 00  - mulss xmm0,[r9+000000D0]
+Redfall.exe+FFF214: F3 0F 58 C0                 - addss xmm0,xmm0
+Redfall.exe+FFF218: F3 0F 5C 05 7C 52 D4 02     - subss xmm0,[Redfall.exe+3D4449C]
+Redfall.exe+FFF220: F3 0F 2D C8                 - cvtss2si ecx,xmm0
+Redfall.exe+FFF224: D1 F9                       - sar ecx,1
+Redfall.exe+FFF226: 85 C9                       - test ecx,ecx
+Redfall.exe+FFF228: 7E 24                       - jle Redfall.exe+FFF24E
+Redfall.exe+FFF22A: F7 D9                       - neg ecx
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>46950</ID>
+                                  <Description>"ptr"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>P_l_u</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>46953</ID>
+                                      <Description>"Current Cash"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>P_l_u</Address>
+                                      <Offsets>
+                                        <Offset>EC</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>47121</ID>
+                              <Description>"Bullet shot counter"</Description>
+                              <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ Game   : Redfall.exe
+  Version: 
+  Date   : 2023-05-02
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(P_let,Redfall.exe,89 87 C4 00 00 00 41 8B 86) // should be unique
+alloc(newmem,$1000,P_let)
+registersymbol(P_let S_hit)
+label(code S_hit)
+label(return)
+
+newmem:
+mov [S_hit],rdi
+mov eax,99
+  mov [rdi+000000C4],eax
+  jmp return
+
+S_hit:
+dq 0
+
+
+code:
+
+  mov [rdi+000000C4],eax
+  jmp return
+
+P_let:
+  jmp newmem
+  nop
+return:
+
+
+[DISABLE]
+
+P_let:
+  db 89 87 C4 00 00 00
+
+unregistersymbol(P_let S_hit)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Redfall.exe+11DE177
+
+Redfall.exe+11DE14C: E8 6F 7D C7 FF              - call Redfall.exe+E55EC0
+Redfall.exe+11DE151: EB 03                       - jmp Redfall.exe+11DE156
+Redfall.exe+11DE153: 0F 57 C0                    - xorps xmm0,xmm0
+Redfall.exe+11DE156: F3 0F 11 87 BC 00 00 00     - movss [rdi+000000BC],xmm0
+Redfall.exe+11DE15E: B2 01                       - mov dl,01
+Redfall.exe+11DE160: 49 8B CE                    - mov rcx,r14
+Redfall.exe+11DE163: F3 0F 11 87 C0 00 00 00     - movss [rdi+000000C0],xmm0
+Redfall.exe+11DE16B: E8 80 34 02 00              - call Redfall.exe+12015F0
+Redfall.exe+11DE170: F3 0F 2C C0                 - cvttss2si eax,xmm0
+Redfall.exe+11DE174: 49 8B CE                    - mov rcx,r14
+// ---------- INJECTING HERE ----------
+Redfall.exe+11DE177: 89 87 C4 00 00 00           - mov [rdi+000000C4],eax
+// ---------- DONE INJECTING  ----------
+Redfall.exe+11DE17D: 41 8B 86 10 06 00 00        - mov eax,[r14+00000610]
+Redfall.exe+11DE184: 89 87 C8 00 00 00           - mov [rdi+000000C8],eax
+Redfall.exe+11DE18A: 41 8B 86 10 06 00 00        - mov eax,[r14+00000610]
+Redfall.exe+11DE191: 89 87 CC 00 00 00           - mov [rdi+000000CC],eax
+Redfall.exe+11DE197: E8 F4 15 02 00              - call Redfall.exe+11FF790
+Redfall.exe+11DE19C: F3 41 0F 58 86 08 06 00 00  - addss xmm0,[r14+00000608]
+Redfall.exe+11DE1A5: F3 0F 11 87 D0 00 00 00     - movss [rdi+000000D0],xmm0
+Redfall.exe+11DE1AD: F3 0F 11 87 D4 00 00 00     - movss [rdi+000000D4],xmm0
+Redfall.exe+11DE1B5: F3 41 0F 10 86 04 06 00 00  - movss xmm0,[r14+00000604]
+Redfall.exe+11DE1BE: F3 0F 11 87 E0 00 00 00     - movss [rdi+000000E0],xmm0
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>47120</ID>
+                                  <Description>"ptr"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <Color>000000</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>S_hit</Address>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>1337111618</ID>
+                              <Description>"Super Jump [UE]"</Description>
+                              <Color>FFFF00</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ Game   : Win64-Shipping.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2022-07-24
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(JUMP_hack,Redfall.exe,8B 87 * * * * 39 87 * * * * 0F 9C * 48 8B) // should be unique
+registersymbol(JUMP_hack)
+
+JUMP_hack:
+  db 8B 87 E4 03 00 00 39 87 E8 03 00 00 B0 01 90
+
+[DISABLE]
+
+JUMP_hack:
+  db 8B 87 E4 03 00 00 39 87 E8 03 00 00 0F 9C C0
+
+unregistersymbol(*)
+dealloc(*)
+
+{
+// ORIGINAL CODE - INJECTION POINT: DeadIsland-Win64-Shipping.exe+34E56A1
+
+DeadIsland-Win64-Shipping.exe+34E5681: 84 C0              - test al,al
+DeadIsland-Win64-Shipping.exe+34E5683: 74 1C              - je DeadIsland-Win64-Shipping.exe+34E56A1
+DeadIsland-Win64-Shipping.exe+34E5685: 8B 87 E8 03 00 00  - mov eax,[rdi+000003E8]
+DeadIsland-Win64-Shipping.exe+34E568B: FF C0              - inc eax
+DeadIsland-Win64-Shipping.exe+34E568D: 3B 87 E4 03 00 00  - cmp eax,[rdi+000003E4]
+DeadIsland-Win64-Shipping.exe+34E5693: 0F 9C C0           - setl al
+DeadIsland-Win64-Shipping.exe+34E5696: 48 8B 5C 24 30     - mov rbx,[rsp+30]
+DeadIsland-Win64-Shipping.exe+34E569B: 48 83 C4 20        - add rsp,20
+DeadIsland-Win64-Shipping.exe+34E569F: 5F                 - pop rdi
+DeadIsland-Win64-Shipping.exe+34E56A0: C3                 - ret 
+// ---------- INJECTING HERE ----------
+DeadIsland-Win64-Shipping.exe+34E56A1: 8B 87 E4 03 00 00  - mov eax,[rdi+000003E4]
+// ---------- DONE INJECTING  ----------
+DeadIsland-Win64-Shipping.exe+34E56A7: 39 87 E8 03 00 00  - cmp [rdi+000003E8],eax
+DeadIsland-Win64-Shipping.exe+34E56AD: 0F 9C C0           - setl al
+DeadIsland-Win64-Shipping.exe+34E56B0: 48 8B 5C 24 30     - mov rbx,[rsp+30]
+DeadIsland-Win64-Shipping.exe+34E56B5: 48 83 C4 20        - add rsp,20
+DeadIsland-Win64-Shipping.exe+34E56B9: 5F                 - pop rdi
+DeadIsland-Win64-Shipping.exe+34E56BA: C3                 - ret 
+DeadIsland-Win64-Shipping.exe+34E56BB: CC                 - int 3 
+DeadIsland-Win64-Shipping.exe+34E56BC: CC                 - int 3 
+DeadIsland-Win64-Shipping.exe+34E56BD: CC                 - int 3 
+DeadIsland-Win64-Shipping.exe+34E56BE: CC                 - int 3 
+}
+</AssemblerScript>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113940</ID>
+                              <Description>"Infinite Medkits x 9999"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <Color>00FFFF</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ Game   : Redfall.exe
+  Version: 
+  Date   : 2023-05-02
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(Med_ki,Redfall.exe,89 91 E8 02 00 00 74) // should be unique
+alloc(newmem,$20,Med_ki)
+
+label(code M_d_Bag)
+label(return)
+
+newmem:
+mov [M_d_Bag],rcx
+mov [rcx+000002E8],#9999
+jmp return
+
+M_d_Bag:
+dq 0
+
+
+code:
+mov [rcx+000002E8],edx
+    jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(Med_ki M_d_Bag)
+
+[DISABLE]
+
+INJECT:
+  db 89 91 E8 02 00 00
+
+unregistersymbol(Med_ki M_d_Bag)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Redfall.exe+17C02020
+
+Redfall.exe+17C01FF4: 00 00                                         - add [rax],al
+Redfall.exe+17C01FF6: 00 00                                         - add [rax],al
+Redfall.exe+17C01FF8: 00 00                                         - add [rax],al
+Redfall.exe+17C01FFA: 00 00                                         - add [rax],al
+Redfall.exe+17C01FFC: 00 00                                         - add [rax],al
+Redfall.exe+17C01FFE: 00 00                                         - add [rax],al
+Redfall.exe+17C02000: 01 66 66                                      - add [rsi+66],esp
+Redfall.exe+17C02003: 66 66 66 66 2E 0F 1F 84 00 00 00 00 00        - nop word ptr cs:[rax+rax+00000000]
+Redfall.exe+17C02010: 66 66 66 66 66 66 2E 0F 1F 84 00 00 00 00 00  - nop word ptr cs:[rax+rax+00000000]
+Redfall.exe+17C0201F: 90                                            - nop 
+// ---------- INJECTING HERE ----------
+Redfall.exe+17C02020: 48 8D 64 24 D8                                - lea rsp,[rsp-28]
+// ---------- DONE INJECTING  ----------
+Redfall.exe+17C02025: 50                                            - push rax
+Redfall.exe+17C02026: 51                                            - push rcx
+Redfall.exe+17C02027: 52                                            - push rdx
+Redfall.exe+17C02028: 80 3D D1 FF FF FF 00                          - cmp byte ptr [Redfall.exe+17C02000],00
+Redfall.exe+17C0202F: 75 23                                         - jne Redfall.exe+17C02054
+Redfall.exe+17C02031: 48 8D 05 C8 DF 3F E8                          - lea rax,[process]
+Redfall.exe+17C02038: 48 8D 0D 29 52 00 00                          - lea rcx,[Redfall.exe+17C07268]
+Redfall.exe+17C0203F: 48 8B 10                                      - mov rdx,[rax]
+Redfall.exe+17C02042: 48 05 00 10 00 00                             - add rax,00001000
+Redfall.exe+17C02048: 48 39 C8                                      - cmp rax,rcx
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337111631</ID>
+                                  <Description>"ptr"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>M_d_Bag</Address>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>1337111636</ID>
+                              <Description>"Xp Script"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <Color>00FF00</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ Game   : Redfall.exe
+  Version: 
+  Date   : 2023-05-02
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(EXP,Redfall.exe,89 93 E4 00 00 00 E8) // should be unique
+alloc(newmem,$1000,EXP)
+registersymbol(EXP XP_Value)
+label(code return XP_Value)
+newmem:
+mov [XP_Value],rbx
+jmp return
+
+
+XP_Value:
+  dd 0
+
+code:
+  mov [rbx+000000E4],edx
+  jmp return
+
+EXP:
+  jmp newmem
+  nop
+return:
+registersymbol(EXP XP_Value)
+
+[DISABLE]
+
+EXP:
+  db 89 93 E4 00 00 00
+unregistersymbol(EXP XP_Value)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Redfall.exe+1108B63
+
+Redfall.exe+1108B40: 42 3B 14 00           - cmp edx,[rax+r8]
+Redfall.exe+1108B44: 7C 1A                 - jl Redfall.exe+1108B60
+Redfall.exe+1108B46: FF 83 E0 00 00 00     - inc [rbx+000000E0]
+Redfall.exe+1108B4C: FF C1                 - inc ecx
+Redfall.exe+1108B4E: 4D 8B 41 30           - mov r8,[r9+30]
+Redfall.exe+1108B52: 42 2B 14 00           - sub edx,[rax+r8]
+Redfall.exe+1108B56: 48 83 C0 08           - add rax,08
+Redfall.exe+1108B5A: 41 3B 49 38           - cmp ecx,[r9+38]
+Redfall.exe+1108B5E: 7C E0                 - jl Redfall.exe+1108B40
+Redfall.exe+1108B60: 48 8B CB              - mov rcx,rbx
+// ---------- INJECTING HERE ----------
+Redfall.exe+1108B63: 89 93 E4 00 00 00     - mov [rbx+000000E4],edx
+// ---------- DONE INJECTING  ----------
+Redfall.exe+1108B69: E8 62 3C 00 00        - call Redfall.exe+110C7D0
+Redfall.exe+1108B6E: 8B 7C 24 20           - mov edi,[rsp+20]
+Redfall.exe+1108B72: 3B BB E0 00 00 00     - cmp edi,[rbx+000000E0]
+Redfall.exe+1108B78: 74 2C                 - je Redfall.exe+1108BA6
+Redfall.exe+1108B7A: 48 8B CB              - mov rcx,rbx
+Redfall.exe+1108B7D: E8 8E 3C 00 00        - call Redfall.exe+110C810
+Redfall.exe+1108B82: 8B 83 E0 00 00 00     - mov eax,[rbx+000000E0]
+Redfall.exe+1108B88: 48 8D 8B B0 00 00 00  - lea rcx,[rbx+000000B0]
+Redfall.exe+1108B8F: FF C0                 - inc eax
+Redfall.exe+1108B91: 48 8D 54 24 40        - lea rdx,[rsp+40]
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337111637</ID>
+                                  <Description>"ptr"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>XP_Value</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337111638</ID>
+                                      <Description>"Current Xp"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>XP_Value</Address>
+                                      <Offsets>
+                                        <Offset>E4</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>54</ID>
+                          <Description>"RedFall {UnKnowns} pointers and floats"</Description>
+                          <Options moHideChildren="1" moManualExpandCollapse="1"/>
+                          <Color>0000FF</Color>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>0</ID>
+                              <Description>"Engine Hook"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>80FF00</Color>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>Hood_Man_Hook</Address>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>2</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>90C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>3</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>940</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>4</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>938</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>5</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>93C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>6</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>940</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>7</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>944</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>8</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>948</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>9</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>94C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>10</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>950</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>11</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>954</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>12</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>958</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>13</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>95C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>14</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>960</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>15</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>964</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>16</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>968</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>17</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>96C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>18</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>970</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>19</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>9A8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>20</ID>
+                                  <Description>"4 Bytes"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>9B0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>21</ID>
+                                  <Description>"4 Bytes"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>9B4</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>22</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>9C0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>23</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>9D0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>24</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>9D8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>25</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>A10</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>26</ID>
+                                  <Description>"4 Bytes"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>A18</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>27</ID>
+                                  <Description>"4 Bytes"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>A1C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>28</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>A28</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>29</ID>
+                                  <Description>"4 Bytes"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>A30</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>30</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>A40</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>31</ID>
+                                  <Description>"4 Bytes"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>A48</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>32</ID>
+                                  <Description>"4 Bytes"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>A4C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>33</ID>
+                                  <Description>"4 Bytes"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>A78</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>34</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>A80</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>35</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>B50</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>36</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>B58</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>37</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>BB8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>38</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>BE8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>39</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>C30</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>40</ID>
+                                  <Description>"Double"</Description>
+                                  <VariableType>Double</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>C5C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>41</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>C70</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>42</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>C98</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>43</ID>
+                                  <Description>"4 Bytes"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>CA0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>44</ID>
+                                  <Description>"4 Bytes"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>CA4</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>45</ID>
+                                  <Description>"4 Bytes"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>CA8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>46</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>E28</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>47</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>E30</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>48</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>E38</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>49</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>E40</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>50</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>E48</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>51</ID>
+                                  <Description>"Pointer"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>E50</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>52</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>E60</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>53</ID>
+                                  <Description>"Float"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>Hood_Man_Hook</Address>
+                                  <Offsets>
+                                    <Offset>E64</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movups xmm1,[rax+20]</Description>
+      <AddressString>Redfall.exe+252197B</AddressString>
+      <Before>
+        <Byte>10</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>45</Byte>
+        <Byte>B0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>48</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>4D</Byte>
+        <Byte>C0</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups [rdi+20],xmm1</Description>
+      <AddressString>Redfall.exe+292528B</AddressString>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>D0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4F</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>E0</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups [rdi+40],xmm0</Description>
+      <AddressString>Redfall.exe+29252B0</AddressString>
+      <Before>
+        <Byte>09</Byte>
+        <Byte>03</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>48</Byte>
+        <Byte>10</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups xmm0,[rax]</Description>
+      <AddressString>Redfall.exe+29252AD</AddressString>
+      <Before>
+        <Byte>3D</Byte>
+        <Byte>E3</Byte>
+        <Byte>51</Byte>
+        <Byte>09</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>40</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups [rdi+60],xmm0</Description>
+      <AddressString>Redfall.exe+29252C0</AddressString>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>60</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>87</Byte>
+        <Byte>B8</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups xmm0,[rax+000001C0]</Description>
+      <AddressString>Redfall.exe+2925279</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>55</Byte>
+        <Byte>C7</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>C0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>10</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [r10+rsi],al</Description>
+      <AddressString>Redfall.exe+1577026</AddressString>
+      <Before>
+        <Byte>04</Byte>
+        <Byte>32</Byte>
+        <Byte>41</Byte>
+        <Byte>0A</Byte>
+        <Byte>C7</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>88</Byte>
+        <Byte>04</Byte>
+        <Byte>32</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>FF</Byte>
+        <Byte>C2</Byte>
+        <Byte>41</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi+04],00000001</Description>
+      <AddressString>Redfall.exe+147C111</AddressString>
+      <Before>
+        <Byte>73</Byte>
+        <Byte>18</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>1E</Byte>
+      </Before>
+      <Actual>
+        <Byte>C7</Byte>
+        <Byte>47</Byte>
+        <Byte>04</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax],ecx</Description>
+      <AddressString>vcruntime140.dll+140C</AddressString>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>08</Byte>
+        <Byte>C3</Byte>
+        <Byte>8B</Byte>
+        <Byte>0A</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>90</Byte>
+        <Byte>49</Byte>
+        <Byte>83</Byte>
+        <Byte>F8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :addss xmm0,[rbx+000000D0]</Description>
+      <AddressString>Redfall.exe+111095E</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>02</Byte>
+        <Byte>17</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>83</Byte>
+        <Byte>D0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5E</Byte>
+        <Byte>83</Byte>
+        <Byte>D8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of divss xmm0,[rbx+000000D8]</Description>
+      <AddressString>Redfall.exe+1110966</AddressString>
+      <Before>
+        <Byte>ED</Byte>
+        <Byte>FE</Byte>
+        <Byte>0F</Byte>
+        <Byte>1F</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5E</Byte>
+        <Byte>83</Byte>
+        <Byte>D8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rbx+34],xmm1</Description>
+      <AddressString>Redfall.exe+EAE29F</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C6</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4B</Byte>
+        <Byte>34</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>54</Byte>
+        <Byte>05</Byte>
+        <Byte>F5</Byte>
+        <Byte>2B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of addss xmm1,[rbx+34]</Description>
+      <AddressString>Redfall.exe+EAE28D</AddressString>
+      <Before>
+        <Byte>9D</Byte>
+        <Byte>FF</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>4B</Byte>
+        <Byte>34</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :sub rsp,20</Description>
+      <AddressString>Redfall.exe+2DAE562</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>40</Byte>
+        <Byte>53</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>DA</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>cam_settings</Name>
+      <Address>1F65BCB0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Hood_Man_Hook</Name>
+      <Address>7FF697C2D7E8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>PE_SEGMENTS</Name>
+      <Address>7FF6920D0270</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

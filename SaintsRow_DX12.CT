@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1337110749</ID>
+      <Description>"Saint Row [2022 Edition]"</Description>
+      <Options moManualExpandCollapse="1"/>
+      <Color>C08080</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"Table Author:  XxDaRealSlimballinxX"</Description>
+              <Color>FC94B0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>40</ID>
+                  <Description>"Visit us today @ GBA Services!"</Description>
+                  <Color>C080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337110746</ID>
+                  <Description>"Discord  @ SlimBallin#1687"</Description>
+                  <Color>008080</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337110747</ID>
+              <Description>"[X] &lt;=== For Full Tool View"</Description>
+              <Options moManualExpandCollapse="1"/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+// Script Creaded By mgr.inz.Player On CE Forums
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>5</ID>
+                  <Description>"Cheats"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>9</ID>
+                      <Description>"xxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <Color>C6FCAB</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>2</ID>
+                          <Description>"XP Script"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <Color>FF00FF</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ 
+  Game Executable   : SaintsRow.exe
+  Executable Version: 
+  Module Version    : 
+  Script Date       : 2022-08-25
+  Author 			: slimb
+}
+
+[ENABLE]
+
+aobscanmodule(aob_X_per,SaintsRow_DX12.exe,89 6E 3C 2B E9)
+registersymbol(aob_X_per)
+alloc(newmem_X_per,$100,aob_X_per)
+label(return_X_per)
+
+alloc(bkp_X_per,5,aob_X_per)
+registersymbol(bkp_X_per)
+
+bkp_X_per:
+  readmem(aob_X_per,5)
+
+  registersymbol(X_per_Pointer)
+newmem_X_per:
+  mov [X_per_Pointer],rsi
+
+cave_X_per:
+  readmem(aob_X_per,5)
+
+  mov [rsi+3C],#999999
+  sub ebp,ecx
+
+  jmp return_X_per
+  
+X_per_Pointer:
+  dq 0
+
+aob_X_per:
+  jmp newmem_X_per
+return_X_per:
+
+[DISABLE]
+
+aob_X_per:
+  readmem(bkp_X_per,5)
+
+unregistersymbol(aob_X_per)
+unregistersymbol(bkp_X_per)
+unregistersymbol(X_per_Pointer)
+dealloc(newmem_X_per)
+dealloc(bkp_X_per)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SaintsRow.exe.text+12C4242
+
+SaintsRow.exe.text+12C41FF: 0F 84 A4 00 00 00     - je SaintsRow.exe.text+12C42A9
+SaintsRow.exe.text+12C4205: 4C 8B 0B              - mov r9,[rbx]
+SaintsRow.exe.text+12C4208: 44 0F B6 C7           - movzx r8d,dil
+SaintsRow.exe.text+12C420C: 8B D5                 - mov edx,ebp
+SaintsRow.exe.text+12C420E: 48 8B CB              - mov rcx,rbx
+SaintsRow.exe.text+12C4211: 41 FF 51 48           - call qword ptr [r9+48]
+SaintsRow.exe.text+12C4215: 84 C0                 - test al,al
+SaintsRow.exe.text+12C4217: 0F 84 8C 00 00 00     - je SaintsRow.exe.text+12C42A9
+SaintsRow.exe.text+12C421D: 83 7E 3C 00           - cmp dword ptr [rsi+3C],00
+SaintsRow.exe.text+12C4221: 75 04                 - jne SaintsRow.exe.text+12C4227
+SaintsRow.exe.text+12C4223: C6 46 40 01           - mov byte ptr [rsi+40],01
+SaintsRow.exe.text+12C4227: 48 8B 03              - mov rax,[rbx]
+SaintsRow.exe.text+12C422A: 8B D5                 - mov edx,ebp
+SaintsRow.exe.text+12C422C: 48 8B CB              - mov rcx,rbx
+SaintsRow.exe.text+12C422F: FF 50 58              - call qword ptr [rax+58]
+SaintsRow.exe.text+12C4232: 8B 4E 3C              - mov ecx,[rsi+3C]
+SaintsRow.exe.text+12C4235: 8D 2C 01              - lea ebp,[rcx+rax]
+SaintsRow.exe.text+12C4238: B8 FF FF FF FF        - mov eax,FFFFFFFF
+SaintsRow.exe.text+12C423D: 3B E9                 - cmp ebp,ecx
+SaintsRow.exe.text+12C423F: 0F 42 E8              - cmovb ebp,eax
+// ---------- INJECTING HERE ----------
+SaintsRow.exe.text+12C4242: 89 6E 3C              - mov [rsi+3C],ebp
+// ---------- DONE INJECTING  ----------
+SaintsRow.exe.text+12C4245: 2B E9                 - sub ebp,ecx
+SaintsRow.exe.text+12C4247: 74 5C                 - je SaintsRow.exe.text+12C42A5
+SaintsRow.exe.text+12C4249: 48 8B 03              - mov rax,[rbx]
+SaintsRow.exe.text+12C424C: 44 0F B6 C7           - movzx r8d,dil
+SaintsRow.exe.text+12C4250: 8B D5                 - mov edx,ebp
+SaintsRow.exe.text+12C4252: 48 8B CB              - mov rcx,rbx
+SaintsRow.exe.text+12C4255: FF 50 50              - call qword ptr [rax+50]
+SaintsRow.exe.text+12C4258: F6 43 31 02           - test byte ptr [rbx+31],02
+SaintsRow.exe.text+12C425C: 48 8D 05 E5 B1 2E 01  - lea rax,[SaintsRow.exe.rdata+15C448]
+SaintsRow.exe.text+12C4263: 48 89 44 24 28        - mov [rsp+28],rax
+SaintsRow.exe.text+12C4268: 8B 43 34              - mov eax,[rbx+34]
+SaintsRow.exe.text+12C426B: 89 44 24 38           - mov [rsp+38],eax
+SaintsRow.exe.text+12C426F: 48 8D 43 08           - lea rax,[rbx+08]
+SaintsRow.exe.text+12C4273: 74 03                 - je SaintsRow.exe.text+12C4278
+SaintsRow.exe.text+12C4275: 48 8B 00              - mov rax,[rax]
+SaintsRow.exe.text+12C4278: 48 89 44 24 40        - mov [rsp+40],rax
+SaintsRow.exe.text+12C427D: 48 8B CB              - mov rcx,rbx
+SaintsRow.exe.text+12C4280: 48 8B 03              - mov rax,[rbx]
+SaintsRow.exe.text+12C4283: FF 50 10              - call qword ptr [rax+10]
+SaintsRow.exe.text+12C4286: 48 8D 4C 24 28        - lea rcx,[rsp+28]
+}
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>3</ID>
+                              <Description>"Symbol Ptr"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>000000</Color>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>X_per_Pointer</Address>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>4</ID>
+                                  <Description>"Current XP"</Description>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>X_per_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>3C</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110748</ID>
+                          <Description>"xxxxxxxxxxxxxxxxxxx"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <Color>C6FCAB</Color>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>28</ID>
+                              <Description>"Money Script"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <Color>00FF80</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ 
+  Game Executable   : SaintsRow_DX12.exe
+  Executable Version: 
+  Module Version    : 
+  Script Date       : 2022-08-25
+  Author 			: slimb
+}
+
+[ENABLE]
+
+aobscanmodule(aob_Mon_ey,SaintsRow_DX12.exe,89 48 3C 8B 48 38)
+registersymbol(aob_Mon_ey)
+alloc(newmem_Mon_ey,$100,aob_Mon_ey)
+label(return_Mon_ey)
+
+alloc(bkp_Mon_ey,6,aob_Mon_ey)
+registersymbol(bkp_Mon_ey)
+
+bkp_Mon_ey:
+  readmem(aob_Mon_ey,6)
+
+  registersymbol(Mon_ey_Pointer)
+newmem_Mon_ey:
+  mov [Mon_ey_Pointer],rax
+
+cave_Mon_ey:
+  readmem(aob_Mon_ey,6)
+
+  mov ecx,#987987987
+  mov [rax+3C],ecx
+
+  jmp return_Mon_ey
+  
+Mon_ey_Pointer:
+  dq 0
+
+aob_Mon_ey:
+  jmp newmem_Mon_ey
+  nop
+return_Mon_ey:
+
+[DISABLE]
+
+aob_Mon_ey:
+  readmem(bkp_Mon_ey,6)
+
+unregistersymbol(aob_Mon_ey)
+unregistersymbol(bkp_Mon_ey)
+unregistersymbol(Mon_ey_Pointer)
+dealloc(newmem_Mon_ey)
+dealloc(bkp_Mon_ey)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SaintsRow_DX12.exe.text+13120AA
+
+SaintsRow_DX12.exe.text+131206E: CC                    - int 3 
+SaintsRow_DX12.exe.text+131206F: CC                    - int 3 
+SaintsRow_DX12.exe.text+1312070: 48 89 5C 24 08        - mov [rsp+08],rbx
+SaintsRow_DX12.exe.text+1312075: 48 89 74 24 10        - mov [rsp+10],rsi
+SaintsRow_DX12.exe.text+131207A: 57                    - push rdi
+SaintsRow_DX12.exe.text+131207B: 48 83 EC 50           - sub rsp,50
+SaintsRow_DX12.exe.text+131207F: 41 0F B6 F0           - movzx esi,r8l
+SaintsRow_DX12.exe.text+1312083: 8B FA                 - mov edi,edx
+SaintsRow_DX12.exe.text+1312085: 48 8B D9              - mov rbx,rcx
+SaintsRow_DX12.exe.text+1312088: 48 85 C9              - test rcx,rcx
+SaintsRow_DX12.exe.text+131208B: 0F 84 8E 00 00 00     - je SaintsRow_DX12.exe.text+131211F
+SaintsRow_DX12.exe.text+1312091: 85 D2                 - test edx,edx
+SaintsRow_DX12.exe.text+1312093: 74 78                 - je SaintsRow_DX12.exe.text+131210D
+SaintsRow_DX12.exe.text+1312095: 48 8B 01              - mov rax,[rcx]
+SaintsRow_DX12.exe.text+1312098: FF 50 38              - call qword ptr [rax+38]
+SaintsRow_DX12.exe.text+131209B: 8B 48 3C              - mov ecx,[rax+3C]
+SaintsRow_DX12.exe.text+131209E: 3B CF                 - cmp ecx,edi
+SaintsRow_DX12.exe.text+13120A0: 72 7D                 - jb SaintsRow_DX12.exe.text+131211F
+SaintsRow_DX12.exe.text+13120A2: 2B CF                 - sub ecx,edi
+SaintsRow_DX12.exe.text+13120A4: 41 B8 FF FF FF FF     - mov r8d,FFFFFFFF
+// ---------- INJECTING HERE ----------
+SaintsRow_DX12.exe.text+13120AA: 89 48 3C              - mov [rax+3C],ecx
+// ---------- DONE INJECTING  ----------
+SaintsRow_DX12.exe.text+13120AD: 8B 48 38              - mov ecx,[rax+38]
+SaintsRow_DX12.exe.text+13120B0: 8D 14 39              - lea edx,[rcx+rdi]
+SaintsRow_DX12.exe.text+13120B3: 3B D1                 - cmp edx,ecx
+SaintsRow_DX12.exe.text+13120B5: 48 8B CB              - mov rcx,rbx
+SaintsRow_DX12.exe.text+13120B8: 41 0F 42 D0           - cmovb edx,r8d
+SaintsRow_DX12.exe.text+13120BC: 89 50 38              - mov [rax+38],edx
+SaintsRow_DX12.exe.text+13120BF: 8B D7                 - mov edx,edi
+SaintsRow_DX12.exe.text+13120C1: 48 8B 03              - mov rax,[rbx]
+SaintsRow_DX12.exe.text+13120C4: FF 50 60              - call qword ptr [rax+60]
+SaintsRow_DX12.exe.text+13120C7: F6 43 31 02           - test byte ptr [rbx+31],02
+SaintsRow_DX12.exe.text+13120CB: 48 8D 05 6E 3F 30 01  - lea rax,[SaintsRow_DX12.exe.rdata+177040]
+SaintsRow_DX12.exe.text+13120D2: 48 89 44 24 20        - mov [rsp+20],rax
+SaintsRow_DX12.exe.text+13120D7: 8B 43 34              - mov eax,[rbx+34]
+SaintsRow_DX12.exe.text+13120DA: 89 44 24 30           - mov [rsp+30],eax
+SaintsRow_DX12.exe.text+13120DE: 48 8D 43 08           - lea rax,[rbx+08]
+SaintsRow_DX12.exe.text+13120E2: 74 03                 - je SaintsRow_DX12.exe.text+13120E7
+SaintsRow_DX12.exe.text+13120E4: 48 8B 00              - mov rax,[rax]
+SaintsRow_DX12.exe.text+13120E7: 48 89 44 24 38        - mov [rsp+38],rax
+SaintsRow_DX12.exe.text+13120EC: 48 8B CB              - mov rcx,rbx
+SaintsRow_DX12.exe.text+13120EF: 48 8B 03              - mov rax,[rbx]
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>29</ID>
+                                  <Description>"Symbol Ptr"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <Color>000000</Color>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Mon_ey_Pointer</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>30</ID>
+                                      <Description>"String"</Description>
+                                      <VariableType>String</VariableType>
+                                      <Length>5</Length>
+                                      <Unicode>0</Unicode>
+                                      <CodePage>0</CodePage>
+                                      <ZeroTerminate>1</ZeroTerminate>
+                                      <Address>Mon_ey_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>8</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>31</ID>
+                                      <Description>"Current Cash   == &gt; Set [Value] and spend to update"</Description>
+                                      <VariableType>4 Bytes</VariableType>
+                                      <Address>Mon_ey_Pointer</Address>
+                                      <Offsets>
+                                        <Offset>3C</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337110770</ID>
+                      <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <Color>C6FCAB</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1337110761</ID>
+                          <Description>"Player Structure Finder v1"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <Color>FFFF00</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript Async="1">{ 
+  Game Executable   : SaintsRow_DX12.exe
+  Executable Version: 
+  Module Version    : 
+  Script Date       : 2022-08-26
+  Author 			: slimb
+}
+
+
+//F3 0F * * * * 00 00 F3 0F * * 44 * * * * C7
+//F3 0F 10 B0 F0 00 00 00 F3 0F
+
+
+[ENABLE]
+
+aobscanmodule(aob_HoodMan,SaintsRow_DX12.exe,F3 0F * * * * 00 00 F3 0F * * 44 * * * * C7)
+registersymbol(aob_HoodMan)
+alloc(newmem_HoodMan,$100,aob_HoodMan)
+label(return_HoodMan)
+
+alloc(bkp_HoodMan,8,aob_HoodMan)
+registersymbol(bkp_HoodMan)
+
+bkp_HoodMan:
+  readmem(aob_HoodMan,8)
+
+  registersymbol(HoodMan_Pointer)
+newmem_HoodMan:
+  mov [HoodMan_Pointer],rax
+
+cave_HoodMan:
+  readmem(aob_HoodMan,8)
+/////////////////////////////
+    movss xmm6,[rax+000000EC]
+movss [rax+f0],xmm6
+  movss xmm6,[rax+000000F0]
+/////////////////////////////
+  jmp return_HoodMan
+  
+HoodMan_Pointer:
+  dq 0
+
+aob_HoodMan:
+  jmp newmem_HoodMan
+  nop 3
+return_HoodMan:
+
+[DISABLE]
+
+aob_HoodMan:
+  readmem(bkp_HoodMan,8)
+
+unregistersymbol(aob_HoodMan)
+unregistersymbol(bkp_HoodMan)
+unregistersymbol(HoodMan_Pointer)
+dealloc(newmem_HoodMan)
+dealloc(bkp_HoodMan)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SaintsRow_DX12.exe.text+9EEE52
+
+SaintsRow_DX12.exe.text+9EEE02: 41 0F B6 44 49 01        - movzx eax,byte ptr [r9+rcx*2+01]
+SaintsRow_DX12.exe.text+9EEE08: 24 06                    - and al,06
+SaintsRow_DX12.exe.text+9EEE0A: 3C 02                    - cmp al,02
+SaintsRow_DX12.exe.text+9EEE0C: 75 19                    - jne SaintsRow_DX12.exe.text+9EEE27
+SaintsRow_DX12.exe.text+9EEE0E: 0F 28 44 24 30           - movaps xmm0,[rsp+30]
+SaintsRow_DX12.exe.text+9EEE13: 66 0F 7F 45 10           - movdqa [rbp+10],xmm0
+SaintsRow_DX12.exe.text+9EEE18: 8B 82 B4 00 00 00        - mov eax,[rdx+000000B4]
+SaintsRow_DX12.exe.text+9EEE1E: 0F AF C1                 - imul eax,ecx
+SaintsRow_DX12.exe.text+9EEE21: 48 03 42 28              - add rax,[rdx+28]
+SaintsRow_DX12.exe.text+9EEE25: EB 03                    - jmp SaintsRow_DX12.exe.text+9EEE2A
+SaintsRow_DX12.exe.text+9EEE27: 49 8B C5                 - mov rax,r13
+SaintsRow_DX12.exe.text+9EEE2A: 48 85 C0                 - test rax,rax
+SaintsRow_DX12.exe.text+9EEE2D: 0F 84 45 01 00 00        - je SaintsRow_DX12.exe.text+9EEF78
+SaintsRow_DX12.exe.text+9EEE33: F3 0F 10 80 EC 00 00 00  - movss xmm0,[rax+000000EC]
+SaintsRow_DX12.exe.text+9EEE3B: 0F 2F 05 8E DE D5 01     - comiss xmm0,[SaintsRow_DX12.exe.rdata+2ADCD0]
+SaintsRow_DX12.exe.text+9EEE42: 73 0E                    - jae SaintsRow_DX12.exe.text+9EEE52
+SaintsRow_DX12.exe.text+9EEE44: 0F 2F 05 15 F1 D5 01     - comiss xmm0,[SaintsRow_DX12.exe.rdata+2AEF60]
+SaintsRow_DX12.exe.text+9EEE4B: 76 05                    - jna SaintsRow_DX12.exe.text+9EEE52
+SaintsRow_DX12.exe.text+9EEE4D: 0F 57 F6                 - xorps xmm6,xmm6
+SaintsRow_DX12.exe.text+9EEE50: EB 0C                    - jmp SaintsRow_DX12.exe.text+9EEE5E
+// ---------- INJECTING HERE ----------
+SaintsRow_DX12.exe.text+9EEE52: F3 0F 10 B0 F0 00 00 00  - movss xmm6,[rax+000000F0]
+// ---------- DONE INJECTING  ----------
+SaintsRow_DX12.exe.text+9EEE5A: F3 0F 5E F0              - divss xmm6,xmm0
+SaintsRow_DX12.exe.text+9EEE5E: 44 88 6C 24 28           - mov [rsp+28],r13l
+SaintsRow_DX12.exe.text+9EEE63: C7 44 24 20 04 00 00 00  - mov [rsp+20],00000004
+SaintsRow_DX12.exe.text+9EEE6B: 45 33 C9                 - xor r9d,r9d
+SaintsRow_DX12.exe.text+9EEE6E: 4D 8B C6                 - mov r8,r14
+SaintsRow_DX12.exe.text+9EEE71: 0F 28 CE                 - movaps xmm1,xmm6
+SaintsRow_DX12.exe.text+9EEE74: 48 8D 0D 7D AB C6 01     - lea rcx,[SaintsRow_DX12.exe.rdata+1BA9F8]
+SaintsRow_DX12.exe.text+9EEE7B: E8 80 83 30 01           - call SaintsRow_DX12.AK::SoundEngine::SetRTPCValue
+SaintsRow_DX12.exe.text+9EEE80: 49 8B CE                 - mov rcx,r14
+SaintsRow_DX12.exe.text+9EEE83: E8 28 1B 53 00           - call SaintsRow_DX12.exe.text+F209B0
+SaintsRow_DX12.exe.text+9EEE88: 48 85 C0                 - test rax,rax
+SaintsRow_DX12.exe.text+9EEE8B: 74 08                    - je SaintsRow_DX12.exe.text+9EEE95
+SaintsRow_DX12.exe.text+9EEE8D: 48 8B C8                 - mov rcx,rax
+SaintsRow_DX12.exe.text+9EEE90: E8 FB FD 52 00           - call SaintsRow_DX12.exe.text+F1EC90
+SaintsRow_DX12.exe.text+9EEE95: 0F 2F 35 D4 5B D0 01     - comiss xmm6,[SaintsRow_DX12.exe.rdata+255A70]
+SaintsRow_DX12.exe.text+9EEE9C: 0F 82 D6 00 00 00        - jb SaintsRow_DX12.exe.text+9EEF78
+SaintsRow_DX12.exe.text+9EEEA2: 44 38 AF FF 02 00 00     - cmp [rdi+000002FF],r13l
+SaintsRow_DX12.exe.text+9EEEA9: 0F 84 C9 00 00 00        - je SaintsRow_DX12.exe.text+9EEF78
+SaintsRow_DX12.exe.text+9EEEAF: 8B 05 93 82 CF 02        - mov eax,[SaintsRow_DX12.exe+36E8148]
+SaintsRow_DX12.exe.text+9EEEB5: 89 85 C0 00 00 00        - mov [rbp+000000C0],eax
+}
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>1337110764</ID>
+                              <Description>"Symbol ptr"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>000000</Color>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>HoodMan_Pointer</Address>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337110765</ID>
+                                  <Description>"Current Health"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>HoodMan_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>F0</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337110766</ID>
+                                  <Description>"Max Health"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>HoodMan_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>EC</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337110769</ID>
+                                  <Description>"Enemies OHK"</Description>
+                                  <Color>8080FF</Color>
+                                  <VariableType>Auto Assembler Script</VariableType>
+                                  <AssemblerScript>{ Game   : SaintsRow_DX12.exe
+  Version: 
+  Date   : 2022-08-26
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(All_Kill,SaintsRow_DX12.exe,F3 0F 10 81 F0 00 00 00 F3 0F 11) // should be unique
+alloc(newmem,$1000,All_Kill)
+
+label(code Skip)
+label(return)
+
+newmem:
+
+cmp [HoodMan_Pointer],rcx
+je Skip
+
+
+code:
+xorps xmm0,xmm0
+movss [rcx+F0],xmm0
+
+Skip:
+  movss xmm0,[rcx+000000F0]
+
+  jmp return
+
+All_Kill:
+  jmp newmem
+  nop 3
+return:
+registersymbol(All_Kill)
+
+[DISABLE]
+
+All_Kill:
+  db F3 0F 10 81 F0 00 00 00
+
+unregistersymbol(All_Kill)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SaintsRow_DX12.exe.text+3ADA97
+
+SaintsRow_DX12.exe.text+3ADA71: 0F 29 78 98              - movaps [rax-68],xmm7
+SaintsRow_DX12.exe.text+3ADA75: 4D 8B E1                 - mov r12,r9
+SaintsRow_DX12.exe.text+3ADA78: 0F 28 F2                 - movaps xmm6,xmm2
+SaintsRow_DX12.exe.text+3ADA7B: 0F 28 F9                 - movaps xmm7,xmm1
+SaintsRow_DX12.exe.text+3ADA7E: 48 8B F1                 - mov rsi,rcx
+SaintsRow_DX12.exe.text+3ADA81: 48 8D 05 E0 66 21 02     - lea rax,[SaintsRow_DX12.exe.rdata+125168]
+SaintsRow_DX12.exe.text+3ADA88: 48 89 45 80              - mov [rbp-80],rax
+SaintsRow_DX12.exe.text+3ADA8C: 45 33 ED                 - xor r13d,r13d
+SaintsRow_DX12.exe.text+3ADA8F: 44 89 6D 88              - mov [rbp-78],r13d
+SaintsRow_DX12.exe.text+3ADA93: 4C 89 6D A0              - mov [rbp-60],r13
+// ---------- INJECTING HERE ----------
+SaintsRow_DX12.exe.text+3ADA97: F3 0F 10 81 F0 00 00 00  - movss xmm0,[rcx+000000F0]
+// ---------- DONE INJECTING  ----------
+SaintsRow_DX12.exe.text+3ADA9F: F3 0F 11 45 98           - movss [rbp-68],xmm0
+SaintsRow_DX12.exe.text+3ADAA4: F3 0F 10 89 00 01 00 00  - movss xmm1,[rcx+00000100]
+SaintsRow_DX12.exe.text+3ADAAC: F3 0F 11 4D 9C           - movss [rbp-64],xmm1
+SaintsRow_DX12.exe.text+3ADAB1: 4C 8B 05 98 20 4A 05     - mov r8,[SaintsRow_DX12.exe+5850B50]
+SaintsRow_DX12.exe.text+3ADAB8: 49 8D 88 90 72 00 00     - lea rcx,[r8+00007290]
+SaintsRow_DX12.exe.text+3ADABF: 48 89 4C 24 40           - mov [rsp+40],rcx
+SaintsRow_DX12.exe.text+3ADAC4: 48 8B C6                 - mov rax,rsi
+SaintsRow_DX12.exe.text+3ADAC7: 48 2B 41 28              - sub rax,[rcx+28]
+SaintsRow_DX12.exe.text+3ADACB: 8B 89 B4 00 00 00        - mov ecx,[rcx+000000B4]
+SaintsRow_DX12.exe.text+3ADAD1: 48 99                    - cqo 
+}
+</AssemblerScript>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337110787</ID>
+                      <Description>"xxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <Color>C6FCAB</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1337110786</ID>
+                          <Description>"INF Ammo/No Reload"</Description>
+                          <Color>C080FF</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : SaintsRow_DX12.exe
+  Version: 
+  Date   : 2022-08-26
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(No_lose_ammo,SaintsRow_DX12.exe,74 10 0F 10 70 08) // should be unique
+registersymbol(No_lose_ammo)
+
+No_lose_ammo:
+db EB 10 0F 10 70 08
+
+[DISABLE]
+
+No_lose_ammo:
+  db 74 10 0F 10 70 08
+
+unregistersymbol(No_lose_ammo)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SaintsRow_DX12.exe.text+1B20D37
+
+SaintsRow_DX12.exe.text+1B20D11: 32 DB                          - xor bl,bl
+SaintsRow_DX12.exe.text+1B20D13: 8B 02                          - mov eax,[rdx]
+SaintsRow_DX12.exe.text+1B20D15: 89 44 24 24                    - mov [rsp+24],eax
+SaintsRow_DX12.exe.text+1B20D19: 45 8B 71 08                    - mov r14d,[r9+08]
+SaintsRow_DX12.exe.text+1B20D1D: 45 8B CE                       - mov r9d,r14d
+SaintsRow_DX12.exe.text+1B20D20: 45 8B C4                       - mov r8d,r12d
+SaintsRow_DX12.exe.text+1B20D23: 48 8D 54 24 24                 - lea rdx,[rsp+24]
+SaintsRow_DX12.exe.text+1B20D28: E8 13 F9 FF FF                 - call SaintsRow_DX12.exe.text+1B20640
+SaintsRow_DX12.exe.text+1B20D2D: 4C 8D 2D CC E2 4D FE           - lea r13,[SaintsRow_DX12.exe]
+SaintsRow_DX12.exe.text+1B20D34: 48 85 C0                       - test rax,rax
+// ---------- INJECTING HERE ----------
+SaintsRow_DX12.exe.text+1B20D37: 74 10                          - je SaintsRow_DX12.exe.text+1B20D49
+// ---------- DONE INJECTING  ----------
+SaintsRow_DX12.exe.text+1B20D39: 0F 10 70 08                    - movups xmm6,[rax+08]
+SaintsRow_DX12.exe.text+1B20D3D: 0F 28 07                       - movaps xmm0,[rdi]
+SaintsRow_DX12.exe.text+1B20D40: 0F 11 40 08                    - movups [rax+08],xmm0
+SaintsRow_DX12.exe.text+1B20D44: E9 D2 00 00 00                 - jmp SaintsRow_DX12.exe.text+1B20E1B
+SaintsRow_DX12.exe.text+1B20D49: 45 33 D2                       - xor r10d,r10d
+SaintsRow_DX12.exe.text+1B20D4C: 41 B1 67                       - mov r9l,67
+SaintsRow_DX12.exe.text+1B20D4F: 4C 8D 1D B3 E8 B2 00           - lea r11,[SaintsRow_DX12.exe.rdata+1B0609]
+SaintsRow_DX12.exe.text+1B20D56: 66 66 0F 1F 84 00 00 00 00 00  - nop word ptr [rax+rax+00000000]
+SaintsRow_DX12.exe.text+1B20D60: 41 0F B6 D1                    - movzx edx,r9l
+SaintsRow_DX12.exe.text+1B20D64: 45 8B C2                       - mov r8d,r10d
+}
+</AssemblerScript>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1337110788</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>2B8E0378150</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1337110789</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>2B8E0378154</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>X cood</Description>
+      <AddressString>SaintsRow_DX12.exe+13AB49B</AddressString>
+      <Before>
+        <Byte>56</Byte>
+        <Byte>C8</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>0B</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>63</Byte>
+        <Byte>24</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>83</Byte>
+        <Byte>EF</Byte>
+        <Byte>01</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rcx+000000F0]</Description>
+      <AddressString>SaintsRow_DX12.exe+3AEA97</AddressString>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>6D</Byte>
+        <Byte>A0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>F0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>98</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

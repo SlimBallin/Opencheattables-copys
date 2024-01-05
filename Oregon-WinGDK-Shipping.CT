@@ -1,0 +1,1407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>26352</ID>
+      <Description>"Go Crazy Mode"</Description>
+      <Options moManualExpandCollapse="1"/>
+      <Color>00FFFF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+{$lua}
+
+function checkKeys()
+------
+local base = getAddress('[[[[[[[[[Hood_Man_Hook]+D80]+38]]+30]+2C8]+968]+160]]')
+------------------------
+writeFloat(base+0x110,10) --Movement speed Base
+writeFloat(base+0x114,10) --Movement speed Current
+writeFloat(base+0x38,9999999) --Damage Base Value
+writeFloat(base+0x3C,9999999) --Damage Current Value
+writeFloat(base+0x50,0) -- Damage Received
+writeFloat(base+0x54,0) --Damage Received Current alue
+writeFloat(base+0x68,9999999) -- Armor Base Value
+writeFloat(base+0x6C,9999999) --Armor Current Value
+writeFloat(base+0x98,999999) -- Healing Base Value
+writeFloat(base+0x9C,999999) -- Healing Current Value
+writeFloat(base+0xAC0,999999) -- Melee Base Value
+writeFloat(base+0xAC4,999999) -- Melee  Current Value
+------------------
+  --printf('%x',getAddress('[[[[[[[[[Hood_Man_Hook]+D80]+38]]+30]+2C8]+968]+160]]'))  'Function to print String (Base+Pointer tree]
+
+--print('Here')   'Function to print get call back]
+
+end
+function fc_loop(thr_obj)
+  while fc_loop_running == true
+  do
+    checkKeys()
+    sleep(10)
+  end
+end
+------
+if syntaxcheck then return end
+---------
+fc_loop_running = true
+fc_thread = createThread(fc_loop)
+------
+{$ASM}
+// Switches Code back to Assembly\\
+[DISABLE]
+//-----------------------
+{$lua}
+fc_loop_running = false
+fc_thread = nil
+------------------------- 
+ 
+
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>26307</ID>
+          <Description>"xxxxxxxxx  Cheats xxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>4080FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <Address>Hood_Man_Hook</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>26308</ID>
+              <Description>"MovementSpeedMod.BaseValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>110</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26309</ID>
+              <Description>"MovementSpeedMod.CurrentValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>114</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26310</ID>
+              <Description>"MovementSpeedMod.MinValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>118</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26311</ID>
+              <Description>"MovementSpeedMod.MaxValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>11C</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26312</ID>
+              <Description>"WalkSpeed.BaseValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>128</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26313</ID>
+              <Description>"WalkSpeed.CurrentValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>12C</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26314</ID>
+              <Description>"WalkSpeed.MinValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>130</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26315</ID>
+              <Description>"WalkSpeed.MaxValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>134</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26316</ID>
+              <Description>"CrouchSpeed.BaseValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>140</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26317</ID>
+              <Description>"CrouchSpeed.CurrentValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>144</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26318</ID>
+              <Description>"CrouchSpeed.MinValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>148</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26319</ID>
+              <Description>"CrouchSpeed.MaxValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>14C</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26320</ID>
+              <Description>"SprintSpeed.BaseValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>158</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26321</ID>
+              <Description>"SprintSpeed.CurrentValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>15C</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26322</ID>
+              <Description>"SprintSpeed.MinValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>160</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26323</ID>
+              <Description>"SprintSpeed.MaxValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>164</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26324</ID>
+              <Description>"Damage.BaseValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>38</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26325</ID>
+              <Description>"Damage.CurrentValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>3C</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26326</ID>
+              <Description>"Damage.MinValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>40</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26327</ID>
+              <Description>"Damage.MaxValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>44</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26328</ID>
+              <Description>"DamageReceivedMod.BaseValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>50</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26329</ID>
+              <Description>"DamageReceivedMod.CurrentValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>54</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26330</ID>
+              <Description>"DamageReceivedMod.MinValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>58</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26331</ID>
+              <Description>"DamageReceivedMod.MaxValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>5C</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26332</ID>
+              <Description>"Armor.BaseValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>68</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26333</ID>
+              <Description>"Armor.CurrentValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>6C</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26334</ID>
+              <Description>"Armor.MinValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>70</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26335</ID>
+              <Description>"Armor.MaxValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>74</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26336</ID>
+              <Description>"ImpactVelocityScale.BaseValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>80</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26337</ID>
+              <Description>"ImpactVelocityScale.CurrentValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>84</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26338</ID>
+              <Description>"ImpactVelocityScale.MinValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>88</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26339</ID>
+              <Description>"ImpactVelocityScale.MaxValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>8C</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26340</ID>
+              <Description>"Healing.BaseValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>98</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26341</ID>
+              <Description>"Healing.CurrentValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>9C</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26342</ID>
+              <Description>"Healing.MinValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>A0</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26343</ID>
+              <Description>"Healing.MaxValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>A4</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26344</ID>
+              <Description>"StunLength.BaseValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>B0</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26345</ID>
+              <Description>"StunLength.CurrentValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>B4</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26346</ID>
+              <Description>"StunLength.MinValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26347</ID>
+              <Description>"StunLength.MaxValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26348</ID>
+              <Description>"TweenLaunchDistance.BaseValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>C8</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26349</ID>
+              <Description>"TweenLaunchDistance.CurrentValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>CC</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26350</ID>
+              <Description>"TweenLaunchDistance.MinValue"</Description>
+              <VariableType>Float</VariableType>
+              <Address>Hood_Man_Hook</Address>
+              <Offsets>
+                <Offset>D0</Offset>
+                <Offset>0</Offset>
+                <Offset>160</Offset>
+                <Offset>968</Offset>
+                <Offset>2C8</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>38</Offset>
+                <Offset>D80</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>26371</ID>
+      <Description>"Player info"</Description>
+      <Options moManualExpandCollapse="1"/>
+      <Color>FFFF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>26233</ID>
+          <Description>"GamerTag"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>4080FF</Color>
+          <VariableType>String</VariableType>
+          <Length>15</Length>
+          <Unicode>1</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>Hood_Man_Hook</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>300</Offset>
+            <Offset>228</Offset>
+            <Offset>30</Offset>
+            <Offset>0</Offset>
+            <Offset>38</Offset>
+            <Offset>D80</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26242</ID>
+          <Description>"bWasPreviouslyDead"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>Hood_Man_Hook</Address>
+          <Offsets>
+            <Offset>E0</Offset>
+            <Offset>918</Offset>
+            <Offset>280</Offset>
+            <Offset>30</Offset>
+            <Offset>0</Offset>
+            <Offset>38</Offset>
+            <Offset>D80</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26373</ID>
+          <Description>"CharacterTimeDilation.BaseValue"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Hood_Man_Hook</Address>
+          <Offsets>
+            <Offset>308</Offset>
+            <Offset>0</Offset>
+            <Offset>160</Offset>
+            <Offset>968</Offset>
+            <Offset>2C8</Offset>
+            <Offset>30</Offset>
+            <Offset>0</Offset>
+            <Offset>38</Offset>
+            <Offset>D80</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26374</ID>
+          <Description>"CharacterTimeDilation.CurrentValue"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Hood_Man_Hook</Address>
+          <Offsets>
+            <Offset>30C</Offset>
+            <Offset>0</Offset>
+            <Offset>160</Offset>
+            <Offset>968</Offset>
+            <Offset>2C8</Offset>
+            <Offset>30</Offset>
+            <Offset>0</Offset>
+            <Offset>38</Offset>
+            <Offset>D80</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26380</ID>
+          <Description>"MaxMeleeDistance.BaseValue"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Hood_Man_Hook</Address>
+          <Offsets>
+            <Offset>AC0</Offset>
+            <Offset>0</Offset>
+            <Offset>160</Offset>
+            <Offset>968</Offset>
+            <Offset>2C8</Offset>
+            <Offset>30</Offset>
+            <Offset>0</Offset>
+            <Offset>38</Offset>
+            <Offset>D80</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26381</ID>
+          <Description>"MaxMeleeDistance.CurrentValue"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Hood_Man_Hook</Address>
+          <Offsets>
+            <Offset>AC4</Offset>
+            <Offset>0</Offset>
+            <Offset>160</Offset>
+            <Offset>968</Offset>
+            <Offset>2C8</Offset>
+            <Offset>30</Offset>
+            <Offset>0</Offset>
+            <Offset>38</Offset>
+            <Offset>D80</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>26372</ID>
+      <Description>"World Settings"</Description>
+      <Options moManualExpandCollapse="1"/>
+      <Color>C080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>26256</ID>
+          <Description>"GlobalAnimRateScale"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Hood_Man_Hook</Address>
+          <Offsets>
+            <Offset>960</Offset>
+            <Offset>FF0</Offset>
+            <Offset>270</Offset>
+            <Offset>30</Offset>
+            <Offset>0</Offset>
+            <Offset>38</Offset>
+            <Offset>D80</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26260</ID>
+          <Description>"bInCombat"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>Hood_Man_Hook</Address>
+          <Offsets>
+            <Offset>15A8</Offset>
+            <Offset>270</Offset>
+            <Offset>30</Offset>
+            <Offset>0</Offset>
+            <Offset>38</Offset>
+            <Offset>D80</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26261</ID>
+          <Description>"bInGameplayZone"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>Hood_Man_Hook</Address>
+          <Offsets>
+            <Offset>1600</Offset>
+            <Offset>270</Offset>
+            <Offset>30</Offset>
+            <Offset>0</Offset>
+            <Offset>38</Offset>
+            <Offset>D80</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26262</ID>
+          <Description>"bHasStaticPermutationResource"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>Hood_Man_Hook</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+            <Offset>0</Offset>
+            <Offset>1668</Offset>
+            <Offset>270</Offset>
+            <Offset>30</Offset>
+            <Offset>0</Offset>
+            <Offset>38</Offset>
+            <Offset>D80</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26375</ID>
+          <Description>"WorldTimeDilation.BaseValue"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Hood_Man_Hook</Address>
+          <Offsets>
+            <Offset>A18</Offset>
+            <Offset>0</Offset>
+            <Offset>160</Offset>
+            <Offset>968</Offset>
+            <Offset>2C8</Offset>
+            <Offset>30</Offset>
+            <Offset>0</Offset>
+            <Offset>38</Offset>
+            <Offset>D80</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26365</ID>
+          <Description>"WorldTimeDilation.CurrentValue"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Hood_Man_Hook</Address>
+          <Offsets>
+            <Offset>A1C</Offset>
+            <Offset>0</Offset>
+            <Offset>160</Offset>
+            <Offset>968</Offset>
+            <Offset>2C8</Offset>
+            <Offset>30</Offset>
+            <Offset>0</Offset>
+            <Offset>38</Offset>
+            <Offset>D80</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>26402</ID>
+      <Description>"Free Buy [Blorto Shop] Buy a item "</Description>
+      <Color>FFFF80</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Oregon-WinGDK-Shipping.exe
+  Version: 
+  Date   : 2022-12-14
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(M_RY,Oregon-WinGDK-Shipping.exe,89 43 10 83 BF 38 01 00 00 00) // should be unique
+alloc(newmem,$10,M_RY)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+mov eax,99
+  mov [rbx+10],eax
+  cmp dword ptr [rdi+00000138],00
+  jmp return
+
+M_RY:
+  jmp code
+  nop 5
+return:
+registersymbol(M_RY)
+
+[DISABLE]
+
+M_RY:
+  db 89 43 10 83 BF 38 01 00 00 00
+
+unregistersymbol(M_RY)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Oregon-WinGDK-Shipping.exe.text+14190B8
+
+Oregon-WinGDK-Shipping.exe.text+14190A0: 7E 0F                 - jle Oregon-WinGDK-Shipping.exe.text+14190B1
+Oregon-WinGDK-Shipping.exe.text+14190A2: 85 C9                 - test ecx,ecx
+Oregon-WinGDK-Shipping.exe.text+14190A4: 78 12                 - js Oregon-WinGDK-Shipping.exe.text+14190B8
+Oregon-WinGDK-Shipping.exe.text+14190A6: 41 3B CA              - cmp ecx,r10d
+Oregon-WinGDK-Shipping.exe.text+14190A9: 41 8B C2              - mov eax,r10d
+Oregon-WinGDK-Shipping.exe.text+14190AC: 0F 4C C1              - cmovl eax,ecx
+Oregon-WinGDK-Shipping.exe.text+14190AF: EB 07                 - jmp Oregon-WinGDK-Shipping.exe.text+14190B8
+Oregon-WinGDK-Shipping.exe.text+14190B1: 85 C9                 - test ecx,ecx
+Oregon-WinGDK-Shipping.exe.text+14190B3: 0F 4E C8              - cmovle ecx,eax
+Oregon-WinGDK-Shipping.exe.text+14190B6: 8B C1                 - mov eax,ecx
+// ---------- INJECTING HERE ----------
+Oregon-WinGDK-Shipping.exe.text+14190B8: 89 43 10              - mov [rbx+10],eax
+// ---------- DONE INJECTING  ----------
+Oregon-WinGDK-Shipping.exe.text+14190BB: 83 BF 38 01 00 00 00  - cmp dword ptr [rdi+00000138],00
+Oregon-WinGDK-Shipping.exe.text+14190C2: 7E 23                 - jle Oregon-WinGDK-Shipping.exe.text+14190E7
+Oregon-WinGDK-Shipping.exe.text+14190C4: 89 54 24 28           - mov [rsp+28],edx
+Oregon-WinGDK-Shipping.exe.text+14190C8: 48 8D 8F 30 01 00 00  - lea rcx,[rdi+00000130]
+Oregon-WinGDK-Shipping.exe.text+14190CF: 48 8D 54 24 20        - lea rdx,[rsp+20]
+Oregon-WinGDK-Shipping.exe.text+14190D4: 4C 89 5C 24 20        - mov [rsp+20],r11
+Oregon-WinGDK-Shipping.exe.text+14190D9: 89 44 24 2C           - mov [rsp+2C],eax
+Oregon-WinGDK-Shipping.exe.text+14190DD: 44 88 4C 24 30        - mov [rsp+30],r9l
+Oregon-WinGDK-Shipping.exe.text+14190E2: E8 C9 65 3E FF        - call Oregon-WinGDK-Shipping.exe.text+7FF6B0
+Oregon-WinGDK-Shipping.exe.text+14190E7: 48 8B 07              - mov rax,[rdi]
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>Hood_Man_Hook</Name>
+      <Address>7FF742883B18</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Structures StructVersion="2">
+    <Structure Name="unnamed structure" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+      <Elements>
+        <Element Offset="0" Vartype="Pointer" Bytesize="8" OffsetHex="00000000" DisplayMethod="unsigned integer"/>
+        <Element Offset="8" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000008" DisplayMethod="hexadecimal"/>
+        <Element Offset="16" Vartype="Byte" Bytesize="1" RLECount="4" OffsetHex="00000010" DisplayMethod="unsigned integer"/>
+        <Element Offset="20" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000014" DisplayMethod="unsigned integer"/>
+        <Element Offset="24" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000018" DisplayMethod="hexadecimal"/>
+        <Element Offset="28" Vartype="4 Bytes" Bytesize="4" OffsetHex="0000001C" DisplayMethod="unsigned integer"/>
+        <Element Offset="32" Vartype="Pointer" Bytesize="8" RLECount="3" OffsetHex="00000020" DisplayMethod="unsigned integer"/>
+        <Element Offset="56" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000038" DisplayMethod="hexadecimal"/>
+        <Element Offset="60" Vartype="4 Bytes" Bytesize="4" RLECount="19" OffsetHex="0000003C" DisplayMethod="unsigned integer"/>
+        <Element Offset="136" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000088" DisplayMethod="hexadecimal"/>
+        <Element Offset="140" Vartype="4 Bytes" Bytesize="4" RLECount="5" OffsetHex="0000008C" DisplayMethod="unsigned integer"/>
+        <Element Offset="160" Vartype="Pointer" Bytesize="8" RLECount="3" OffsetHex="000000A0" DisplayMethod="unsigned integer"/>
+        <Element Offset="184" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="000000B8" DisplayMethod="unsigned integer"/>
+        <Element Offset="192" Vartype="Pointer" Bytesize="8" OffsetHex="000000C0" DisplayMethod="unsigned integer"/>
+        <Element Offset="200" Vartype="4 Bytes" Bytesize="4" RLECount="17" OffsetHex="000000C8" DisplayMethod="unsigned integer"/>
+        <Element Offset="268" Vartype="Float" Bytesize="4" RLECount="4" OffsetHex="0000010C" DisplayMethod="unsigned integer"/>
+        <Element Offset="284" Vartype="4 Bytes" Bytesize="4" RLECount="5" OffsetHex="0000011C" DisplayMethod="unsigned integer"/>
+        <Element Offset="304" Vartype="Double" Bytesize="8" OffsetHex="00000130" DisplayMethod="unsigned integer"/>
+        <Element Offset="312" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="00000138" DisplayMethod="unsigned integer"/>
+        <Element Offset="320" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000140" DisplayMethod="unsigned integer"/>
+        <Element Offset="332" Vartype="4 Bytes" Bytesize="4" OffsetHex="0000014C" DisplayMethod="hexadecimal"/>
+        <Element Offset="336" Vartype="4 Bytes" Bytesize="4" RLECount="18" OffsetHex="00000150" DisplayMethod="unsigned integer"/>
+        <Element Offset="408" Vartype="Double" Bytesize="8" OffsetHex="00000198" DisplayMethod="unsigned integer"/>
+        <Element Offset="416" Vartype="4 Bytes" Bytesize="4" RLECount="6" OffsetHex="000001A0" DisplayMethod="unsigned integer"/>
+        <Element Offset="440" Vartype="Double" Bytesize="8" OffsetHex="000001B8" DisplayMethod="unsigned integer"/>
+        <Element Offset="448" Vartype="4 Bytes" Bytesize="4" RLECount="6" OffsetHex="000001C0" DisplayMethod="unsigned integer"/>
+        <Element Offset="472" Vartype="Double" Bytesize="8" OffsetHex="000001D8" DisplayMethod="unsigned integer"/>
+        <Element Offset="480" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="000001E0" DisplayMethod="unsigned integer"/>
+        <Element Offset="492" Vartype="Double" Bytesize="8" OffsetHex="000001EC" DisplayMethod="unsigned integer"/>
+        <Element Offset="500" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="000001F4" DisplayMethod="unsigned integer"/>
+        <Element Offset="508" Vartype="4 Bytes" Bytesize="4" RLECount="15" OffsetHex="000001FC" DisplayMethod="unsigned integer"/>
+        <Element Offset="568" Vartype="Pointer" Bytesize="8" OffsetHex="00000238" DisplayMethod="unsigned integer"/>
+        <Element Offset="576" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000240" DisplayMethod="unsigned integer"/>
+        <Element Offset="588" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="0000024C" DisplayMethod="hexadecimal"/>
+        <Element Offset="604" Vartype="4 Bytes" Bytesize="4" RLECount="21" OffsetHex="0000025C" DisplayMethod="unsigned integer"/>
+        <Element Offset="688" Vartype="4 Bytes" Bytesize="4" OffsetHex="000002B0" DisplayMethod="hexadecimal"/>
+        <Element Offset="692" Vartype="Double" Bytesize="8" OffsetHex="000002B4" DisplayMethod="unsigned integer"/>
+        <Element Offset="700" Vartype="4 Bytes" Bytesize="4" OffsetHex="000002BC" DisplayMethod="unsigned integer"/>
+        <Element Offset="704" Vartype="Double" Bytesize="8" OffsetHex="000002C0" DisplayMethod="unsigned integer"/>
+        <Element Offset="712" Vartype="4 Bytes" Bytesize="4" OffsetHex="000002C8" DisplayMethod="unsigned integer"/>
+        <Element Offset="716" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="000002CC" DisplayMethod="unsigned integer"/>
+        <Element Offset="724" Vartype="4 Bytes" Bytesize="4" RLECount="13" OffsetHex="000002D4" DisplayMethod="unsigned integer"/>
+        <Element Offset="776" Vartype="Pointer" Bytesize="8" OffsetHex="00000308" DisplayMethod="unsigned integer"/>
+        <Element Offset="784" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000310" DisplayMethod="hexadecimal"/>
+        <Element Offset="792" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000318" DisplayMethod="unsigned integer"/>
+        <Element Offset="804" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000324" DisplayMethod="hexadecimal"/>
+        <Element Offset="808" Vartype="4 Bytes" Bytesize="4" RLECount="14" OffsetHex="00000328" DisplayMethod="unsigned integer"/>
+        <Element Offset="864" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000360" DisplayMethod="hexadecimal"/>
+        <Element Offset="868" Vartype="Double" Bytesize="8" OffsetHex="00000364" DisplayMethod="unsigned integer"/>
+        <Element Offset="876" Vartype="Float" Bytesize="4" RLECount="8" OffsetHex="0000036C" DisplayMethod="unsigned integer"/>
+        <Element Offset="908" Vartype="4 Bytes" Bytesize="4" OffsetHex="0000038C" DisplayMethod="hexadecimal"/>
+        <Element Offset="912" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="00000390" DisplayMethod="unsigned integer"/>
+        <Element Offset="928" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="000003A0" DisplayMethod="hexadecimal"/>
+        <Element Offset="936" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="000003A8" DisplayMethod="unsigned integer"/>
+        <Element Offset="948" Vartype="4 Bytes" Bytesize="4" OffsetHex="000003B4" DisplayMethod="hexadecimal"/>
+        <Element Offset="952" Vartype="Byte" Bytesize="1" RLECount="4" OffsetHex="000003B8" DisplayMethod="unsigned integer"/>
+        <Element Offset="956" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="000003BC" DisplayMethod="unsigned integer"/>
+        <Element Offset="968" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="000003C8" DisplayMethod="unsigned integer"/>
+        <Element Offset="976" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="000003D0" DisplayMethod="unsigned integer"/>
+        <Element Offset="984" Vartype="Float" Bytesize="4" OffsetHex="000003D8" DisplayMethod="unsigned integer"/>
+        <Element Offset="988" Vartype="4 Bytes" Bytesize="4" RLECount="6" OffsetHex="000003DC" DisplayMethod="unsigned integer"/>
+        <Element Offset="1012" Vartype="Double" Bytesize="8" OffsetHex="000003F4" DisplayMethod="unsigned integer"/>
+        <Element Offset="1020" Vartype="Float" Bytesize="4" RLECount="3" OffsetHex="000003FC" DisplayMethod="unsigned integer"/>
+        <Element Offset="1032" Vartype="4 Bytes" Bytesize="4" RLECount="6" OffsetHex="00000408" DisplayMethod="unsigned integer"/>
+        <Element Offset="1056" Vartype="Double" Bytesize="8" OffsetHex="00000420" DisplayMethod="unsigned integer"/>
+        <Element Offset="1064" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000428" DisplayMethod="unsigned integer"/>
+        <Element Offset="1072" Vartype="Float" Bytesize="4" RLECount="3" OffsetHex="00000430" DisplayMethod="unsigned integer"/>
+        <Element Offset="1084" Vartype="4 Bytes" Bytesize="4" OffsetHex="0000043C" DisplayMethod="unsigned integer"/>
+        <Element Offset="1088" Vartype="Pointer" Bytesize="8" OffsetHex="00000440" DisplayMethod="unsigned integer"/>
+        <Element Offset="1096" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000448" DisplayMethod="hexadecimal"/>
+        <Element Offset="1104" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="00000450" DisplayMethod="unsigned integer"/>
+        <Element Offset="1120" Vartype="Pointer" Bytesize="8" OffsetHex="00000460" DisplayMethod="unsigned integer"/>
+        <Element Offset="1128" Vartype="4 Bytes" Bytesize="4" RLECount="18" OffsetHex="00000468" DisplayMethod="unsigned integer"/>
+        <Element Offset="1200" Vartype="Pointer" Bytesize="8" RLECount="2" OffsetHex="000004B0" DisplayMethod="unsigned integer"/>
+        <Element Offset="1216" Vartype="4 Bytes" Bytesize="4" OffsetHex="000004C0" DisplayMethod="hexadecimal"/>
+        <Element Offset="1220" Vartype="4 Bytes" Bytesize="4" OffsetHex="000004C4" DisplayMethod="unsigned integer"/>
+        <Element Offset="1224" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="000004C8" DisplayMethod="unsigned integer"/>
+        <Element Offset="1232" Vartype="4 Bytes" Bytesize="4" OffsetHex="000004D0" DisplayMethod="hexadecimal"/>
+        <Element Offset="1236" Vartype="4 Bytes" Bytesize="4" RLECount="13" OffsetHex="000004D4" DisplayMethod="unsigned integer"/>
+        <Element Offset="1288" Vartype="Pointer" Bytesize="8" OffsetHex="00000508" DisplayMethod="unsigned integer"/>
+        <Element Offset="1296" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="00000510" DisplayMethod="unsigned integer"/>
+        <Element Offset="1312" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000520" DisplayMethod="hexadecimal"/>
+        <Element Offset="1316" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000524" DisplayMethod="unsigned integer"/>
+        <Element Offset="1324" Vartype="Float" Bytesize="4" OffsetHex="0000052C" DisplayMethod="unsigned integer"/>
+        <Element Offset="1328" Vartype="Double" Bytesize="8" OffsetHex="00000530" DisplayMethod="unsigned integer"/>
+        <Element Offset="1336" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="00000538" DisplayMethod="unsigned integer"/>
+        <Element Offset="1344" Vartype="Pointer" Bytesize="8" RLECount="3" OffsetHex="00000540" DisplayMethod="unsigned integer"/>
+        <Element Offset="1368" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000558" DisplayMethod="hexadecimal"/>
+        <Element Offset="1376" Vartype="Pointer" Bytesize="8" OffsetHex="00000560" DisplayMethod="unsigned integer"/>
+        <Element Offset="1384" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000568" DisplayMethod="hexadecimal"/>
+        <Element Offset="1388" Vartype="4 Bytes" Bytesize="4" OffsetHex="0000056C" DisplayMethod="unsigned integer"/>
+        <Element Offset="1392" Vartype="Pointer" Bytesize="8" RLECount="3" OffsetHex="00000570" DisplayMethod="unsigned integer"/>
+        <Element Offset="1416" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000588" DisplayMethod="hexadecimal"/>
+        <Element Offset="1420" Vartype="4 Bytes" Bytesize="4" RLECount="19" OffsetHex="0000058C" DisplayMethod="unsigned integer"/>
+        <Element Offset="1496" Vartype="4 Bytes" Bytesize="4" OffsetHex="000005D8" DisplayMethod="hexadecimal"/>
+        <Element Offset="1500" Vartype="4 Bytes" Bytesize="4" RLECount="5" OffsetHex="000005DC" DisplayMethod="unsigned integer"/>
+        <Element Offset="1520" Vartype="Pointer" Bytesize="8" RLECount="3" OffsetHex="000005F0" DisplayMethod="unsigned integer"/>
+        <Element Offset="1544" Vartype="4 Bytes" Bytesize="4" RLECount="18" OffsetHex="00000608" DisplayMethod="unsigned integer"/>
+        <Element Offset="1616" Vartype="Float" Bytesize="4" RLECount="10" OffsetHex="00000650" DisplayMethod="unsigned integer"/>
+        <Element Offset="1656" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000678" DisplayMethod="unsigned integer"/>
+        <Element Offset="1660" Vartype="Float" Bytesize="4" OffsetHex="0000067C" DisplayMethod="unsigned integer"/>
+        <Element Offset="1664" Vartype="Double" Bytesize="8" OffsetHex="00000680" DisplayMethod="unsigned integer"/>
+        <Element Offset="1672" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="00000688" DisplayMethod="unsigned integer"/>
+        <Element Offset="1680" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000690" DisplayMethod="unsigned integer"/>
+        <Element Offset="1692" Vartype="4 Bytes" Bytesize="4" OffsetHex="0000069C" DisplayMethod="hexadecimal"/>
+        <Element Offset="1696" Vartype="4 Bytes" Bytesize="4" RLECount="18" OffsetHex="000006A0" DisplayMethod="unsigned integer"/>
+        <Element Offset="1768" Vartype="Double" Bytesize="8" OffsetHex="000006E8" DisplayMethod="unsigned integer"/>
+        <Element Offset="1776" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="000006F0" DisplayMethod="unsigned integer"/>
+        <Element Offset="1792" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000700" DisplayMethod="hexadecimal"/>
+        <Element Offset="1796" Vartype="Double" Bytesize="8" OffsetHex="00000704" DisplayMethod="unsigned integer"/>
+        <Element Offset="1804" Vartype="4 Bytes" Bytesize="4" OffsetHex="0000070C" DisplayMethod="hexadecimal"/>
+        <Element Offset="1808" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000710" DisplayMethod="unsigned integer"/>
+        <Element Offset="1812" Vartype="Float" Bytesize="4" OffsetHex="00000714" DisplayMethod="unsigned integer"/>
+        <Element Offset="1816" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000718" DisplayMethod="unsigned integer"/>
+        <Element Offset="1824" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000720" DisplayMethod="hexadecimal"/>
+        <Element Offset="1828" Vartype="Double" Bytesize="8" OffsetHex="00000724" DisplayMethod="unsigned integer"/>
+        <Element Offset="1836" Vartype="4 Bytes" Bytesize="4" OffsetHex="0000072C" DisplayMethod="hexadecimal"/>
+        <Element Offset="1840" Vartype="Float" Bytesize="4" RLECount="3" OffsetHex="00000730" DisplayMethod="unsigned integer"/>
+        <Element Offset="1852" Vartype="Double" Bytesize="8" OffsetHex="0000073C" DisplayMethod="unsigned integer"/>
+        <Element Offset="1860" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="00000744" DisplayMethod="unsigned integer"/>
+        <Element Offset="1868" Vartype="4 Bytes" Bytesize="4" RLECount="15" OffsetHex="0000074C" DisplayMethod="unsigned integer"/>
+        <Element Offset="1928" Vartype="Pointer" Bytesize="8" OffsetHex="00000788" DisplayMethod="unsigned integer"/>
+        <Element Offset="1936" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000790" DisplayMethod="unsigned integer"/>
+        <Element Offset="1940" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="00000794" DisplayMethod="unsigned integer"/>
+        <Element Offset="1948" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="0000079C" DisplayMethod="hexadecimal"/>
+        <Element Offset="1964" Vartype="4 Bytes" Bytesize="4" RLECount="21" OffsetHex="000007AC" DisplayMethod="unsigned integer"/>
+        <Element Offset="2048" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000800" DisplayMethod="hexadecimal"/>
+        <Element Offset="2052" Vartype="Double" Bytesize="8" OffsetHex="00000804" DisplayMethod="unsigned integer"/>
+        <Element Offset="2060" Vartype="4 Bytes" Bytesize="4" OffsetHex="0000080C" DisplayMethod="unsigned integer"/>
+        <Element Offset="2064" Vartype="Double" Bytesize="8" OffsetHex="00000810" DisplayMethod="unsigned integer"/>
+        <Element Offset="2072" Vartype="Float" Bytesize="4" RLECount="3" OffsetHex="00000818" DisplayMethod="unsigned integer"/>
+        <Element Offset="2084" Vartype="4 Bytes" Bytesize="4" RLECount="13" OffsetHex="00000824" DisplayMethod="unsigned integer"/>
+        <Element Offset="2136" Vartype="Pointer" Bytesize="8" OffsetHex="00000858" DisplayMethod="unsigned integer"/>
+        <Element Offset="2144" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000860" DisplayMethod="hexadecimal"/>
+        <Element Offset="2152" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000868" DisplayMethod="unsigned integer"/>
+        <Element Offset="2164" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000874" DisplayMethod="hexadecimal"/>
+        <Element Offset="2168" Vartype="4 Bytes" Bytesize="4" RLECount="14" OffsetHex="00000878" DisplayMethod="unsigned integer"/>
+        <Element Offset="2224" Vartype="4 Bytes" Bytesize="4" OffsetHex="000008B0" DisplayMethod="hexadecimal"/>
+        <Element Offset="2228" Vartype="Double" Bytesize="8" OffsetHex="000008B4" DisplayMethod="unsigned integer"/>
+        <Element Offset="2236" Vartype="Float" Bytesize="4" RLECount="8" OffsetHex="000008BC" DisplayMethod="unsigned integer"/>
+        <Element Offset="2268" Vartype="4 Bytes" Bytesize="4" OffsetHex="000008DC" DisplayMethod="hexadecimal"/>
+        <Element Offset="2272" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="000008E0" DisplayMethod="unsigned integer"/>
+        <Element Offset="2280" Vartype="4 Bytes" Bytesize="4" RLECount="8" OffsetHex="000008E8" DisplayMethod="hexadecimal"/>
+        <Element Offset="2312" Vartype="Pointer" Bytesize="8" OffsetHex="00000908" DisplayMethod="unsigned integer"/>
+        <Element Offset="2320" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000910" DisplayMethod="unsigned integer"/>
+        <Element Offset="2332" Vartype="Float" Bytesize="4" OffsetHex="0000091C" DisplayMethod="unsigned integer"/>
+        <Element Offset="2336" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000920" DisplayMethod="hexadecimal"/>
+        <Element Offset="2344" Vartype="Float" Bytesize="4" OffsetHex="00000928" DisplayMethod="unsigned integer"/>
+        <Element Offset="2348" Vartype="4 Bytes" Bytesize="4" RLECount="6" OffsetHex="0000092C" DisplayMethod="unsigned integer"/>
+        <Element Offset="2372" Vartype="Double" Bytesize="8" OffsetHex="00000944" DisplayMethod="unsigned integer"/>
+        <Element Offset="2380" Vartype="Float" Bytesize="4" RLECount="3" OffsetHex="0000094C" DisplayMethod="unsigned integer"/>
+        <Element Offset="2392" Vartype="4 Bytes" Bytesize="4" RLECount="6" OffsetHex="00000958" DisplayMethod="unsigned integer"/>
+        <Element Offset="2416" Vartype="Double" Bytesize="8" OffsetHex="00000970" DisplayMethod="unsigned integer"/>
+        <Element Offset="2424" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000978" DisplayMethod="unsigned integer"/>
+        <Element Offset="2432" Vartype="Float" Bytesize="4" RLECount="3" OffsetHex="00000980" DisplayMethod="unsigned integer"/>
+        <Element Offset="2444" Vartype="4 Bytes" Bytesize="4" OffsetHex="0000098C" DisplayMethod="unsigned integer"/>
+        <Element Offset="2448" Vartype="Pointer" Bytesize="8" OffsetHex="00000990" DisplayMethod="unsigned integer"/>
+        <Element Offset="2456" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000998" DisplayMethod="hexadecimal"/>
+        <Element Offset="2464" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="000009A0" DisplayMethod="unsigned integer"/>
+        <Element Offset="2480" Vartype="Pointer" Bytesize="8" OffsetHex="000009B0" DisplayMethod="unsigned integer"/>
+        <Element Offset="2488" Vartype="4 Bytes" Bytesize="4" RLECount="8" OffsetHex="000009B8" DisplayMethod="unsigned integer"/>
+        <Element Offset="2520" Vartype="Pointer" Bytesize="8" OffsetHex="000009D8" DisplayMethod="unsigned integer"/>
+        <Element Offset="2528" Vartype="4 Bytes" Bytesize="4" RLECount="8" OffsetHex="000009E0" DisplayMethod="unsigned integer"/>
+        <Element Offset="2560" Vartype="Pointer" Bytesize="8" OffsetHex="00000A00" DisplayMethod="unsigned integer"/>
+        <Element Offset="2568" Vartype="4 Bytes" Bytesize="4" RLECount="12" OffsetHex="00000A08" DisplayMethod="unsigned integer"/>
+        <Element Offset="2616" Vartype="Pointer" Bytesize="8" OffsetHex="00000A38" DisplayMethod="unsigned integer"/>
+        <Element Offset="2624" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000A40" DisplayMethod="unsigned integer"/>
+        <Element Offset="2636" Vartype="Float" Bytesize="4" OffsetHex="00000A4C" DisplayMethod="unsigned integer"/>
+        <Element Offset="2640" Vartype="Double" Bytesize="8" OffsetHex="00000A50" DisplayMethod="unsigned integer"/>
+        <Element Offset="2648" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="00000A58" DisplayMethod="unsigned integer"/>
+        <Element Offset="2664" Vartype="Pointer" Bytesize="8" OffsetHex="00000A68" DisplayMethod="unsigned integer"/>
+        <Element Offset="2672" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000A70" DisplayMethod="unsigned integer"/>
+        <Element Offset="2684" Vartype="Float" Bytesize="4" OffsetHex="00000A7C" DisplayMethod="unsigned integer"/>
+        <Element Offset="2688" Vartype="Double" Bytesize="8" OffsetHex="00000A80" DisplayMethod="unsigned integer"/>
+        <Element Offset="2696" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="00000A88" DisplayMethod="unsigned integer"/>
+        <Element Offset="2704" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000A90" DisplayMethod="unsigned integer"/>
+        <Element Offset="2712" Vartype="Pointer" Bytesize="8" RLECount="2" OffsetHex="00000A98" DisplayMethod="unsigned integer"/>
+        <Element Offset="2728" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000AA8" DisplayMethod="hexadecimal"/>
+        <Element Offset="2736" Vartype="Pointer" Bytesize="8" OffsetHex="00000AB0" DisplayMethod="unsigned integer"/>
+        <Element Offset="2744" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000AB8" DisplayMethod="hexadecimal"/>
+        <Element Offset="2748" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000ABC" DisplayMethod="unsigned integer"/>
+        <Element Offset="2752" Vartype="Pointer" Bytesize="8" RLECount="3" OffsetHex="00000AC0" DisplayMethod="unsigned integer"/>
+        <Element Offset="2776" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000AD8" DisplayMethod="hexadecimal"/>
+        <Element Offset="2780" Vartype="4 Bytes" Bytesize="4" RLECount="19" OffsetHex="00000ADC" DisplayMethod="unsigned integer"/>
+        <Element Offset="2856" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000B28" DisplayMethod="hexadecimal"/>
+        <Element Offset="2860" Vartype="4 Bytes" Bytesize="4" RLECount="5" OffsetHex="00000B2C" DisplayMethod="unsigned integer"/>
+        <Element Offset="2880" Vartype="Pointer" Bytesize="8" RLECount="3" OffsetHex="00000B40" DisplayMethod="unsigned integer"/>
+        <Element Offset="2904" Vartype="4 Bytes" Bytesize="4" RLECount="18" OffsetHex="00000B58" DisplayMethod="unsigned integer"/>
+        <Element Offset="2976" Vartype="Float" Bytesize="4" RLECount="10" OffsetHex="00000BA0" DisplayMethod="unsigned integer"/>
+        <Element Offset="3016" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000BC8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3020" Vartype="Float" Bytesize="4" OffsetHex="00000BCC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3024" Vartype="Double" Bytesize="8" OffsetHex="00000BD0" DisplayMethod="unsigned integer"/>
+        <Element Offset="3032" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="00000BD8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3040" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000BE0" DisplayMethod="unsigned integer"/>
+        <Element Offset="3052" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000BEC" DisplayMethod="hexadecimal"/>
+        <Element Offset="3056" Vartype="4 Bytes" Bytesize="4" RLECount="18" OffsetHex="00000BF0" DisplayMethod="unsigned integer"/>
+        <Element Offset="3128" Vartype="Double" Bytesize="8" OffsetHex="00000C38" DisplayMethod="unsigned integer"/>
+        <Element Offset="3136" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="00000C40" DisplayMethod="unsigned integer"/>
+        <Element Offset="3152" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000C50" DisplayMethod="hexadecimal"/>
+        <Element Offset="3156" Vartype="Double" Bytesize="8" OffsetHex="00000C54" DisplayMethod="unsigned integer"/>
+        <Element Offset="3164" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000C5C" DisplayMethod="hexadecimal"/>
+        <Element Offset="3168" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000C60" DisplayMethod="unsigned integer"/>
+        <Element Offset="3172" Vartype="Float" Bytesize="4" OffsetHex="00000C64" DisplayMethod="unsigned integer"/>
+        <Element Offset="3176" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000C68" DisplayMethod="unsigned integer"/>
+        <Element Offset="3184" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000C70" DisplayMethod="hexadecimal"/>
+        <Element Offset="3188" Vartype="Double" Bytesize="8" OffsetHex="00000C74" DisplayMethod="unsigned integer"/>
+        <Element Offset="3196" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000C7C" DisplayMethod="hexadecimal"/>
+        <Element Offset="3200" Vartype="Float" Bytesize="4" RLECount="3" OffsetHex="00000C80" DisplayMethod="unsigned integer"/>
+        <Element Offset="3212" Vartype="Double" Bytesize="8" OffsetHex="00000C8C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3220" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="00000C94" DisplayMethod="unsigned integer"/>
+        <Element Offset="3228" Vartype="4 Bytes" Bytesize="4" RLECount="15" OffsetHex="00000C9C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3288" Vartype="Pointer" Bytesize="8" OffsetHex="00000CD8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3296" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000CE0" DisplayMethod="unsigned integer"/>
+        <Element Offset="3300" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="00000CE4" DisplayMethod="unsigned integer"/>
+        <Element Offset="3308" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="00000CEC" DisplayMethod="hexadecimal"/>
+        <Element Offset="3324" Vartype="4 Bytes" Bytesize="4" RLECount="21" OffsetHex="00000CFC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3408" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000D50" DisplayMethod="hexadecimal"/>
+        <Element Offset="3412" Vartype="Double" Bytesize="8" OffsetHex="00000D54" DisplayMethod="unsigned integer"/>
+        <Element Offset="3420" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000D5C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3424" Vartype="Double" Bytesize="8" OffsetHex="00000D60" DisplayMethod="unsigned integer"/>
+        <Element Offset="3432" Vartype="Float" Bytesize="4" RLECount="3" OffsetHex="00000D68" DisplayMethod="unsigned integer"/>
+        <Element Offset="3444" Vartype="4 Bytes" Bytesize="4" RLECount="13" OffsetHex="00000D74" DisplayMethod="unsigned integer"/>
+        <Element Offset="3496" Vartype="Pointer" Bytesize="8" OffsetHex="00000DA8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3504" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000DB0" DisplayMethod="hexadecimal"/>
+        <Element Offset="3512" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000DB8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3524" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000DC4" DisplayMethod="hexadecimal"/>
+        <Element Offset="3528" Vartype="4 Bytes" Bytesize="4" RLECount="14" OffsetHex="00000DC8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3584" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000E00" DisplayMethod="hexadecimal"/>
+        <Element Offset="3588" Vartype="Double" Bytesize="8" OffsetHex="00000E04" DisplayMethod="unsigned integer"/>
+        <Element Offset="3596" Vartype="Float" Bytesize="4" RLECount="8" OffsetHex="00000E0C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3628" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000E2C" DisplayMethod="hexadecimal"/>
+        <Element Offset="3632" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000E30" DisplayMethod="unsigned integer"/>
+        <Element Offset="3640" Vartype="4 Bytes" Bytesize="4" RLECount="8" OffsetHex="00000E38" DisplayMethod="hexadecimal"/>
+        <Element Offset="3672" Vartype="Pointer" Bytesize="8" OffsetHex="00000E58" DisplayMethod="unsigned integer"/>
+        <Element Offset="3680" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000E60" DisplayMethod="unsigned integer"/>
+        <Element Offset="3692" Vartype="Float" Bytesize="4" OffsetHex="00000E6C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3696" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000E70" DisplayMethod="hexadecimal"/>
+        <Element Offset="3704" Vartype="Float" Bytesize="4" OffsetHex="00000E78" DisplayMethod="unsigned integer"/>
+        <Element Offset="3708" Vartype="4 Bytes" Bytesize="4" RLECount="6" OffsetHex="00000E7C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3732" Vartype="Double" Bytesize="8" OffsetHex="00000E94" DisplayMethod="unsigned integer"/>
+        <Element Offset="3740" Vartype="Float" Bytesize="4" RLECount="3" OffsetHex="00000E9C" DisplayMethod="unsigned integer"/>
+        <Element Offset="3752" Vartype="4 Bytes" Bytesize="4" RLECount="6" OffsetHex="00000EA8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3776" Vartype="Double" Bytesize="8" OffsetHex="00000EC0" DisplayMethod="unsigned integer"/>
+        <Element Offset="3784" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000EC8" DisplayMethod="unsigned integer"/>
+        <Element Offset="3792" Vartype="Float" Bytesize="4" RLECount="3" OffsetHex="00000ED0" DisplayMethod="unsigned integer"/>
+        <Element Offset="3804" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000EDC" DisplayMethod="unsigned integer"/>
+        <Element Offset="3808" Vartype="Pointer" Bytesize="8" OffsetHex="00000EE0" DisplayMethod="unsigned integer"/>
+        <Element Offset="3816" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000EE8" DisplayMethod="hexadecimal"/>
+        <Element Offset="3824" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="00000EF0" DisplayMethod="unsigned integer"/>
+        <Element Offset="3840" Vartype="Pointer" Bytesize="8" OffsetHex="00000F00" DisplayMethod="unsigned integer"/>
+        <Element Offset="3848" Vartype="4 Bytes" Bytesize="4" RLECount="8" OffsetHex="00000F08" DisplayMethod="unsigned integer"/>
+        <Element Offset="3880" Vartype="Pointer" Bytesize="8" OffsetHex="00000F28" DisplayMethod="unsigned integer"/>
+        <Element Offset="3888" Vartype="4 Bytes" Bytesize="4" RLECount="8" OffsetHex="00000F30" DisplayMethod="unsigned integer"/>
+        <Element Offset="3920" Vartype="Pointer" Bytesize="8" OffsetHex="00000F50" DisplayMethod="unsigned integer"/>
+        <Element Offset="3928" Vartype="4 Bytes" Bytesize="4" RLECount="12" OffsetHex="00000F58" DisplayMethod="unsigned integer"/>
+        <Element Offset="3976" Vartype="Pointer" Bytesize="8" OffsetHex="00000F88" DisplayMethod="unsigned integer"/>
+        <Element Offset="3984" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000F90" DisplayMethod="unsigned integer"/>
+        <Element Offset="3996" Vartype="Float" Bytesize="4" OffsetHex="00000F9C" DisplayMethod="unsigned integer"/>
+        <Element Offset="4000" Vartype="Double" Bytesize="8" OffsetHex="00000FA0" DisplayMethod="unsigned integer"/>
+        <Element Offset="4008" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="00000FA8" DisplayMethod="unsigned integer"/>
+        <Element Offset="4024" Vartype="Pointer" Bytesize="8" OffsetHex="00000FB8" DisplayMethod="unsigned integer"/>
+        <Element Offset="4032" Vartype="4 Bytes" Bytesize="4" RLECount="3" OffsetHex="00000FC0" DisplayMethod="unsigned integer"/>
+        <Element Offset="4044" Vartype="Float" Bytesize="4" OffsetHex="00000FCC" DisplayMethod="unsigned integer"/>
+        <Element Offset="4048" Vartype="Double" Bytesize="8" OffsetHex="00000FD0" DisplayMethod="unsigned integer"/>
+        <Element Offset="4056" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="00000FD8" DisplayMethod="unsigned integer"/>
+        <Element Offset="4064" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="00000FE0" DisplayMethod="hexadecimal"/>
+        <Element Offset="4080" Vartype="Pointer" Bytesize="8" OffsetHex="00000FF0" DisplayMethod="unsigned integer"/>
+        <Element Offset="4088" Vartype="4 Bytes" Bytesize="4" RLECount="2" OffsetHex="00000FF8" DisplayMethod="hexadecimal"/>
+      </Elements>
+    </Structure>
+  </Structures>
+  <LuaScript>
+if syntaxcheck then return end
+registerSymbol('Oregon-WinGDK-Shipping.exe');
+local result = AOBScan('48 8B 0D ?? ?? ?? 0? ?8 ?? ?? ?? ?? 48 8? ?? ?? ?? ?? ?? ?? ?? 0? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? E8 ?? ?? ?? 0? 48','+X')
+
+--if result.Count &gt; 1 then return "error been found!" end
+
+local Address = getAddress(result[0])
+
+local Offst = readInteger(Address+3)
+if Offst &amp; 0x80000000  == 0x80000000 then
+   Offst = -(0x10000000 - Offst) -- Get neg offset
+end
+printf('0x%016X',Address+Offst+7)
+registerSymbol('Hood_Man_Hook',Address+Offst+7)
+
+--[[
+aobscanmodule(Hood_Man_Hook,HOOK,48 8? 0? ?? ?? ?? 0? ?8 ?? ?? ?? ?? 48 8? ?? ?? ?? ?? ?? ?? ?? 0? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? E8 ?? ?? ?? 0? 48)
+registersymbol(Hood_Man_Hooke)
+--]]
+
+</LuaScript>
+</CheatTable>

@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2702</ID>
+      <Description>"Yokai Art Survival Prologue"</Description>
+      <Options moHideChildren="1"/>
+      <Color>FFFF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2703</ID>
+          <Description>"Youtube"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://www.youtube.com/user/droelke");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2704</ID>
+          <Description>"OCT Profile"</Description>
+          <Color>208FFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+shellExecute("https://opencheattables.com/memberlist.php?mode=viewprofile&amp;u=85");
+createThread(function();sleep(100);memrec.Active=false;end);
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2705</ID>
+          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"Table Author:  XxDaRealSlimballinxX"</Description>
+              <Color>FC94B0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>40</ID>
+                  <Description>"Visit us today @ GBA Services!"</Description>
+                  <Color>C080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337110746</ID>
+                  <Description>"Discord  @ DaRealSlimballin"</Description>
+                  <Color>008080</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337110747</ID>
+              <Description>"[X] &lt;=== For Full Tool View"</Description>
+              <Options moManualExpandCollapse="1"/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+// Script Creaded By mgr.inz.Player On CE Forums
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337110748</ID>
+                  <Description>"Cheats"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337110749</ID>
+                      <Description>"xxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1337110750</ID>
+                          <Description>"Set Rubys "</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <Color>00FFFF</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript Async="1">{ Game   : Yokai Art Survival Prologue.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-08-19
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(Give_rubys,03 C6 89 87 D8 03 00 00) // should be unique
+alloc(newmem,$1000,Give_rubys)
+
+label(code Gems)
+label(return)
+
+newmem:
+mov [Gems],rdi
+mov [rdi+000003D8],999
+jmp return
+
+Gems:
+dq 0
+
+code:
+  mov [rdi+000003D8],eax
+  jmp return
+
+Give_rubys+02:
+  jmp newmem
+  nop
+return:
+registersymbol(Give_rubys Gems)
+
+[DISABLE]
+
+Give_rubys+02:
+  db 89 87 D8 03 00 00
+
+unregistersymbol(Give_rubys Gems)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: A1.GameManager:DebitFrag+1f
+
+19FEA09161E: 00 00                 - add [rax],al
+A1.GameManager:DebitFrag: 55                    - push rbp
+A1.GameManager:DebitFrag+1: 48 8B EC              - mov rbp,rsp
+A1.GameManager:DebitFrag+4: 48 83 EC 30           - sub rsp,30
+A1.GameManager:DebitFrag+8: 48 89 75 F0           - mov [rbp-10],rsi
+A1.GameManager:DebitFrag+c: 48 89 7D F8           - mov [rbp-08],rdi
+A1.GameManager:DebitFrag+10: 48 8B F9              - mov rdi,rcx
+A1.GameManager:DebitFrag+13: 48 8B F2              - mov rsi,rdx
+A1.GameManager:DebitFrag+16: 48 63 87 D8 03 00 00  - movsxd  rax,dword ptr [rdi+000003D8]
+A1.GameManager:DebitFrag+1d: 03 C6                 - add eax,esi
+// ---------- INJECTING HERE ----------
+A1.GameManager:DebitFrag+1f: 89 87 D8 03 00 00     - mov [rdi+000003D8],eax
+// ---------- DONE INJECTING  ----------
+A1.GameManager:DebitFrag+25: 48 8B 87 D0 00 00 00  - mov rax,[rdi+000000D0]
+A1.GameManager:DebitFrag+2c: 48 8B C8              - mov rcx,rax
+A1.GameManager:DebitFrag+2f: 48 8B F1              - mov rsi,rcx
+A1.GameManager:DebitFrag+32: 48 85 C0              - test rax,rax
+A1.GameManager:DebitFrag+35: 75 02                 - jne A1.GameManager:DebitFrag+39
+A1.GameManager:DebitFrag+37: EB 1D                 - jmp A1.GameManager:DebitFrag+56
+A1.GameManager:DebitFrag+39: 48 63 87 D8 03 00 00  - movsxd  rax,dword ptr [rdi+000003D8]
+A1.GameManager:DebitFrag+40: F3 0F 2A C0           - cvtsi2ss xmm0,eax
+A1.GameManager:DebitFrag+44: F3 0F 5A C0           - cvtss2sd xmm0,xmm0
+A1.GameManager:DebitFrag+48: 48 8B CE              - mov rcx,rsi
+}
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>1337110751</ID>
+                              <Description>"-&gt;"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>Gems</Address>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337110752</ID>
+                                  <Description>"Ruby Amount"</Description>
+                                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">2457:on
+1000000:100m
+</DropDownList>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <Color>00FF00</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>Gems</Address>
+                                  <Offsets>
+                                    <Offset>3d8</Offset>
+                                  </Offsets>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110753</ID>
+                          <Description>"zERO cOOLDOWN/uNIT pRICE 0"</Description>
+                          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+                          <Color>FF80FF</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript Async="1">{ Game   : Yokai Art Survival Prologue.exe | NHA's Cheat Engine Lua Library!
+  Version: 
+  Date   : 2023-08-19
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(Team_p,E8 0F B6 87 E0 02 00 00) // should be unique
+alloc(newmem,$1000,Team_p)
+
+label(code Party Pussy)
+label(return)
+
+newmem:
+cmp [rdi+21c],0
+jne Pussy
+mov [Party],rdi
+mov [rdi+000001d0],0//Unit Price
+mov [rdi+000001d8],0//SpawnCooldown
+//mov [rdi+000001f0],0//BaseAttackSpeed
+//mov [rdi+000001ec],9999//Base Attack
+//mov [rdi+0000020c],0//Immune to Status
+//mov [rdi+00000224],1//Health
+//mov [rdi+00000210],0//Speed
+jmp return
+
+Party:
+dq 0
+
+Pussy:
+
+
+//mov [rdi+000001d4],1//bUntargetable
+//mov [rdi+000001e4],9999//HPmax
+//mov [rdi+000001f0],20//BaseAttackSpeed
+//mov [rdi+000001ec],9999//Base Attack
+//mov [rdi+0000020c],1//Immune to Status
+//mov [rdi+00000224],9999//Health
+//mov [rdi+00000210],5//Speed
+
+jmp return
+
+code:
+  movzx eax,byte ptr [rdi+000002E0]
+  jmp return
+
+Team_p+01:
+  jmp newmem
+  nop 2
+return:
+registersymbol(Team_p Party Pussy)
+
+[DISABLE]
+
+Team_p+01:
+  db 0F B6 87 E0 02 00 00
+
+unregistersymbol(Team_p Party)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: A1.AllyBase:GetAttackSpeedMultiplier+92
+
+A1.AllyBase:GetAttackSpeedMultiplier+5d: 0F 84 2F 00 00 00              - je A1.AllyBase:GetAttackSpeedMultiplier+92
+A1.AllyBase:GetAttackSpeedMultiplier+63: F3 0F 10 45 E8                 - movss xmm0,[rbp-18]
+A1.AllyBase:GetAttackSpeedMultiplier+68: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+A1.AllyBase:GetAttackSpeedMultiplier+6c: 48 B8 30 2B 26 C9 9C 01 00 00  - mov rax,0000019CC9262B30
+A1.AllyBase:GetAttackSpeedMultiplier+76: 48 8B 00                       - mov rax,[rax]
+A1.AllyBase:GetAttackSpeedMultiplier+79: F3 0F 10 88 48 04 00 00        - movss xmm1,[rax+00000448]
+A1.AllyBase:GetAttackSpeedMultiplier+81: F3 0F 5A C9                    - cvtss2sd xmm1,xmm1
+A1.AllyBase:GetAttackSpeedMultiplier+85: F2 0F 58 C1                    - addsd xmm0,xmm1
+A1.AllyBase:GetAttackSpeedMultiplier+89: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+A1.AllyBase:GetAttackSpeedMultiplier+8d: F3 0F 11 6D E8                 - movss [rbp-18],xmm5
+// ---------- INJECTING HERE ----------
+A1.AllyBase:GetAttackSpeedMultiplier+92: 0F B6 87 E0 02 00 00           - movzx eax,byte ptr [rdi+000002E0]
+// ---------- DONE INJECTING  ----------
+A1.AllyBase:GetAttackSpeedMultiplier+99: 85 C0                          - test eax,eax
+A1.AllyBase:GetAttackSpeedMultiplier+9b: 0F 84 6A 00 00 00              - je A1.AllyBase:GetAttackSpeedMultiplier+10b
+A1.AllyBase:GetAttackSpeedMultiplier+a1: 48 8B 87 D8 02 00 00           - mov rax,[rdi+000002D8]
+A1.AllyBase:GetAttackSpeedMultiplier+a8: 48 85 C0                       - test rax,rax
+A1.AllyBase:GetAttackSpeedMultiplier+ab: 75 1D                          - jne A1.AllyBase:GetAttackSpeedMultiplier+ca
+A1.AllyBase:GetAttackSpeedMultiplier+ad: 48 8B CF                       - mov rcx,rdi
+A1.AllyBase:GetAttackSpeedMultiplier+b0: 33 D2                          - xor edx,edx
+A1.AllyBase:GetAttackSpeedMultiplier+b2: 48 8D 6D 00                    - lea rbp,[rbp+00]
+A1.AllyBase:GetAttackSpeedMultiplier+b6: 49 BB 1E 49 C8 DD 9F 01 00 00  - mov r11,0000019FDDC8491E
+A1.AllyBase:GetAttackSpeedMultiplier+c0: 41 FF D3                       - call r11
+}
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>1337110754</ID>
+                              <Description>"-&gt;"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>Party</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>1337110755</ID>
+                              <Description>"Avatar"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>Party</Address>
+                              <Offsets>
+                                <Offset>78</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110756</ID>
+                          <Description>"r-n-d"</Description>
+                          <Options moHideChildren="1" moManualExpandCollapse="1"/>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>1337110757</ID>
+                              <Description>"No damage"</Description>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript Async="1">{ Game   : Yokai Art Survival Prologue.exe
+  Version: 
+  Date   : 2023-08-19
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(no_damage,40 88 88 B0 03 00 00 48 83 C4 18 C3 00) // should be unique
+alloc(newmem,$1000,no_damage)
+
+label(code winner)
+label(return)
+
+newmem:
+add cl,1
+mov [rax+000003B0],cl
+mov [winner],rax
+jmp return
+
+winner:
+dq 0
+
+code:
+
+  jmp return
+
+no_damage:
+  jmp newmem
+  nop 2
+return:
+registersymbol(no_damage winner)
+
+[DISABLE]
+
+no_damage:
+  db 40 88 88 B0 03 00 00
+
+unregistersymbol(no_damage winner)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: A1.GameManager:CheatNoDamage+16
+
+2686D804D56: 00 00                 - add [rax],al
+2686D804D58: 00 00                 - add [rax],al
+2686D804D5A: 00 00                 - add [rax],al
+2686D804D5C: 00 00                 - add [rax],al
+2686D804D5E: 00 00                 - add [rax],al
+A1.GameManager:CheatNoDamage: 48 83 EC 18           - sub rsp,18
+A1.GameManager:CheatNoDamage+4: 48 89 0C 24           - mov [rsp],rcx
+A1.GameManager:CheatNoDamage+8: 48 89 54 24 08        - mov [rsp+08],rdx
+A1.GameManager:CheatNoDamage+d: 0F B6 4C 24 08        - movzx ecx,byte ptr [rsp+08]
+A1.GameManager:CheatNoDamage+12: 48 8B 04 24           - mov rax,[rsp]
+// ---------- INJECTING HERE ----------
+A1.GameManager:CheatNoDamage+16: 40 88 88 B0 03 00 00  - mov [rax+000003B0],cl
+// ---------- DONE INJECTING  ----------
+A1.GameManager:CheatNoDamage+1d: 48 83 C4 18           - add rsp,18
+A1.GameManager:CheatNoDamage+21: C3                    - ret 
+2686D804D82: 00 00                 - add [rax],al
+2686D804D84: 00 00                 - add [rax],al
+2686D804D86: 00 00                 - add [rax],al
+2686D804D88: 01 04 01              - add [rcx+rax],eax
+2686D804D8B: 00 04 22              - add [rdx],al
+2686D804D8E: 00 00                 - add [rax],al
+2686D804D90: 00 00                 - add [rax],al
+2686D804D92: 00 00                 - add [rax],al
+}
+</AssemblerScript>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337110758</ID>
+                                  <Description>"-&gt;"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>winner</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337110759</ID>
+                                      <Description>"-&gt;"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>winner</Address>
+                                      <Offsets>
+                                        <Offset>3b0</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>PE_SEGMENTS</Name>
+      <Address>7FF655CC0218</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

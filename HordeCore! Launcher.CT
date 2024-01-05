@@ -1,0 +1,1640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>58</ID>
+      <Description>"HordeCore  "</Description>
+      <Options moManualExpandCollapse="1"/>
+      <Color>00FFFF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>153</ID>
+          <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+          <Options moManualExpandCollapse="1"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>154</ID>
+              <Description>"Table Author:  XxDaRealSlimballinxX"</Description>
+              <Color>FC94B0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>155</ID>
+                  <Description>"Visit us today @ GBA Services!"</Description>
+                  <Color>C080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337110746</ID>
+                  <Description>"Discord  @ SlimBallin#1687"</Description>
+                  <Color>008080</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337110747</ID>
+              <Description>"[X] &lt;=== For Full Tool View"</Description>
+              <Options moManualExpandCollapse="1"/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+// Script Creaded By mgr.inz.Player On CE Forums
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>57</ID>
+                  <Description>"xxxxxx   Cheats xxxxxxx"</Description>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>55</ID>
+                      <Description>"Player Stat Finder/GoDMode"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <Color>4080FF</Color>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : HordeCore! Launcher.exe
+  Version: 
+  Date   : 2022-08-05
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(HoodMan,F3 0F 11 6F 38) // should be unique
+alloc(newmem,$1000,HoodMan)
+
+label(code TH_uG)
+label(return)
+
+newmem:
+push rdi
+mov [TH_uG],rdi
+pop rdi
+jmp code
+
+code:
+xorps xmm5,xmm5
+  mov [rdi+40],(Float)9999999
+  mov [rdi+38],(Float)9999999
+    jmp return
+
+TH_uG:
+dq
+
+HoodMan:
+  jmp newmem
+return:
+registersymbol(HoodMan TH_uG)
+
+[DISABLE]
+
+HoodMan:
+  db F3 0F 11 6F 38
+
+unregistersymbol(HoodMan TH_uG)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Devdog.InventoryPro.Stat:SetCurrentValueRaw+37
+
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+c: 48 8B F9                       - mov rdi,rcx
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+f: F3 0F 11 4D E8                 - movss [rbp-18],xmm1
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+14: 4C 89 45 E0                    - mov [rbp-20],r8
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+18: F3 0F 10 45 E8                 - movss xmm0,[rbp-18]
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+1d: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+21: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+25: F3 0F 11 6D F4                 - movss [rbp-0C],xmm5
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+2a: F3 0F 10 45 F4                 - movss xmm0,[rbp-0C]
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+2f: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+33: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+// ---------- INJECTING HERE ----------
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+37: F3 0F 11 6F 38                 - movss [rdi+38],xmm5
+// ---------- DONE INJECTING  ----------
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+3c: 48 8B CF                       - mov rcx,rdi
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+3f: 48 8D AD 00 00 00 00           - lea rbp,[rbp+00000000]
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+46: 49 BB 30 72 1F 69 80 01 00 00  - mov r11,Devdog.InventoryPro.Stat:ClampCurrentValueRaw
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+50: 41 FF D3                       - call r11
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+53: 0F B6 45 E0                    - movzx eax,byte ptr [rbp-20]
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+57: 85 C0                          - test eax,eax
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+59: 74 10                          - je Devdog.InventoryPro.Stat:SetCurrentValueRaw+6b
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+5b: 48 8B CF                       - mov rcx,rdi
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+5e: 49 BB 20 6D 1F 69 80 01 00 00  - mov r11,Devdog.InventoryPro.Stat:NotifyValueChanged
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+68: 41 FF D3                       - call r11
+}
+</AssemblerScript>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>25</ID>
+                          <Description>"Player stats"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <Color>000000</Color>
+                          <GroupHeader>1</GroupHeader>
+                          <Address>TH_uG</Address>
+                          <Offsets>
+                            <Offset>0</Offset>
+                          </Offsets>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>53</ID>
+                              <Description>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</Description>
+                              <GroupHeader>1</GroupHeader>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>29</ID>
+                                  <Description>"_statName"</Description>
+                                  <Options moManualExpandCollapse="1"/>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <Color>FF00FF</Color>
+                                  <VariableType>Array of byte</VariableType>
+                                  <ByteLength>250</ByteLength>
+                                  <Address>TH_uG</Address>
+                                  <Offsets>
+                                    <Offset>18</Offset>
+                                    <Offset>10</Offset>
+                                  </Offsets>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>54</ID>
+                                      <Description>"Name"</Description>
+                                      <VariableType>String</VariableType>
+                                      <Length>128</Length>
+                                      <Unicode>1</Unicode>
+                                      <CodePage>0</CodePage>
+                                      <ZeroTerminate>1</ZeroTerminate>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>14</Offset>
+                                        <Offset>18</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>39</ID>
+                                      <Description>"_baseValue"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>60</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>40</ID>
+                                      <Description>"_maxValue"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>64</Offset>
+                                        <Offset>10</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>46</ID>
+                                      <Description>"Current Factor"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>30</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>47</ID>
+                                      <Description>"Max Factor"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>34</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>48</ID>
+                                      <Description>"Health"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>38</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>50</ID>
+                                      <Description>"tMax Health"</Description>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>Float</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>40</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                    <CheatEntry>
+                                      <ID>49</ID>
+                                      <Description>"Experience"</Description>
+                                      <VariableType>Float</VariableType>
+                                      <Address>TH_uG</Address>
+                                      <Offsets>
+                                        <Offset>3C</Offset>
+                                      </Offsets>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>52</ID>
+                          <Description>"xxxxxxxxx Pointers  xxxxxxxxxxx"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <Color>00FF00</Color>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>36</ID>
+                              <Description>"_enabled"</Description>
+                              <VariableType>Byte</VariableType>
+                              <Address>TH_uG</Address>
+                              <Offsets>
+                                <Offset>4C</Offset>
+                                <Offset>10</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>37</ID>
+                              <Description>"_showInUI"</Description>
+                              <VariableType>Byte</VariableType>
+                              <Address>TH_uG</Address>
+                              <Offsets>
+                                <Offset>4D</Offset>
+                                <Offset>10</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>38</ID>
+                              <Description>"_color"</Description>
+                              <VariableType>4 Bytes</VariableType>
+                              <Address>TH_uG</Address>
+                              <Offsets>
+                                <Offset>50</Offset>
+                                <Offset>10</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>41</ID>
+                              <Description>"_startLevel"</Description>
+                              <VariableType>4 Bytes</VariableType>
+                              <Address>TH_uG</Address>
+                              <Offsets>
+                                <Offset>68</Offset>
+                                <Offset>10</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>42</ID>
+                              <Description>"_autoProgressLevels"</Description>
+                              <VariableType>Byte</VariableType>
+                              <Address>TH_uG</Address>
+                              <Offsets>
+                                <Offset>6C</Offset>
+                                <Offset>10</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>43</ID>
+                              <Description>"OnValueChanged"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>TH_uG</Address>
+                              <Offsets>
+                                <Offset>18</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>44</ID>
+                              <Description>"OnLevelChanged"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>TH_uG</Address>
+                              <Offsets>
+                                <Offset>20</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>45</ID>
+                              <Description>"OnExperienceChanged"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>TH_uG</Address>
+                              <Offsets>
+                                <Offset>28</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>51</ID>
+                              <Description>"_currentLevelIndex"</Description>
+                              <VariableType>4 Bytes</VariableType>
+                              <Address>TH_uG</Address>
+                              <Offsets>
+                                <Offset>44</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>35</ID>
+                              <Description>"ID"</Description>
+                              <VariableType>4 Bytes</VariableType>
+                              <Address>TH_uG</Address>
+                              <Offsets>
+                                <Offset>48</Offset>
+                                <Offset>10</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>140</ID>
+                      <Description>"zzzzzzzzz Party Info zzzzzzzzzzz"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <Color>FFFF00</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1337110768</ID>
+                          <Description>"Party Info Finder"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <Color>FF00FF</Color>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ 
+  Game Executable   : HordeCore! Launcher.exe
+  Executable Version: 2020.2.6.8515
+  Module Version    : 
+  Script Date       : 2022-08-05
+  Author 			: slimb
+}
+
+[ENABLE]
+
+aobscan(aob_Skill_p,48 63 80 C8 00 00 00 85 C0 75 07)
+registersymbol(aob_Skill_p)
+alloc(newmem_Skill_p,$100,aob_Skill_p)
+label(return_Skill_p)
+
+alloc(bkp_Skill_p,7,aob_Skill_p)
+registersymbol(bkp_Skill_p)
+
+bkp_Skill_p:
+  readmem(aob_Skill_p,7)
+
+  registersymbol(Skill_p_Pointer)
+newmem_Skill_p:
+  mov [Skill_p_Pointer],rax
+
+cave_Skill_p:
+  readmem(aob_Skill_p,7)
+  {
+  movsxd  rax,dword ptr [rax+000000C8]
+  }
+  jmp return_Skill_p
+  
+Skill_p_Pointer:
+  dq 0
+
+aob_Skill_p:
+  jmp newmem_Skill_p
+  nop 2
+return_Skill_p:
+
+[DISABLE]
+
+aob_Skill_p:
+  readmem(bkp_Skill_p,7)
+
+unregistersymbol(aob_Skill_p)
+unregistersymbol(bkp_Skill_p)
+unregistersymbol(Skill_p_Pointer)
+dealloc(newmem_Skill_p)
+dealloc(bkp_Skill_p)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 2E6D87A4202
+
+2E6D87A41C9: 04 02                          - add al,02
+2E6D87A41CB: 05 04 03 01 50                 - add eax,50010304
+2E6D87A41D0: 00 00                          - add [rax],al
+2E6D87A41D2: 00 00                          - add [rax],al
+2E6D87A41D4: 00 00                          - add [rax],al
+2E6D87A41D6: 00 00                          - add [rax],al
+2E6D87A41D8: 00 00                          - add [rax],al
+2E6D87A41DA: 00 00                          - add [rax],al
+2E6D87A41DC: 00 00                          - add [rax],al
+2E6D87A41DE: 00 00                          - add [rax],al
+2E6D87A41E0: 55                             - push rbp
+2E6D87A41E1: 48 8B EC                       - mov rbp,rsp
+2E6D87A41E4: 48 83 EC 40                    - sub rsp,40
+2E6D87A41E8: 48 89 75 E8                    - mov [rbp-18],rsi
+2E6D87A41EC: 48 89 7D F0                    - mov [rbp-10],rdi
+2E6D87A41F0: 4C 89 7D F8                    - mov [rbp-08],r15
+2E6D87A41F4: 48 8B F9                       - mov rdi,rcx
+2E6D87A41F7: 48 8B F2                       - mov rsi,rdx
+2E6D87A41FA: 48 8B 47 28                    - mov rax,[rdi+28]
+2E6D87A41FE: 48 8B 40 18                    - mov rax,[rax+18]
+// ---------- INJECTING HERE ----------
+2E6D87A4202: 48 63 80 C8 00 00 00           - movsxd  rax,dword ptr [rax+000000C8]
+// ---------- DONE INJECTING  ----------
+2E6D87A4209: 85 C0                          - test eax,eax
+2E6D87A420B: 75 07                          - jne 2E6D87A4214
+2E6D87A420D: 33 C0                          - xor eax,eax
+2E6D87A420F: E9 EB 13 00 00                 - jmp 2E6D87A55FF
+2E6D87A4214: 48 8B 47 28                    - mov rax,[rdi+28]
+2E6D87A4218: 48 8B 40 18                    - mov rax,[rax+18]
+2E6D87A421C: 48 8B 40 30                    - mov rax,[rax+30]
+2E6D87A4220: 48 8B C8                       - mov rcx,rax
+2E6D87A4223: 48 8B D6                       - mov rdx,rsi
+2E6D87A4226: 83 38 00                       - cmp dword ptr [rax],00
+2E6D87A4229: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+2E6D87A422E: 49 BB 20 20 E0 4A E7 02 00 00  - mov r11,000002E74AE02020
+2E6D87A4238: 41 FF D3                       - call r11
+2E6D87A423B: 85 C0                          - test eax,eax
+2E6D87A423D: 74 07                          - je 2E6D87A4246
+2E6D87A423F: 33 C0                          - xor eax,eax
+2E6D87A4241: E9 B9 13 00 00                 - jmp 2E6D87A55FF
+2E6D87A4246: 48 85 F6                       - test rsi,rsi
+2E6D87A4249: 0F 84 AE 13 00 00              - je 2E6D87A55FD
+2E6D87A424F: 48 8B CE                       - mov rcx,rsi
+}
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>1337110769</ID>
+                              <Description>"_Pointer"</Description>
+                              <Options moManualExpandCollapse="1"/>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>000000</Color>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>Skill_p_Pointer</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>1337110770</ID>
+                                  <Description>"GameStateSave ptr"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Skill_p_Pointer</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>1337110771</ID>
+                                  <Description>"Party Info"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>Skill_p_Pointer</Address>
+                                  <Offsets>
+                                    <Offset>10</Offset>
+                                  </Offsets>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>1337110812</ID>
+                                      <Description>"Party Info"</Description>
+                                      <Options moManualExpandCollapse="1"/>
+                                      <Color>00FF00</Color>
+                                      <GroupHeader>1</GroupHeader>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>1337110813</ID>
+                                          <Description>"Item[0]"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <Color>0000FF</Color>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Skill_p_Pointer+0</Address>
+                                          <Offsets>
+                                            <Offset>20</Offset>
+                                            <Offset>10</Offset>
+                                            <Offset>10</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337110814</ID>
+                                              <Description>"name"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>10</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                              <CheatEntries>
+                                                <CheatEntry>
+                                                  <ID>1337110815</ID>
+                                                  <Description>"Value"</Description>
+                                                  <VariableType>String</VariableType>
+                                                  <Length>128</Length>
+                                                  <Unicode>1</Unicode>
+                                                  <CodePage>0</CodePage>
+                                                  <ZeroTerminate>1</ZeroTerminate>
+                                                  <Address>Skill_p_Pointer+0</Address>
+                                                  <Offsets>
+                                                    <Offset>14</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>20</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>10</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337110816</ID>
+                                                  <Description>"Length"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Skill_p_Pointer+0</Address>
+                                                  <Offsets>
+                                                    <Offset>10</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>20</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>10</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337110817</ID>
+                                                  <Description>"maxHealth"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Skill_p_Pointer+0</Address>
+                                                  <Offsets>
+                                                    <Offset>1C</Offset>
+                                                    <Offset>20</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>10</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337110818</ID>
+                                                  <Description>"currentHealth"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Skill_p_Pointer+0</Address>
+                                                  <Offsets>
+                                                    <Offset>18</Offset>
+                                                    <Offset>20</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>10</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                              </CheatEntries>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110819</ID>
+                                              <Description>"currentThirst"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>3C</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110820</ID>
+                                              <Description>"currentHungry"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>38</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110821</ID>
+                                              <Description>"currentHealthStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>34</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110822</ID>
+                                              <Description>"currentArmorStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>30</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110823</ID>
+                                              <Description>"currentAttackStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>2C</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110824</ID>
+                                              <Description>"initialHealthStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>28</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110825</ID>
+                                              <Description>"initialArmorStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>24</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110826</ID>
+                                              <Description>"initialAttackStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>20</Offset>
+                                                <Offset>20</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337110827</ID>
+                                          <Description>"Item[1]"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <Color>00FFFF</Color>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Skill_p_Pointer+0</Address>
+                                          <Offsets>
+                                            <Offset>28</Offset>
+                                            <Offset>10</Offset>
+                                            <Offset>10</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337110828</ID>
+                                              <Description>"name"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>10</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                              <CheatEntries>
+                                                <CheatEntry>
+                                                  <ID>1337110829</ID>
+                                                  <Description>"Length"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Skill_p_Pointer+0</Address>
+                                                  <Offsets>
+                                                    <Offset>10</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>28</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>10</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337110830</ID>
+                                                  <Description>"Value"</Description>
+                                                  <VariableType>String</VariableType>
+                                                  <Length>128</Length>
+                                                  <Unicode>1</Unicode>
+                                                  <CodePage>0</CodePage>
+                                                  <ZeroTerminate>1</ZeroTerminate>
+                                                  <Address>Skill_p_Pointer+0</Address>
+                                                  <Offsets>
+                                                    <Offset>14</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>28</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>10</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                              </CheatEntries>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110831</ID>
+                                              <Description>"currentHealth"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>18</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110832</ID>
+                                              <Description>"maxHealth"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>1C</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110833</ID>
+                                              <Description>"initialAttackStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>20</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110834</ID>
+                                              <Description>"initialArmorStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>24</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110835</ID>
+                                              <Description>"initialHealthStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>28</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110836</ID>
+                                              <Description>"currentAttackStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>2C</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110837</ID>
+                                              <Description>"currentArmorStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>30</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110838</ID>
+                                              <Description>"currentHealthStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>34</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110839</ID>
+                                              <Description>"currentHungry"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>38</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110840</ID>
+                                              <Description>"currentThirst"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>3C</Offset>
+                                                <Offset>28</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>1337110841</ID>
+                                          <Description>"Item[2]"</Description>
+                                          <Options moManualExpandCollapse="1"/>
+                                          <ShowAsHex>1</ShowAsHex>
+                                          <Color>FFFF00</Color>
+                                          <VariableType>8 Bytes</VariableType>
+                                          <Address>Skill_p_Pointer+0</Address>
+                                          <Offsets>
+                                            <Offset>30</Offset>
+                                            <Offset>10</Offset>
+                                            <Offset>10</Offset>
+                                          </Offsets>
+                                          <CheatEntries>
+                                            <CheatEntry>
+                                              <ID>1337110842</ID>
+                                              <Description>"name"</Description>
+                                              <ShowAsHex>1</ShowAsHex>
+                                              <VariableType>8 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>10</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                              <CheatEntries>
+                                                <CheatEntry>
+                                                  <ID>1337110843</ID>
+                                                  <Description>"Length"</Description>
+                                                  <VariableType>4 Bytes</VariableType>
+                                                  <Address>Skill_p_Pointer+0</Address>
+                                                  <Offsets>
+                                                    <Offset>10</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>30</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>10</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                                <CheatEntry>
+                                                  <ID>1337110844</ID>
+                                                  <Description>"Value"</Description>
+                                                  <VariableType>String</VariableType>
+                                                  <Length>128</Length>
+                                                  <Unicode>1</Unicode>
+                                                  <CodePage>0</CodePage>
+                                                  <ZeroTerminate>1</ZeroTerminate>
+                                                  <Address>Skill_p_Pointer+0</Address>
+                                                  <Offsets>
+                                                    <Offset>14</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>30</Offset>
+                                                    <Offset>10</Offset>
+                                                    <Offset>10</Offset>
+                                                  </Offsets>
+                                                </CheatEntry>
+                                              </CheatEntries>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110845</ID>
+                                              <Description>"currentHealth"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>18</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110846</ID>
+                                              <Description>"maxHealth"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>1C</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110847</ID>
+                                              <Description>"initialAttackStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>20</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110848</ID>
+                                              <Description>"initialArmorStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>24</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110849</ID>
+                                              <Description>"initialHealthStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>28</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110850</ID>
+                                              <Description>"currentAttackStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>2C</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110851</ID>
+                                              <Description>"currentArmorStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>30</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110852</ID>
+                                              <Description>"currentHealthStat"</Description>
+                                              <VariableType>Float</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>34</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110853</ID>
+                                              <Description>"currentHungry"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>38</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                            <CheatEntry>
+                                              <ID>1337110854</ID>
+                                              <Description>"currentThirst"</Description>
+                                              <VariableType>4 Bytes</VariableType>
+                                              <Address>Skill_p_Pointer+0</Address>
+                                              <Offsets>
+                                                <Offset>3C</Offset>
+                                                <Offset>30</Offset>
+                                                <Offset>10</Offset>
+                                                <Offset>10</Offset>
+                                              </Offsets>
+                                            </CheatEntry>
+                                          </CheatEntries>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>152</ID>
+                      <Description>"vvvvvvvvvvv       Camp / Stats  vvvvvvvvvvvvvvvvvv"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <Color>C080FF</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1337110793</ID>
+                          <Description>"gameMode"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>BC</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110797</ID>
+                          <Description>"campLevel"</Description>
+                          <Color>FFFF00</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>CC</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110805</ID>
+                          <Description>"difficulty"</Description>
+                          <Color>FF00FF</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>F0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110794</ID>
+                          <Description>"currentLevel"</Description>
+                          <Color>FFFF00</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>C0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110796</ID>
+                          <Description>"campPoints"</Description>
+                          <Color>FF00FF</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>C8</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110798</ID>
+                          <Description>"currentExperience"</Description>
+                          <Color>FFFF00</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>D0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110800</ID>
+                          <Description>"experienceNeeded"</Description>
+                          <Color>FF00FF</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>D8</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110799</ID>
+                          <Description>"totalExperienceEarned"</Description>
+                          <Color>FFFF00</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>D4</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110792</ID>
+                          <Description>"storyModeCompleted"</Description>
+                          <Color>00FFFF</Color>
+                          <VariableType>Byte</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>B8</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>56</ID>
+                      <Description>"yyyyyyyyy  Test  Zone xxxxxxxxxxx"</Description>
+                      <Options moHideChildren="1"/>
+                      <Color>FF00FF</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>8</ID>
+                          <Description>"INF Health"</Description>
+                          <Options moManualExpandCollapse="1"/>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : HordeCore! Launcher.exe
+  Version: 
+  Date   : 2022-08-05
+  Author : slimb
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(HoodMan,F3 0F 11 6F 38) // should be unique
+alloc(newmem,$1000,HoodMan)
+
+label(code TH_uG)
+label(return)
+
+newmem:
+push rdi
+mov [TH_uG],rdi
+pop rdi
+jmp code
+
+code:
+  mov [rdi+38],(Float)999999
+  jmp return
+
+TH_uG:
+dq
+
+HoodMan:
+  jmp newmem
+return:
+registersymbol(HoodMan TH_uG)
+
+[DISABLE]
+
+HoodMan:
+  db F3 0F 11 6F 38
+
+unregistersymbol(HoodMan TH_uG)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Devdog.InventoryPro.Stat:SetCurrentValueRaw+37
+
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+c: 48 8B F9                       - mov rdi,rcx
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+f: F3 0F 11 4D E8                 - movss [rbp-18],xmm1
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+14: 4C 89 45 E0                    - mov [rbp-20],r8
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+18: F3 0F 10 45 E8                 - movss xmm0,[rbp-18]
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+1d: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+21: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+25: F3 0F 11 6D F4                 - movss [rbp-0C],xmm5
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+2a: F3 0F 10 45 F4                 - movss xmm0,[rbp-0C]
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+2f: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+33: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+// ---------- INJECTING HERE ----------
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+37: F3 0F 11 6F 38                 - movss [rdi+38],xmm5
+// ---------- DONE INJECTING  ----------
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+3c: 48 8B CF                       - mov rcx,rdi
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+3f: 48 8D AD 00 00 00 00           - lea rbp,[rbp+00000000]
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+46: 49 BB 30 72 1F 69 80 01 00 00  - mov r11,Devdog.InventoryPro.Stat:ClampCurrentValueRaw
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+50: 41 FF D3                       - call r11
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+53: 0F B6 45 E0                    - movzx eax,byte ptr [rbp-20]
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+57: 85 C0                          - test eax,eax
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+59: 74 10                          - je Devdog.InventoryPro.Stat:SetCurrentValueRaw+6b
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+5b: 48 8B CF                       - mov rcx,rdi
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+5e: 49 BB 20 6D 1F 69 80 01 00 00  - mov r11,Devdog.InventoryPro.Stat:NotifyValueChanged
+Devdog.InventoryPro.Stat:SetCurrentValueRaw+68: 41 FF D3                       - call r11
+}
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>9</ID>
+                              <Description>"Symbol Prt"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>8 Bytes</VariableType>
+                              <Address>TH_uG</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>10</ID>
+                                  <Description>"&lt;currentFactor&gt;k__BackingField"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+30</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>11</ID>
+                                  <Description>"&lt;currentFactorMax&gt;k__BackingField"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+34</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>12</ID>
+                                  <Description>"&lt;currentValueRaw&gt;k__BackingField"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+38</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>13</ID>
+                                  <Description>"&lt;currentExperience&gt;k__BackingField"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+3C</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>14</ID>
+                                  <Description>"&lt;currentMaxValueRaw&gt;k__BackingField"</Description>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+40</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>24</ID>
+                                  <Description>"&lt;definition&gt;k__BackingField"</Description>
+                                  <ShowAsHex>1</ShowAsHex>
+                                  <VariableType>8 Bytes</VariableType>
+                                  <Address>+10</Address>
+                                  <CheatEntries>
+                                    <CheatEntry>
+                                      <ID>15</ID>
+                                      <Description>"_statName"</Description>
+                                      <ShowAsHex>1</ShowAsHex>
+                                      <ShowAsSigned>0</ShowAsSigned>
+                                      <VariableType>8 Bytes</VariableType>
+                                      <Address>+18</Address>
+                                      <CheatEntries>
+                                        <CheatEntry>
+                                          <ID>16</ID>
+                                          <Description>"Length"</Description>
+                                          <ShowAsSigned>0</ShowAsSigned>
+                                          <VariableType>4 Bytes</VariableType>
+                                          <Address>+18</Address>
+                                          <Offsets>
+                                            <Offset>10</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                        <CheatEntry>
+                                          <ID>17</ID>
+                                          <Description>"Value"</Description>
+                                          <VariableType>String</VariableType>
+                                          <Length>128</Length>
+                                          <Unicode>1</Unicode>
+                                          <CodePage>0</CodePage>
+                                          <ZeroTerminate>1</ZeroTerminate>
+                                          <Address>+10</Address>
+                                          <Offsets>
+                                            <Offset>14</Offset>
+                                            <Offset>18</Offset>
+                                          </Offsets>
+                                        </CheatEntry>
+                                      </CheatEntries>
+                                    </CheatEntry>
+                                  </CheatEntries>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110773</ID>
+                          <Description>"sharedInventory"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>20</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110774</ID>
+                          <Description>"survivorsInventory"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>28</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110775</ID>
+                          <Description>"campPerks"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>30</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110776</ID>
+                          <Description>"checkpoints"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>38</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110777</ID>
+                          <Description>"campLastDialogReference"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>40</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110778</ID>
+                          <Description>"unlockedCards"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>48</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110779</ID>
+                          <Description>"recentNewCards"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>50</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110780</ID>
+                          <Description>"seenRecipes"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>58</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110781</ID>
+                          <Description>"nodes"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>60</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110782</ID>
+                          <Description>"multiplayerWastelandNodes"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>68</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110783</ID>
+                          <Description>"listNewItems"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>70</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110784</ID>
+                          <Description>"playerSelected"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>78</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110785</ID>
+                          <Description>"followerSelected"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>80</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110786</ID>
+                          <Description>"follower02Selected"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>88</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110787</ID>
+                          <Description>"follower03Selected"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>90</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110788</ID>
+                          <Description>"skillKeybind1"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>98</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110789</ID>
+                          <Description>"skillKeybind2"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>A0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110790</ID>
+                          <Description>"skillKeybind3"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>A8</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110791</ID>
+                          <Description>"skillKeybind4"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>B0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110795</ID>
+                          <Description>"demoStoryFinished"</Description>
+                          <VariableType>Byte</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>C4</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110801</ID>
+                          <Description>"lastWastelandPlayedOfflineMode"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>DC</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110802</ID>
+                          <Description>"sideToPlayLastLevel"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>E0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110803</ID>
+                          <Description>"lastNodePlayed"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>E4</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110804</ID>
+                          <Description>"newItemInstanceId"</Description>
+                          <VariableType>Double</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>E8</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110806</ID>
+                          <Description>"alreadyPickedModifier"</Description>
+                          <VariableType>Byte</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>F4</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110807</ID>
+                          <Description>"tut1Done"</Description>
+                          <VariableType>Byte</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>F5</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110808</ID>
+                          <Description>"tut2Done"</Description>
+                          <VariableType>Byte</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>F6</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110809</ID>
+                          <Description>"tut3Done"</Description>
+                          <VariableType>Byte</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>F7</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110810</ID>
+                          <Description>"tut4Done"</Description>
+                          <VariableType>Byte</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>F8</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337110772</ID>
+                          <Description>"teamSurvivorsSecondCamp"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>Skill_p_Pointer</Address>
+                          <Offsets>
+                            <Offset>18</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
